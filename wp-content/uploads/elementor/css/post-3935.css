@@ -1,0 +1,86 @@
+.elementor-3935 .elementor-element.elementor-element-10ef6bb {
+    --display: flex;
+    --min-height: 515px;
+    --flex-direction: column;
+    --container-widget-width: 100%;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --justify-content: flex-end;
+    --gap: 0px 0px;
+    --row-gap: 0px;
+    --column-gap: 0px;
+    --overlay-opacity: 0.81;
+    --border-radius: 18.2px 18.2px 18.2px 18.2px;
+    --padding-top: 0px;
+    --padding-bottom: 35px;
+    --padding-left: 35px;
+    --padding-right: 35px;
+}
+
+.elementor-3935 .elementor-element.elementor-element-10ef6bb::before,
+.elementor-3935 .elementor-element.elementor-element-10ef6bb>.elementor-background-video-container::before,
+.elementor-3935 .elementor-element.elementor-element-10ef6bb>.e-con-inner>.elementor-background-video-container::before,
+.elementor-3935 .elementor-element.elementor-element-10ef6bb>.elementor-background-slideshow::before,
+.elementor-3935 .elementor-element.elementor-element-10ef6bb>.e-con-inner>.elementor-background-slideshow::before,
+.elementor-3935 .elementor-element.elementor-element-10ef6bb>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
+    background-color: transparent;
+    --background-overlay: '';
+    background-image: linear-gradient(180deg, #0F104D00 0%, #000000 75%);
+}
+
+.elementor-3935 .elementor-element.elementor-element-10ef6bb:not(.elementor-motion-effects-element-type-background),
+.elementor-3935 .elementor-element.elementor-element-10ef6bb>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-position: center center;
+    background-size: cover;
+}
+
+.elementor-3935 .elementor-element.elementor-element-2f965a5>.elementor-widget-container {
+    background-color: #FFFFFF;
+    margin: 0px 0px 10px 0px;
+    padding: 9px 15px 9px 15px;
+    border-radius: 100px 100px 100px 100px;
+}
+
+.elementor-3935 .elementor-element.elementor-element-2f965a5.elementor-element {
+    --align-self: flex-start;
+}
+
+.elementor-3935 .elementor-element.elementor-element-2f965a5 .elementor-heading-title {
+    font-family: "Polin", Sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    color: var( --e-global-color-primary);
+}
+
+.elementor-3935 .elementor-element.elementor-element-6c317aa>.elementor-widget-container {
+    margin: 0px 0px -4px 0px;
+}
+
+.elementor-3935 .elementor-element.elementor-element-6c317aa .elementor-heading-title {
+    font-family: "Polin", Sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 39.2px;
+    color: #FFFFFF;
+}
+
+.jet-listing-item.single-jet-engine.elementor-page-3935>.elementor {
+    width: 576px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Start custom CSS for container, class: .elementor-element-10ef6bb */
+
+#listing {
+    background-size: 100%;
+    transition: background-size 0.9s ease;
+}
+
+#listing:hover {
+    background-size: 130%;
+}
+
+/* End custom CSS */

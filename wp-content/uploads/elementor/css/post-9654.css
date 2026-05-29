@@ -1,0 +1,107 @@
+.elementor-9654 .elementor-element.elementor-element-9bca039 {
+    --display: flex;
+    --min-height: 250px;
+    --flex-direction: column;
+    --container-widget-width: 100%;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --justify-content: flex-end;
+    --gap: 0px 0px;
+    --row-gap: 0px;
+    --column-gap: 0px;
+    --overlay-opacity: 0.81;
+    --border-radius: 18.2px 18.2px 18.2px 18.2px;
+    --padding-top: 25px;
+    --padding-bottom: 25px;
+    --padding-left: 25px;
+    --padding-right: 25px;
+}
+
+.elementor-9654 .elementor-element.elementor-element-9bca039::before,
+.elementor-9654 .elementor-element.elementor-element-9bca039>.elementor-background-video-container::before,
+.elementor-9654 .elementor-element.elementor-element-9bca039>.e-con-inner>.elementor-background-video-container::before,
+.elementor-9654 .elementor-element.elementor-element-9bca039>.elementor-background-slideshow::before,
+.elementor-9654 .elementor-element.elementor-element-9bca039>.e-con-inner>.elementor-background-slideshow::before,
+.elementor-9654 .elementor-element.elementor-element-9bca039>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
+    background-color: transparent;
+    --background-overlay: '';
+    background-image: linear-gradient(180deg, #02010100 0%, #000000 75%);
+}
+
+.elementor-9654 .elementor-element.elementor-element-9bca039:not(.elementor-motion-effects-element-type-background),
+.elementor-9654 .elementor-element.elementor-element-9bca039>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-position: center center;
+    background-size: cover;
+}
+
+.elementor-9654 .elementor-element.elementor-element-fcdb0ae>.elementor-widget-container {
+    background-color: #FFFFFF;
+    margin: 0px 0px 10px 0px;
+    padding: 3px 12px 3px 12px;
+    border-radius: 100px 100px 100px 100px;
+}
+
+.elementor-9654 .elementor-element.elementor-element-fcdb0ae.elementor-element {
+    --align-self: flex-start;
+}
+
+.elementor-9654 .elementor-element.elementor-element-fcdb0ae .elementor-heading-title {
+    font-family: "Polin", Sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 24px;
+    color: var( --e-global-color-primary);
+}
+
+.elementor-9654 .elementor-element.elementor-element-00932ac>.elementor-widget-container {
+    margin: 0px 0px 0px 0px;
+}
+
+.elementor-9654 .elementor-element.elementor-element-00932ac .elementor-heading-title {
+    font-family: "Polin", Sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+.jet-listing-item.single-jet-engine.elementor-page-9654>.elementor {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(max-width:767px) {
+    .elementor-9654 .elementor-element.elementor-element-9bca039 {
+        --min-height: 250px;
+        --margin-top: 0px;
+        --margin-bottom: 0px;
+        --margin-left: 0px;
+        --margin-right: 20px;
+    }
+    .elementor-9654 .elementor-element.elementor-element-fcdb0ae>.elementor-widget-container {
+        padding: 0px 10px 0px 10px;
+    }
+    .elementor-9654 .elementor-element.elementor-element-fcdb0ae .elementor-heading-title {
+        font-size: 10px;
+    }
+    .elementor-9654 .elementor-element.elementor-element-00932ac .elementor-heading-title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+/* Start custom CSS for container, class: .elementor-element-9bca039 */
+
+#listing {
+    background-size: 100%;
+    transition: background-size 0.9s ease;
+}
+
+#listing:hover {
+    background-size: 130%;
+}
+
+/* End custom CSS */

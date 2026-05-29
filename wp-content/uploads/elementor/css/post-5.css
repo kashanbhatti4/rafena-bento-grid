@@ -1,0 +1,120 @@
+.elementor-kit-5 {
+    --e-global-color-primary: #053137;
+    --e-global-color-secondary: #053137;
+    --e-global-color-text: #05313787;
+    --e-global-color-accent: #053137;
+    --e-global-color-8e53e1e: #2DE89F;
+    --e-global-color-1d2d7cf: #053137;
+    --e-global-color-b8bb785: #F2F2F1;
+    --e-global-color-84372d0: #93FFD5;
+    --e-global-typography-primary-font-family: "Polin";
+    --e-global-typography-primary-font-weight: 600;
+    --e-global-typography-secondary-font-family: "Polin";
+    --e-global-typography-secondary-font-weight: 400;
+    --e-global-typography-text-font-family: "Polin";
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-accent-font-family: "Polin";
+    --e-global-typography-accent-font-weight: 500;
+}
+
+.elementor-kit-5 e-page-transition {
+    background-color: #FFBC7D;
+}
+
+.elementor-kit-5 a {
+    color: var( --e-global-color-primary);
+}
+
+.elementor-kit-5 a:hover {
+    color: var( --e-global-color-84372d0);
+}
+
+.elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1140px;
+}
+
+.e-con {
+    --container-max-width: 1140px;
+}
+
+.elementor-widget:not(:last-child) {
+    margin-block-end: 20px;
+}
+
+.elementor-element {
+    --widgets-spacing: 20px 20px;
+    --widgets-spacing-row: 20px;
+    --widgets-spacing-column: 20px;
+}
+
+{}
+
+h1.entry-title {
+    display: var(--page-title-display);
+}
+
+.site-header .site-branding {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.site-header {
+    padding-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+.site-footer .site-branding {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+@media(max-width:1024px) {
+    .elementor-section.elementor-section-boxed>.elementor-container {
+        max-width: 1024px;
+    }
+    .e-con {
+        --container-max-width: 1024px;
+    }
+}
+
+@media(max-width:767px) {
+    .elementor-section.elementor-section-boxed>.elementor-container {
+        max-width: 767px;
+    }
+    .e-con {
+        --container-max-width: 767px;
+    }
+}
+
+/* Start custom CSS */
+
+.page-header {
+    display: none
+}
+
+HTML,
+body {
+    Overflow-x: hidden;
+}
+
+/* End custom CSS */
+
+/* Start Custom Fonts CSS */
+
+@font-face {
+    font-family: 'Polin';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('https://rafena.com/wp-content/uploads/2024/11/Polin-Regular.woff2') format('woff2'), url('https://rafena.com/wp-content/uploads/2024/11/Polin-Regular-1.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Polin';
+    font-style: normal;
+    font-weight: bold;
+    font-display: auto;
+    src: url('https://rafena.com/wp-content/uploads/2024/11/Polin-Bold.woff2') format('woff2'), url('https://rafena.com/wp-content/uploads/2024/11/Polin-Bold.woff') format('woff');
+}
+
+/* End Custom Fonts CSS */

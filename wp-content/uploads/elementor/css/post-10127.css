@@ -1,0 +1,406 @@
+.elementor-10127 .elementor-element.elementor-element-7909c99d {
+    --display: flex;
+    --flex-direction: column;
+    --container-widget-width: 100%;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --padding-top: 2%;
+    --padding-bottom: 0%;
+    --padding-left: 0%;
+    --padding-right: 0%;
+}
+
+.elementor-10127 .elementor-element.elementor-element-767ca943 {
+    text-align: start;
+}
+
+.elementor-10127 .elementor-element.elementor-element-767ca943 img {
+    width: 115px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-665b735b {
+    --display: flex;
+    --flex-direction: row;
+    --container-widget-width: initial;
+    --container-widget-height: 100%;
+    --container-widget-flex-grow: 1;
+    --container-widget-align-self: stretch;
+    --flex-wrap-mobile: wrap;
+    --gap: 0px 0px;
+    --row-gap: 0px;
+    --column-gap: 0px;
+    --padding-top: 4%;
+    --padding-bottom: 0%;
+    --padding-left: 0%;
+    --padding-right: 0%;
+}
+
+.elementor-10127 .elementor-element.elementor-element-42022842 {
+    --display: flex;
+    --flex-direction: column;
+    --container-widget-width: 100%;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --gap: 10px 10px;
+    --row-gap: 10px;
+    --column-gap: 10px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu .elementor-item {
+    font-family: "Polin", Sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item {
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item:hover,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item.elementor-item-active,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item.highlighted,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item:focus {
+    color: #C9E6C0;
+    fill: #C9E6C0;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item.elementor-item-active {
+    color: #E2CEAF;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 {
+    --e-nav-menu-horizontal-menu-item-margin: calc( 12px / 2);
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main:not(.elementor-nav-menu--layout-horizontal) .elementor-nav-menu>li:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-menu-toggle {
+    color: #FDFDFD;
+    fill: #FDFDFD;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown {
+    background-color: #02010100;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a:hover,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a:focus,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a.elementor-item-active,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a.highlighted,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-menu-toggle:hover,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-menu-toggle:focus {
+    color: #FFFFFF;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a:hover,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a:focus,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a.elementor-item-active,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a.highlighted {
+    background-color: #FFFFFF2E;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a.elementor-item-active {
+    background-color: #FFFFFF2E;
+}
+
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown .elementor-item,
+.elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown .elementor-sub-item {
+    font-family: "Polin", Sans-serif;
+    font-size: 16px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__source-results-item_icon svg {
+    width: 24px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__source-results-item_icon {
+    font-size: 24px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e {
+    width: var( --container-widget-width, 80%);
+    max-width: 80%;
+    --container-widget-width: 80%;
+    --container-widget-flex-grow: 0;
+    z-index: 99999;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__results-area {
+    width: 100%;
+    left: 50%;
+    right: auto;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 54px 0px rgba(0, 0, 0, 0.11);
+    border-radius: 24px 24px 24px 24px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__field {
+    font-family: "Polin", Sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-color: #C9E6C0;
+    padding: 25px 25px 25px 25px;
+    border-width: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__submit {
+    color: var( --e-global-color-primary);
+    background-color: var( --e-global-color-8e53e1e);
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__results-header {
+    padding: 25px 25px 15px 25px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-title {
+    color: #000000;
+    font-family: "Polin", Sans-serif;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-content {
+    color: var( --e-global-color-text);
+    font-family: "Polin", Sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-link:hover {
+    background-color: var( --e-global-color-b8bb785);
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-link {
+    padding: 25px 25px 25px 25px;
+    text-align: right;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-thumbnail {
+    width: 20%;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-thumbnail-img {
+    border-radius: 24px 24px 24px 24px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__results-count {
+    font-family: "Polin", Sans-serif;
+    font-size: 14px;
+    color: #5C5C5C;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__results-count:hover {
+    color: #5A6B30;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__arrow-button {
+    background-color: #F4F5F6;
+    border-width: 0px;
+    border-radius: 7px;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__arrow-button:hover svg>* {
+    fill: #FFFFFF;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__arrow-button:hover {
+    background-color: var( --e-global-color-primary);
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__message {
+    font-family: "Matrista", Sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__spinner {
+    color: var( --e-global-color-primary);
+}
+
+#elementor-popup-modal-10127 .dialog-widget-content {
+    animation-duration: 0.8s;
+    background-color: var( --e-global-color-primary);
+    box-shadow: 2px 8px 23px 3px rgba(0, 0, 0, 0.2);
+}
+
+#elementor-popup-modal-10127 .dialog-message {
+    width: 80vw;
+    height: 100vh;
+    align-items: flex-start;
+}
+
+#elementor-popup-modal-10127 {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#elementor-popup-modal-10127 .dialog-close-button {
+    display: flex;
+    font-size: 45px;
+}
+
+#elementor-popup-modal-10127 .dialog-close-button i {
+    color: #FFFFFF;
+}
+
+#elementor-popup-modal-10127 .dialog-close-button svg {
+    fill: #FFFFFF;
+}
+
+@media(max-width:767px) {
+    .elementor-10127 .elementor-element.elementor-element-7909c99d {
+        --padding-top: 25px;
+        --padding-bottom: 0px;
+        --padding-left: 0px;
+        --padding-right: 25px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-767ca943>.elementor-widget-container {
+        margin: 0px -10px 0px 0px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-767ca943 img {
+        width: 155px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-665b735b {
+        --justify-content: center;
+    }
+    .elementor-10127 .elementor-element.elementor-element-42022842 {
+        --gap: 0px 0px;
+        --row-gap: 0px;
+        --column-gap: 0px;
+        --padding-top: 0px;
+        --padding-bottom: 0px;
+        --padding-left: 15px;
+        --padding-right: 15px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu .elementor-item {
+        font-size: 21px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main .elementor-item {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 {
+        --e-nav-menu-horizontal-menu-item-margin: calc( 56px / 2);
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--main:not(.elementor-nav-menu--layout-horizontal) .elementor-nav-menu>li:not(:last-child) {
+        margin-bottom: 56px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown {
+        border-radius: 14px 14px 14px 14px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown li:first-child a {
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown li:last-child a {
+        border-bottom-right-radius: 14px;
+        border-bottom-left-radius: 14px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-c430af3 .elementor-nav-menu--dropdown a {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-79b808e {
+        width: var( --container-widget-width, 100%);
+        max-width: 100%;
+        --container-widget-width: 100%;
+        --container-widget-flex-grow: 0;
+    }
+    .elementor-10127 .elementor-element.elementor-element-79b808e>.elementor-widget-container {
+        margin: 00px 00px 00px 00px;
+        padding: 15px 15px 0px 15px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__field {
+        font-size: 16px;
+        padding: 15px 15px 15px 15px;
+        margin: 0px 0px 0px 0px;
+        border-radius: 0px 200px 200px 0px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__submit {
+        padding: 19px 19px 19px 19px;
+        margin: 0px 0px 0px 0px;
+        border-radius: 200px 0px 0px 200px;
+    }
+    .elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-thumbnail {
+        width: 40%;
+    }
+    .elementor-10127 .elementor-element.elementor-element-79b808e .jet-ajax-search__item-title {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    #elementor-popup-modal-10127 .dialog-message {
+        width: 80vw;
+    }
+    #elementor-popup-modal-10127 .dialog-close-button {
+        font-size: 22px;
+    }
+}
+
+@media(min-width:768px) {
+    .elementor-10127 .elementor-element.elementor-element-7909c99d {
+        --width: 85%;
+    }
+    .elementor-10127 .elementor-element.elementor-element-665b735b {
+        --width: 85%;
+    }
+    .elementor-10127 .elementor-element.elementor-element-42022842 {
+        --width: 50%;
+    }
+}
+
+/* Start custom CSS for jet-ajax-search, class: .elementor-element-79b808e */
+
+#halachasearch .jet-ajax-search__fields-holder {
+    /* Your existing styles for jet-ajax-search__fields-holder */
+    position: relative !important;
+    /* Ensure relative positioning for absolute positioning of the icon */
+}
+
+#halachasearch .jet-ajax-search__fields-holder::after {
+    content: url('https://moreshet-maran.com/wp-content/uploads/2024/05/Search.svg') !important;
+    position: absolute !important;
+    right: 15px !important;
+    /* Adjust padding from the right as needed */
+    top: 55% !important;
+    transform: translateY(-50%) !important;
+    /* Add any additional styles for the icon here */
+}
+
+/* End custom CSS */
+
+/* Start custom CSS */
+
+.pop :focus {
+    outline: 0 !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+להגידר את הClass
+/* End custom CSS */
