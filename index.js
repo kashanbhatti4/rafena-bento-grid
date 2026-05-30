@@ -1133,5 +1133,72 @@ document.addEventListener('DOMContentLoaded', () => {
         buildDots();
         goTo(0);
     })();
+
+    // ==========================================================================
+    // GLOBAL TRANSITIONS & SKELETON LOADINGS (Nature-Pharm Premium Enhancements)
+    // ==========================================================================
+
+    // --- Dynamic Scroll Animation Class Injection ---
+    const bentoCards = document.querySelectorAll(
+        '.bento-card, .expert-card, .testimonial-card, .product-card, .stat-gauge-card, .faq-item, .blog-card, .section-title, .section-subtitle'
+    );
+    
+    bentoCards.forEach(el => {
+        el.classList.add('scroll-anim');
+        
+        // Find index relative to siblings to create a natural stagger delay
+        const parent = el.parentNode;
+        if (parent) {
+            const siblings = Array.from(parent.children);
+            const index = siblings.indexOf(el);
+            if (index >= 0) {
+                el.setAttribute('data-anim-order', index.toString());
+            }
+        }
+    });
+
+    // Intersection Observer to trigger spring physics settling
+    const scrollTargets = document.querySelectorAll('.scroll-anim');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const order = parseInt(el.getAttribute('data-anim-order') || '0', 10);
+                    // Add delay based on stagger order
+                    el.style.transitionDelay = `${order * 65}ms`;
+                    el.classList.add('is-in');
+                    obs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.08 });
+        
+        scrollTargets.forEach(el => observer.observe(el));
+    } else {
+        scrollTargets.forEach(el => el.classList.add('is-in'));
+    }
+
+    // --- Dynamic Image Shimmer Loading Injector ---
+    const imageWrappers = document.querySelectorAll(
+        '.cat-img-wrapper, .product-glow-wrapper, .expert-avatar, .what-is-cbd-visual, .mailers-visual'
+    );
+
+    imageWrappers.forEach(container => {
+        container.classList.add('shimmer-container');
+        
+        const img = container.querySelector('img');
+        if (!img) return;
+
+        function markLoaded() {
+            container.classList.add('is-loaded');
+        }
+
+        if (img.complete && img.naturalWidth > 0) {
+            markLoaded();
+        } else {
+            img.addEventListener('load', markLoaded);
+            img.addEventListener('error', markLoaded);
+        }
+    });
 });
 

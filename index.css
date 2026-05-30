@@ -4015,3 +4015,69 @@ a {
 .blog-section::before {
     background: color-mix(in srgb, var(--color-peach) 18%, white);
 }
+
+/* ==========================================================================
+   GLOBAL TRANSITIONS & SKELETON SHIMMERS (Nature-Pharm Premium Enhancements)
+   ========================================================================== */
+
+/* --- Dynamic Spring "Settle" Scroll Transitions --- */
+.scroll-anim {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    will-change: transform, opacity;
+}
+.scroll-anim.is-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: transform 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.65s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-anim {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* --- Global Shimmer Skeleton Loading System --- */
+.shimmer-container {
+    position: relative;
+    overflow: hidden;
+}
+.shimmer-container:not(.is-loaded) {
+    background: rgba(31, 61, 46, 0.03) !important; /* Soft sage-tint wash ONLY before load */
+}
+.shimmer-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: linear-gradient(90deg, 
+        rgba(31, 61, 46, 0.0) 0%, 
+        rgba(31, 61, 46, 0.06) 50%, 
+        rgba(31, 61, 46, 0.0) 100%
+    );
+    background-size: 200% 100%;
+    animation: globalShimmer 1.5s linear infinite;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.shimmer-container.is-loaded::before {
+    opacity: 0;
+    pointer-events: none;
+}
+@keyframes globalShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Maintain crisp dimensions for the image overlays during skeleton loading states */
+.shimmer-container img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.shimmer-container.is-loaded img {
+    opacity: 1;
+}

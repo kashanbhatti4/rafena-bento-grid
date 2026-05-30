@@ -14,6 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rubik:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="ecs.css">
 </head>
 
 <body>
@@ -96,7 +97,7 @@
                     <span class="cart-badge bounce" id="cart-count">0</span>
                 </button>
                 <!-- WhatsApp Button -->
-                <a class="wa-btn-nav desktop-only" target="_blank" href="https://wa.me/972524588218">דברו איתנו</a>
+                <a class="wa-btn-nav desktop-only" target="_blank" href="https://wa.me/972524588218">שיחת ייעוץ</a>
             </div>
         </div>
     </header>
@@ -134,8 +135,8 @@
 
             <!-- Centered CTAs -->
             <div class="hero-cta-group-centered">
-                <a href="#products" class="btn btn-primary">למבחר המוצרים</a>
-                <a href="https://wa.me/972524588218" target="_blank" class="btn btn-outline">דברו איתנו</a>
+                <a href="#products" class="btn btn-primary">בנו את הפרוטוקול שלי</a>
+                <a href="https://wa.me/972524588218" target="_blank" class="btn btn-outline">שוחחו עם יועץ ECS</a>
             </div>
 
             <!-- Trust Badge Row (RTL Flow) -->
@@ -158,6 +159,259 @@
         </div>
     </section>
 
+
+    <!-- SECTION 4.5: ECS MAPPING — GUIDED BENTO FUNNEL (Rafena is a guide, not a store) -->
+    <section class="ecs-section" id="ecs-mapping" aria-label="מיפוי מערכת האנדוקנבינואידית">
+        <!-- Botanical gradient blobs sit behind the glass cards -->
+        <div class="ecs-bg-blob ecs-bg-blob--1" aria-hidden="true"></div>
+        <div class="ecs-bg-blob ecs-bg-blob--2" aria-hidden="true"></div>
+
+        <div class="ecs-header">
+            <span class="ecs-eyebrow">Rafena היא מדריך — לא חנות</span>
+            <h2 class="ecs-title">מפו את מערכת העצבים שלכם להתאוששות</h2>
+            <p class="ecs-subtitle">לא מוכרים בקבוקים — מאבחנים, מלווים ובונים פרוטוקול אישי לאיזון מערכת ה‑ECS שלכם.</p>
+        </div>
+
+        <!-- Semantic search: filters cards by how the user feels -->
+        <div class="ecs-search bento-anim" data-anim-order="0">
+            <svg class="ecs-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="ecs-search-input" class="ecs-search-input"
+                placeholder="תארו איך אתם מרגישים: ‘מוצף’, ‘רועד’, ‘תשוש’, ‘לא ישן’…" aria-label="חיפוש סמנטי לפי תחושה">
+            <button type="button" class="ecs-search-clear" id="ecs-search-clear" aria-label="נקה חיפוש" hidden>✕</button>
+        </div>
+
+        <div class="ecs-grid" id="ecs-grid">
+            <!-- ANCHOR CARD (2x2) — entry point -->
+            <article class="ecs-card ecs-card--glass ecs-anchor bento-anim" data-anim-order="1"
+                data-keywords="ecs מיפוי התחלה אבחון מערכת עצבים calibrate">
+                <div class="ecs-anchor-visual" aria-hidden="true">
+                    <!-- High-end abstract calibrating nervous system backdrop -->
+                    <img src="wp-content/uploads/2026/05/ecs-nervous-system-calibrating.png" alt="Nervous System Map" class="ecs-anchor-img">
+                    <div class="ecs-scanner-overlay"></div>
+                    <!-- Refined SVG synapses overlay -->
+                    <svg class="ecs-nerve" viewBox="0 0 200 200" fill="none">
+                        <g class="ecs-nerve-lines" stroke="currentColor" stroke-width="1.2" opacity="0.6">
+                            <path d="M100 100 L40 30" /><path d="M100 100 L160 28" />
+                            <path d="M100 100 L30 95" /><path d="M100 100 L172 110" />
+                            <path d="M100 100 L55 170" /><path d="M100 100 L150 168" />
+                            <path d="M100 100 L100 18" /><path d="M100 100 L100 185" />
+                        </g>
+                        <g class="ecs-nerve-nodes" fill="currentColor">
+                            <circle cx="40" cy="30" r="4.5" /><circle cx="160" cy="28" r="4.5" />
+                            <circle cx="30" cy="95" r="4.5" /><circle cx="172" cy="110" r="4.5" />
+                            <circle cx="55" cy="170" r="4.5" /><circle cx="150" cy="168" r="4.5" />
+                            <circle cx="100" cy="18" r="4.5" /><circle cx="100" cy="185" r="4.5" />
+                        </g>
+                        <circle class="ecs-nerve-core" cx="100" cy="100" r="11" fill="currentColor" />
+                        <circle class="ecs-nerve-pulse" cx="100" cy="100" r="11" fill="none"
+                            stroke="currentColor" stroke-width="2.5" />
+                    </svg>
+                </div>
+                <div class="ecs-anchor-body">
+                    <span class="ecs-pill">שלב 1 · מיפוי</span>
+                    <h3 class="ecs-card-title">התחילו את מיפוי ה‑ECS שלכם</h3>
+                    <p class="ecs-card-text">סריקה קצרה של מערכת העצבים שלכם מכוונת אתכם לפרוטוקול ההתאוששות המדויק — מבוסס מדע, לא ניחושים.</p>
+                    <button class="btn btn-primary ecs-cta" data-cta="analyze">נתחו את מערכת העצבים שלי</button>
+                </div>
+            </article>
+
+            <!-- SYMPTOM CARDS (clickable → update protocol) -->
+            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="2" data-symptom="sleep"
+                data-keywords="נדודי שינה לא ישן עייף תשוש מתעורר אינסומניה insomnia tired exhausted sleepless"
+                aria-pressed="false">
+                <span class="ecs-symptom-icon">🌙</span>
+                <span class="ecs-symptom-label">נדודי שינה</span>
+                <span class="ecs-symptom-hint">יש לנו פרוטוקול לזה ←</span>
+            </button>
+
+            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="3" data-symptom="anxiety"
+                data-keywords="חרדה לחץ מוצף רועד דאגה פאניקה סטרס anxious overwhelmed shaky stressed panic"
+                aria-pressed="false">
+                <span class="ecs-symptom-icon">🫧</span>
+                <span class="ecs-symptom-label">חרדה ולחץ</span>
+                <span class="ecs-symptom-hint">יש לנו פרוטוקול לזה ←</span>
+            </button>
+
+            <!-- SYSTEM STATUS CARD — live-dashboard radar -->
+            <article class="ecs-card ecs-card--glass ecs-status bento-anim" data-anim-order="4"
+                data-keywords="סטטוס מערכת דאשבורד מפה התאוששות radar heatmap status">
+                <div class="ecs-status-head">
+                    <span class="ecs-status-dot" aria-hidden="true"></span>
+                    <span class="ecs-status-label">סטטוס מערכת · חי</span>
+                </div>
+                <h3 class="ecs-card-title ecs-status-title">מפת התאוששות ה‑ECS</h3>
+                <div class="ecs-radar-wrapper">
+                    <svg class="ecs-radar" viewBox="0 0 200 200" role="img" aria-label="מפת חום של מערכת העצבים">
+                        <g stroke="currentColor" stroke-width="0.8" opacity="0.25" fill="none">
+                            <polygon points="100,20 168,60 168,140 100,180 32,140 32,60" />
+                            <polygon points="100,50 142,75 142,125 100,150 58,125 58,75" />
+                            <polygon points="100,80 116,90 116,110 100,120 84,110 84,90" />
+                        </g>
+                        <polygon class="ecs-radar-shape" points="100,40 150,72 138,132 100,150 55,128 48,70"
+                            fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2" />
+                        <g class="ecs-radar-axis-labels" fill="currentColor" font-size="9" font-weight="700"
+                            text-anchor="middle" opacity="0.8">
+                            <text x="100" y="14">שינה</text>
+                            <text x="184" y="60">מצב רוח</text>
+                            <text x="184" y="150">כאב</text>
+                            <text x="100" y="196">פוקוס</text>
+                            <text x="16" y="150">חרדה</text>
+                            <text x="16" y="60">אנרגיה</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="ecs-status-metrics">
+                    <div class="ecs-status-metric">
+                        <span class="ecs-status-metric-dot"></span>
+                        <span class="ecs-status-metric-label">פעילות קולטנים:</span>
+                        <span class="ecs-status-metric-val">88.4%</span>
+                    </div>
+                    <div class="ecs-status-metric">
+                        <span class="ecs-status-metric-dot dot-orange"></span>
+                        <span class="ecs-status-metric-label">קצב סינכרון:</span>
+                        <span class="ecs-status-metric-val">מאוזן</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- HUMAN ADVISOR IMAGE CARD (2x1 horizontal top) -->
+            <article class="ecs-card ecs-card--glass ecs-advisor-image-row bento-anim" data-anim-order="5"
+                data-keywords="יועץ אדם פנים ייעוץ אישי מומחה advisor human consultation image photo row">
+                <div class="ecs-advisor-media">
+                    <div class="ecs-skeleton" aria-hidden="true"></div>
+                    <img class="ecs-advisor-img" loading="lazy"
+                        src="wp-content/uploads/2026/05/ecs-advisor-face.png"
+                        alt="יועץ ECS של Rafena">
+                </div>
+            </article>
+
+            <!-- HUMAN ADVISOR CONTENT CARD (2x1 horizontal bottom) -->
+            <article class="ecs-card ecs-card--glass ecs-advisor-text-row bento-anim" data-anim-order="5.5"
+                data-keywords="יועץ אדם פנים ייעוץ אישי מומחה advisor human consultation text info details row">
+                <div class="ecs-advisor-body">
+                    <span class="ecs-pill">ליווי אנושי</span>
+                    <h3 class="ecs-card-title">פגשו את יועץ ה‑ECS שלכם: מפו את הדרך להתאוששות</h3>
+                    <button class="btn btn-primary ecs-cta" data-cta="map90">התחילו את מפת 90 הימים שלי</button>
+                </div>
+            </article>
+
+            <!-- MORE SYMPTOM CARDS -->
+            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="6" data-symptom="pain"
+                data-keywords="כאב כרוני דלקת שרירים פרקים גב recovery pain inflammation ache" aria-pressed="false">
+                <span class="ecs-symptom-icon">🔥</span>
+                <span class="ecs-symptom-label">כאב כרוני</span>
+                <span class="ecs-symptom-hint">יש לנו פרוטוקול לזה ←</span>
+            </button>
+
+            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="7" data-symptom="focus"
+                data-keywords="ערפל מוחי פוקוס ריכוז עייפות מנטלית brain fog focus clarity foggy" aria-pressed="false">
+                <span class="ecs-symptom-icon">🧠</span>
+                <span class="ecs-symptom-label">ערפל מוחי</span>
+                <span class="ecs-symptom-hint">יש לנו פרוטוקול לזה ←</span>
+            </button>
+
+            <!-- INSIGHT CARD (AI Direct-Answer, JSON-LD below) -->
+            <article class="ecs-card ecs-card--glass ecs-insight bento-anim" data-anim-order="8"
+                data-keywords="מה זה ecs מערכת אנדוקנבינואידית מידע insight answer">
+                <span class="ecs-pill ecs-pill--ghost">תובנה</span>
+                <h3 class="ecs-card-title ecs-insight-q">מהי מערכת ה‑ECS ולמה היא קריטית לאיזון?</h3>
+                <p class="ecs-card-text">המערכת האנדוקנבינואידית מווסתת שינה, מצב רוח, כאב ודלקת. CBD תומך באיזון שלה — וכך מחזיר את הגוף ל“ברירת המחדל” הבריאה שלו.</p>
+            </article>
+
+            <!-- RECOMMENDED PROTOCOL CARD (full width, state-driven) -->
+            <article class="ecs-card ecs-card--solid ecs-protocol bento-anim" data-anim-order="9" id="ecs-protocol"
+                aria-live="polite">
+                <div class="ecs-protocol-left">
+                    <span class="ecs-pill ecs-pill--gold" id="ecs-protocol-tag">בחרו סימפטום למעלה</span>
+                    <h3 class="ecs-protocol-title" id="ecs-protocol-title">הפרוטוקול המותאם שלכם יופיע כאן</h3>
+                    <p class="ecs-protocol-desc" id="ecs-protocol-desc">בחרו אחת מתחושות הגוף למעלה ונבנה עבורכם, בזמן אמת, מסלול התאוששות מבוסס‑פרוטוקול — ללא רענון דף.</p>
+                </div>
+                <div class="ecs-protocol-right">
+                    <div class="ecs-protocol-stat">
+                        <span class="ecs-protocol-stat-label">מינון פתיחה</span>
+                        <span class="ecs-protocol-stat-val" id="ecs-protocol-dose">—</span>
+                    </div>
+                    <div class="ecs-protocol-stat">
+                        <span class="ecs-protocol-stat-label">יועץ מותאם</span>
+                        <span class="ecs-protocol-stat-val" id="ecs-protocol-advisor">—</span>
+                    </div>
+                    <button class="btn btn-primary ecs-cta" data-cta="dosage" id="ecs-protocol-cta">חשבו את המינון שלי</button>
+                </div>
+            </article>
+
+            <!-- COMPLIANCE / SECURITY BLOCK (objection handling) -->
+            <article class="ecs-card ecs-card--compliance bento-anim" data-anim-order="10"
+                data-keywords="סודיות אבטחה רגולציה compliance security trust">
+                <span class="ecs-compliance-icon" aria-hidden="true">🛡️</span>
+                <p class="ecs-compliance-copy">סודיות רפואית מלאה. ייעוץ מבוסס פרוטוקולים בלבד. אנחנו מוכרים תוצאות, לא בקבוקים.</p>
+            </article>
+
+            <!-- No-results note for semantic search -->
+            <p class="ecs-no-results" id="ecs-no-results" hidden>לא מצאנו התאמה לתחושה הזו — נסו מילה אחרת, או התחילו במיפוי המלא.</p>
+        </div>
+    </section>
+
+    <!-- AI-First: Schema.org structured data for ECS insight cards (Direct Answers) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "מהי מערכת ה-ECS (האנדוקנבינואידית)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "המערכת האנדוקנבינואידית (ECS) מווסתת שינה, מצב רוח, כאב ודלקת. CBD תומך באיזון שלה ומסייע להחזיר את הגוף לאיזון הבריא שלו."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כיצד פרוטוקול Sleep-Sync ל-30 יום עובד?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "פרוטוקול בן 30 יום לוויסות מקצב היממה (Circadian Rhythm) באמצעות מינון CBD מדורג בערב, בליווי יועץ ECS אישי."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם הייעוץ סודי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "כן. סודיות רפואית מלאה, ייעוץ מבוסס פרוטוקולים בלבד. אנחנו מוכרים תוצאות, לא בקבוקים."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "מהו פרוטוקול איזון הלחץ שלכם?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "פרוטוקול בן 30 יום לאיזון והרגעה של מערכת העצבים, הפחתת הורמון הקורטיזול ותגובת הלחץ באמצעות מינון CBD מאוזן ומעקב רוקח קליני צמוד."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כיצד פרוטוקול שיכוך הכאב מסייע להתאוששות?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "פרוטוקול המבוסס על ריכוז CBD גבוה במיוחד בשילוב CBG פעיל להפחתת דלקות, שיקום רקמות ושיכוך כאב כרוני בליווי מומחה כאב ייעודי."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "איך פועל הפרוטוקול לערפל מוחי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "פרוטוקול בן 30 יום לשיפור בהירות מנטלית ופיזור ערפל מוחי, המשתמש במינוני בוקר מדויקים ועקביים לתמיכה בריכוז ואנרגיה יציבה."
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- SECTION 5: TOP CATEGORIES VISUAL GRID -->
     <section class="categories-visual-section" id="categories">
@@ -209,9 +463,9 @@
 
         <div class="split-grid">
             <!-- Section heading lives inside the grid so mobile order works -->
-            <h2 class="section-title text-center products-section-heading">מוצרי CBD מובילים</h2>
-            <p class="section-subtitle text-center products-section-subheading">מוצרים בקרת איכות פרמצבטית בטוחים לשימוש
-                ו-100% טבעיים</p>
+            <h2 class="section-title text-center products-section-heading">הפרוטוקולים המובילים של Rafena</h2>
+            <p class="section-subtitle text-center products-section-subheading">לא בוחרים מוצר — בוחרים מסלול. כל פרוטוקול
+                בבקרת איכות פרמצבטית, בטוח לשימוש ו‑100% טבעי</p>
 
             <!-- Left Narrative Bento Statement -->
             <div class="bento-card split-narrative-card">
@@ -284,7 +538,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="1"
                                     data-title="שמן CBD פול ספקטרום 30% + 8% CBG" data-price="599"
                                     data-img="wp-content/uploads/2026/03/שלושים-פלוס-8-עשר-1.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -326,7 +580,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="2"
                                     data-title="שמן CBD פול ספקטרום 30% של Nature-Pharm" data-price="599"
                                     data-img="wp-content/uploads/2026/03/נייצר-פארם-10-מל-30-אחוז.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -368,7 +622,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="3"
                                     data-title="שמן CBD פול ספקטרום 24% + 3% CBC" data-price="520"
                                     data-img="wp-content/uploads/2026/03/24310.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -410,7 +664,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="4"
                                     data-title="שמן CBD פול ספקטרום 20% של Nature-Pharm" data-price="479"
                                     data-img="wp-content/uploads/2026/03/עשרים-אחוז-עשר-מל.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -452,7 +706,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="5"
                                     data-title="שמן CBD פול ספקטרום 18% + 6% CBGa" data-price="499"
                                     data-img="wp-content/uploads/2026/03/18610.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -494,7 +748,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="6"
                                     data-title="שמן CBD פול ספקטרום 14% + 6% CBG" data-price="449"
                                     data-img="wp-content/uploads/2026/03/14610.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -536,7 +790,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="7"
                                     data-title="שמן CBD פול ספקטרום 10% + 8% CBN" data-price="289"
                                     data-img="wp-content/uploads/2026/03/10סי8N10מל-1.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -578,7 +832,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="8"
                                     data-title="שמן CBD פול ספקטרום 10% של Nature-Pharm" data-price="250"
                                     data-img="wp-content/uploads/2026/03/1010-1.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -620,7 +874,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="9"
                                     data-title="שמן CBD לחיות 20% + 5% CBG" data-price="489"
                                     data-img="wp-content/uploads/2026/03/20510pets.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -662,7 +916,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="10"
                                     data-title="שמן CBD לחיות 18% + 3% CBGa" data-price="465"
                                     data-img="wp-content/uploads/2026/03/183pets.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -704,7 +958,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="11"
                                     data-title="שמן CBD לחיות 15%" data-price="319"
                                     data-img="wp-content/uploads/2026/03/חמש-עשרה-אחוז-חיות-10-מל-1.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -746,7 +1000,7 @@
                                 <button class="btn btn-primary add-to-cart-action" data-id="12"
                                     data-title="שמן CBD לחיות 10%" data-price="250"
                                     data-img="wp-content/uploads/2026/03/1010pets.png">
-                                    הוסף לעגלה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                         class="btn-cart-icon">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -891,8 +1145,8 @@
 
     <!-- SECTION 8: EXPERT PANEL -->
     <section class="experts-section" id="experts">
-        <h2 class="section-title text-center">הכירו את צוות המומחים שלנו:</h2>
-        <p class="section-subtitle text-center">פנל המומחים, המדענים והרופאים שמלווים את Rafena בייעוץ ופיתוח</p>
+        <h2 class="section-title text-center">הכירו את יועצי ה‑ECS שלכם</h2>
+        <p class="section-subtitle text-center">צוות הרופאים והמדענים שמלווה אתכם אישית במיפוי הדרך להתאוששות</p>
         <div class="experts-slider-wrapper">
             <button class="e-nav e-prev" aria-label="הקודם" type="button">›</button>
             <div class="experts-grid" id="experts-slider-track">
@@ -1281,9 +1535,9 @@
 
         <!-- Integrated Best Sellers Content (Merged into Stats Section for visual cohesion) -->
         <div class="best-sellers-wrapper" id="best-sellers" style="margin-top: 50px;">
-            <h2 class="section-title text-center bs-title">הנמכרים ביותר בקטגוריה 🏆</h2>
-            <p class="section-subtitle text-center bs-subtitle">שמני ה-CBD בריכוזי 10% ו-24% הם רבי-המכר המובילים
-                לתוצאות מהירות ואפקטיביות.</p>
+            <h2 class="section-title text-center bs-title">הפרוטוקולים המבוקשים ביותר 🏆</h2>
+            <p class="section-subtitle text-center bs-subtitle">שמני ה-CBD בריכוזי 10% ו-24% הם המסלולים שהיועצים שלנו
+                ממליצים עליהם לתוצאות מהירות ואפקטיביות.</p>
             <!-- Products slider: 3-col grid on desktop, transform slider on mobile (matches top products) -->
             <div class="bs-slider-wrapper">
                 <button class="p-nav bs-prev" aria-label="הקודם" type="button">›</button>
@@ -1314,7 +1568,7 @@
                             <button class="btn btn-primary bs-add-to-cart" data-id="1"
                                 data-title="שמן CBD פול ספקטרום 30% + 8% CBG" data-price="599"
                                 data-img="wp-content/uploads/2026/03/שלושים-פלוס-8-עשר-1.png"
-                                data-bs-qty="bs-qty-1">הוסף לעגלה <svg viewBox="0 0 24 24" fill="none"
+                                data-bs-qty="bs-qty-1">הוסיפו לפרוטוקול <svg viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="btn-cart-icon">
                                     <circle cx="9" cy="21" r="1"></circle>
@@ -1347,7 +1601,7 @@
                             </div>
                             <button class="btn btn-primary bs-add-to-cart" data-id="8"
                                 data-title="שמן CBD פול ספקטרום 10%" data-price="240"
-                                data-img="wp-content/uploads/2026/03/1010-1.png" data-bs-qty="bs-qty-8">הוסף לעגלה <svg
+                                data-img="wp-content/uploads/2026/03/1010-1.png" data-bs-qty="bs-qty-8">הוסיפו לפרוטוקול <svg
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="btn-cart-icon">
                                     <circle cx="9" cy="21" r="1"></circle>
@@ -1379,7 +1633,7 @@
                             </div>
                             <button class="btn btn-primary bs-add-to-cart" data-id="7"
                                 data-title="שמן CBD פול ספקטרום 10% + 8% CBN" data-price="289"
-                                data-img="wp-content/uploads/2026/03/10סי8N10מל-1.png" data-bs-qty="bs-qty-7">הוסף לעגלה
+                                data-img="wp-content/uploads/2026/03/10סי8N10מל-1.png" data-bs-qty="bs-qty-7">הוסיפו לפרוטוקול
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" class="btn-cart-icon">
                                     <circle cx="9" cy="21" r="1"></circle>
@@ -1692,6 +1946,7 @@
 
     <!-- Script execution -->
     <script src="index.js"></script>
+    <script src="ecs.js"></script>
 </body>
 
 </html>
