@@ -5,21 +5,37 @@
 
 /* --- 1. DESIGN SYSTEM VARIABLES --- */
 :root {
-    --color-green: hsl(148, 62%, 14%);      /* Forest Green (Headers, outlines, high-contrast text) */
-    --color-white: hsl(0, 0%, 100%);        /* Stark White (Canvas background) */
-    --color-blue: hsl(198, 88%, 92%);       /* Sky Blue (Soft accent backgrounds, ambient glows) */
-    --color-blue-dark: hsl(198, 60%, 75%);  /* Hover accent glow border */
-    --color-gold: hsl(48, 98%, 52%);        /* Gold/Yellow (CTAs, active pill toggle, highlights) */
-    --color-gold-hover: hsl(48, 98%, 46%);  /* CTA Hover */
-    
+    /* ── Nature-Pharm Brand Palette ── */
+    --color-green: #1F3D2E;         /* Dark Forest Green — text, borders, headings */
+    --color-green-bright: #2d7a4d;  /* Bright Forest Green */
+    --color-teal: #66CFC2;          /* Brand Mint Teal — decorative accents */
+    --color-white: #FFFFFF;         /* Pure White — card backgrounds */
+    --color-cream: #F9F9F7;         /* Pistachio Cream — page background */
+
+    /* Category accent colors (Nature-Pharm palette) */
+    --color-blue: #79CEE3;          /* Sky Blue — Sleep / Restful Nights cards */
+    --color-blue-dark: #4BA8C8;     /* Sky Blue darker — hover borders */
+    --color-lavender: #CF9AC6;      /* Lavender — Anxiety / Calm cards */
+    --color-peach: #F6C178;         /* Peach / Warm Orange — Pain / Recovery cards */
+    --color-mint: #8CCD8D;          /* Mint Green — Pets cards */
+    --color-lime: #ADC865;          /* Lime — Energy / Focus accent */
+
+    /* CTA colours */
+    --color-gold: #FAC172;          /* Warm Gold — all CTAs, active states */
+    --color-gold-hover: #F0A855;    /* Gold Hover (deeper) */
+
     --border-width: 2px;
     --border-radius-large: 24px;
     --border-radius-medium: 16px;
     --border-radius-small: 12px;
-    
+
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --shadow-soft: 0 12px 24px rgba(31, 61, 46, 0.08);
+    --shadow-hover: 0 18px 36px rgba(31, 61, 46, 0.14);
+    --shadow-gold: 0 8px 20px rgba(250, 193, 114, 0.45);
 }
 
 /* --- 2. BASE RESET & GENERAL STYLES --- */
@@ -36,7 +52,7 @@ html {
 
 body {
     font-family: 'Rubik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-white);
+    background-color: var(--color-cream);
     color: var(--color-green);
     overflow-x: hidden;
     line-height: 1.6;
@@ -91,11 +107,11 @@ a {
 }
 
 .section-title {
-    font-size: 2.2rem;
+    font-size: 2.25rem;
     font-weight: 900;
     color: var(--color-green);
     margin-bottom: 24px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.03em;
 }
 
 .section-subtitle {
@@ -182,7 +198,7 @@ a {
     padding: 32px;
     position: relative;
     overflow: hidden;
-    transition: var(--transition-medium);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color var(--transition-medium);
 }
 
 /* Hard borders instead of soft drop shadows for premium trendy look */
@@ -328,7 +344,11 @@ a {
     text-align: center;
     padding: 48px 32px;
     width: 100%;
-    background-color: var(--color-white);
+    /* Soft branded wash instead of flat white */
+    background:
+        radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--color-blue) 30%, white) 0%, transparent 45%),
+        radial-gradient(circle at 90% 100%, color-mix(in srgb, var(--color-peach) 28%, white) 0%, transparent 42%),
+        var(--color-white);
     border: var(--border-width) solid var(--color-green);
     border-radius: var(--border-radius-large);
     position: relative;
@@ -336,8 +356,8 @@ a {
 }
 
 .hero-eyebrow-pill {
-    background-color: var(--color-green);
-    color: var(--color-white);
+    background-color: var(--color-blue);
+    color: var(--color-green);
     padding: 8px 24px;
     border-radius: 50px;
     font-size: 0.9rem;
@@ -351,12 +371,28 @@ a {
 .hero-h1-centered {
     font-size: 3.2rem;
     font-weight: 900;
-    line-height: 1.25;
-    letter-spacing: -1px;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
     margin-bottom: 20px;
-    color: var(--color-green);
+    color: var(--color-green-bright);
 }
 
+/* Teal highlighter marker behind a key word (e.g. "CBD") */
+.hero-highlight {
+    color: inherit;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+/* Solid accent text for the bottom line */
+.accent-text-gradient {
+    color: #E8863C; /* Solid rich warm amber-orange */
+}
+
+/* Back-compat: keep the old solid-gold accent class working */
 .accent-text-gold-solid {
     color: var(--color-gold);
 }
@@ -384,9 +420,10 @@ a {
 }
 
 .teaser-question {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--color-green);
+    letter-spacing: -0.02em;
     margin-bottom: 20px;
 }
 
@@ -417,8 +454,8 @@ a {
 
 .teaser-pill.active {
     background-color: var(--color-gold);
-    box-shadow: 3px 3px 0 var(--color-green);
-    transform: translateY(-1px);
+    box-shadow: var(--shadow-gold);
+    transform: scale(1.02) translateY(-2px);
 }
 
 .hero-cta-group-centered {
@@ -543,6 +580,7 @@ a {
     font-size: 1.8rem;
     font-weight: 900;
     margin-top: 8px;
+    letter-spacing: -0.03em;
 }
 
 .onboarding-header p {
@@ -600,7 +638,7 @@ a {
     align-items: center;
     gap: 14px;
     text-align: right;
-    transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .quiz-pill:hover {
@@ -612,7 +650,7 @@ a {
     transform: scale(1.02);
     background-color: var(--color-gold);
     border-color: var(--color-green);
-    box-shadow: 4px 4px 0px var(--color-green);
+    box-shadow: var(--shadow-gold);
 }
 
 .pill-icon {
@@ -695,7 +733,7 @@ a {
 
 .category-bento-pill.active {
     background-color: var(--color-gold);
-    box-shadow: 3px 3px 0 var(--color-green);
+    box-shadow: var(--shadow-gold);
 }
 
 .cat-icon {
@@ -747,8 +785,8 @@ a {
 
 .products-tab.active {
     background-color: var(--color-gold);
-    box-shadow: 3px 3px 0 var(--color-green);
-    transform: translateY(-1px);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
 }
 
 .split-grid {
@@ -776,6 +814,7 @@ a {
     font-size: 2.2rem;
     font-weight: 900;
     line-height: 1.15;
+    letter-spacing: -0.03em;
     margin-bottom: 16px;
 }
 
@@ -864,6 +903,38 @@ a {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ── Smart Color Mapping: Nature-Pharm category palette ── */
+/* Sleep / Restful Nights → Sky Blue */
+.product-card[data-category*="sleep"] {
+    background-color: var(--color-blue);
+}
+/* Anxiety / Calm → Lavender */
+.product-card[data-category*="anxiety"] {
+    background-color: var(--color-lavender);
+}
+/* Pain / Recovery → Peach */
+.product-card[data-category*="pain"] {
+    background-color: var(--color-peach);
+}
+/* Pets → Mint Green */
+.product-card[data-category*="pets"] {
+    background-color: var(--color-mint);
+}
+
+/* Make glow wrapper semi-transparent so card color shows through */
+.product-card[data-category*="sleep"] .product-glow-wrapper,
+.product-card[data-category*="anxiety"] .product-glow-wrapper,
+.product-card[data-category*="pain"] .product-glow-wrapper,
+.product-card[data-category*="pets"] .product-glow-wrapper {
+    background-color: rgba(255, 255, 255, 0.60);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .prod-badge {
@@ -1068,7 +1139,7 @@ a {
 }
 
 .bento-accordion[open] {
-    box-shadow: 4px 4px 0 var(--color-green);
+    box-shadow: var(--shadow-soft);
 }
 
 .accordion-header {
@@ -1170,7 +1241,7 @@ a {
     padding: 0 20px;
 }
 
-/* Desktop: wrapper invisible, 5-column grid */
+/* Desktop: wrapper invisible, asymmetric bento grid */
 .experts-slider-wrapper {
     display: contents;
 }
@@ -1179,9 +1250,18 @@ a {
     display: none;
 }
 
+/* ── Creative asymmetric bento — varied card shapes ──
+   5 columns x 2 rows. Mosaic of 5 distinct shapes:
+   ┌──────────┬───────────┬─────┐
+   │          │  WIDE 2x1 │  T  │
+   │ BIG  2x2 ├─────┬─────┤  A  │
+   │          │ sm  │ sm  │  LL │
+   └──────────┴─────┴─────┘─────┘
+*/
 .experts-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
     gap: 24px;
 }
 
@@ -1190,95 +1270,184 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-@media (max-width: 768px) {
-    .experts-section {
-        padding-left: 0;
-        padding-right: 0;
+.expert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* (1) Featured lead — big 2x2, sky blue */
+.expert-card--feature {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    background-color: var(--color-blue);
+    padding: 40px;
+}
+
+/* (2) Wide banner — 2 wide x 1 tall, soft peach */
+.experts-grid .expert-card:nth-child(2) {
+    grid-column: 3 / 5;
+    grid-row: 1;
+    background-color: color-mix(in srgb, var(--color-peach) 38%, white);
+}
+
+/* (3) Tall card — 1 wide x 2 tall, soft mint */
+.experts-grid .expert-card:nth-child(3) {
+    grid-column: 5;
+    grid-row: 1 / 3;
+    background-color: color-mix(in srgb, var(--color-mint) 42%, white);
+}
+
+/* (4) & (5) Small supporting squares */
+.experts-grid .expert-card:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+}
+.experts-grid .expert-card:nth-child(5) {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.expert-feature-badge {
+    display: inline-block;
+    background-color: var(--color-gold);
+    border: var(--border-width) solid var(--color-green);
+    color: var(--color-green);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.expert-card--feature .expert-avatar {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.expert-card--feature .expert-name {
+    font-size: 1.9rem;
+    letter-spacing: -0.02em;
+}
+
+.expert-card--feature .expert-role {
+    font-size: 0.95rem;
+    padding: 4px 14px;
+    margin-bottom: 16px;
+}
+
+.expert-card--feature .expert-desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 360px;
+    opacity: 0.9;
+}
+
+/* Tablet (769–992px): feature on top, wide banner, then tall + 2 small */
+@media (max-width: 992px) {
+    .experts-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
     }
 
-    .experts-section .section-title,
-    .experts-section .section-subtitle {
+    .expert-card--feature {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+    .expert-card--feature .expert-desc {
+        max-width: 480px;
+    }
+
+    /* Wide banner stays full-width */
+    .experts-grid .expert-card:nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+    /* Tall card on one side spanning two rows, two small stacked beside it */
+    .experts-grid .expert-card:nth-child(3) {
+        grid-column: 1;
+        grid-row: span 2;
+    }
+    .experts-grid .expert-card:nth-child(4) {
+        grid-column: 2;
+        grid-row: auto;
+    }
+    .experts-grid .expert-card:nth-child(5) {
+        grid-column: 2;
+        grid-row: auto;
+    }
+}
+
+/* Mobile (≤768px): NO slider — responsive bento that fits the screen */
+@media (max-width: 768px) {
+    .experts-section {
         padding-left: 20px;
         padding-right: 20px;
     }
 
+    /* Neutralise old slider scaffolding */
     .experts-slider-wrapper {
-        display: block;
-        position: relative;
-        overflow: hidden;
-        padding: 8px 20px;
+        display: contents;
+    }
+    .e-nav,
+    .e-dots {
+        display: none !important;
     }
 
     .experts-grid {
-        display: flex;
-        gap: 24px;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        gap: 14px;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto;
     }
 
     .expert-card {
-        flex: 0 0 100%;
+        flex: initial;
+        grid-row: auto;
     }
 
-    .e-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: var(--color-white);
-        border: var(--border-width) solid var(--color-green);
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
-        line-height: 1;
-        cursor: pointer;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition-fast);
-        color: var(--color-green);
-        padding: 0;
+    /* (1) Feature — full-width hero banner */
+    .expert-card--feature {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        padding: 28px;
+    }
+    .expert-card--feature .expert-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    .expert-card--feature .expert-name {
+        font-size: 1.5rem;
     }
 
-    .e-nav:hover {
-        background: var(--color-gold);
-        border-color: var(--color-gold-hover);
+    /* (2) Wide banner — full-width */
+    .experts-grid .expert-card:nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+    /* (3) & (4) — two side-by-side squares */
+    .experts-grid .expert-card:nth-child(3) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .experts-grid .expert-card:nth-child(4) {
+        grid-column: 2;
+        grid-row: auto;
+    }
+    /* (5) — full-width footer card */
+    .experts-grid .expert-card:nth-child(5) {
+        grid-column: 1 / -1;
+        grid-row: auto;
     }
 
-    .e-nav:disabled {
-        opacity: 0.25;
-        cursor: default;
-        pointer-events: none;
-    }
-
-    .e-prev { right: 4px; }
-    .e-next { left: 4px; }
-
-    .e-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 16px;
-    }
-
-    .e-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--color-blue-dark);
-        border: none;
-        cursor: pointer;
-        transition: var(--transition-fast);
-        padding: 0;
-    }
-
-    .e-dot.active {
-        background: var(--color-green);
-        width: 24px;
-        border-radius: 4px;
+    .expert-desc {
+        font-size: 0.85rem;
     }
 }
 
@@ -1332,7 +1501,9 @@ a {
 .testimonials-slider {
     position: relative;
     overflow: hidden;
-    padding: 8px 56px;
+    padding: 24px 56px 44px;
+    margin-top: -16px;
+    margin-bottom: -36px;
 }
 
 .testimonials-track {
@@ -1347,6 +1518,11 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
 .t-nav {
@@ -1422,7 +1598,9 @@ a {
     }
 
     .testimonials-slider {
-        padding: 8px 20px;
+        padding: 24px 20px 44px;
+        margin-top: -16px;
+        margin-bottom: -36px;
     }
 
     .testimonial-card {
@@ -1492,6 +1670,11 @@ a {
 .blog-card {
     display: flex;
     flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
 .blog-tag {
@@ -1965,7 +2148,8 @@ a {
 
 .categories-visual-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(180px, auto);
     gap: 24px;
 }
 
@@ -1985,8 +2169,7 @@ a {
 
 .category-visual-card:hover {
     transform: translateY(-4px);
-    box-shadow: 6px 6px 0 var(--color-green);
-    background-color: var(--color-blue);
+    box-shadow: var(--shadow-hover);
 }
 
 .cat-img-wrapper {
@@ -2033,6 +2216,60 @@ a {
     color: var(--color-green);
 }
 
+.cat-visual-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-green);
+    opacity: 0.65;
+    margin-top: 4px;
+}
+
+/* Featured first category card — spans 2 cols, 2 rows, has nice large circle and text styling */
+.category-featured-card {
+    background-color: var(--color-blue);
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 40px;
+}
+
+.category-featured-card .cat-img-wrapper--large {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+.category-featured-card .cat-visual-title {
+    font-size: 1.6rem;
+}
+
+.category-featured-card .cat-visual-subtitle {
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+/* Category cards — each gets its Nature-Pharm accent color */
+.categories-visual-grid .category-visual-card:nth-child(2) {
+    background-color: var(--color-mint);
+}
+.categories-visual-grid .category-visual-card:nth-child(3) {
+    background-color: var(--color-lavender);
+}
+.categories-visual-grid .category-visual-card:nth-child(4) {
+    background-color: var(--color-peach);
+    grid-column: span 3;
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+    align-items: center;
+    padding: 32px 48px;
+    text-align: right;
+}
+.categories-visual-grid .category-visual-card:nth-child(4) .cat-img-wrapper {
+    margin-bottom: 0;
+    width: 140px;
+    height: 140px;
+}
+
 /* --- SCREENSHOT 2: COMMON PROBLEMS THAT CBD TREATS --- */
 .problems-grid-bento {
     display: grid;
@@ -2055,9 +2292,9 @@ a {
 }
 
 .problem-card-bento:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
     background-color: var(--color-blue);
-    box-shadow: 4px 4px 0 var(--color-green);
+    box-shadow: var(--shadow-hover);
 }
 
 .problem-icon-circle {
@@ -2139,13 +2376,13 @@ a {
     border-radius: var(--border-radius-large);
     padding: 16px 28px;
     gap: 20px;
-    box-shadow: 4px 4px 0 var(--color-green);
-    transition: transform var(--transition-fast);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .whatsapp-label-bar:hover {
-    transform: translateY(-2px);
-    box-shadow: 6px 6px 0 var(--color-green);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
 .wa-label-content {
@@ -2222,9 +2459,18 @@ a {
     padding: 0 20px;
 }
 
+/* ── Creative bento mosaic for trust badges ──
+   4 columns x 2 rows:
+   ┌───────────┬─────┬─────┐
+   │  WIDE  1  │ sm2 │  T  │   row 1
+   ├─────┬─────┘     │ ALL │
+   │ sm4 │ WIDE  5   │  3  │   row 2
+   └─────┴───────────┴─────┘
+*/
 .why-rafena-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(150px, 1fr));
     gap: 20px;
 }
 
@@ -2235,13 +2481,12 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-fast);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .why-badge-card:hover {
     transform: translateY(-4px);
-    background-color: var(--color-blue);
-    box-shadow: 4px 4px 0 var(--color-green);
+    box-shadow: var(--shadow-hover);
 }
 
 .why-icon-avatar {
@@ -2255,22 +2500,113 @@ a {
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
-}
-
-.why-badge-card:hover .why-icon-avatar {
-    background-color: var(--color-gold);
+    flex-shrink: 0;
 }
 
 .why-badge-title {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 800;
     line-height: 1.3;
 }
+
+/* ── Bento placements & shapes ── */
+/* (1) Wide banner — icon + title side by side, soft blue */
+.why-rafena-grid .why-badge-card:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    flex-direction: row;
+    gap: 18px;
+    background-color: color-mix(in srgb, var(--color-blue) 26%, white);
+}
+.why-rafena-grid .why-badge-card:nth-child(1) .why-icon-avatar { margin-bottom: 0; }
+
+/* (2) Small square */
+.why-rafena-grid .why-badge-card:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+/* (3) Tall feature — the key pharmaceutical-quality badge, soft lavender */
+.why-rafena-grid .why-badge-card:nth-child(3) {
+    grid-column: 4;
+    grid-row: 1 / 3;
+    background-color: color-mix(in srgb, var(--color-lavender) 30%, white);
+}
+.why-rafena-grid .why-badge-card:nth-child(3) .why-icon-avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 2.9rem;
+}
+.why-rafena-grid .why-badge-card:nth-child(3) .why-badge-title {
+    font-size: 1.15rem;
+}
+
+/* (4) Small square */
+.why-rafena-grid .why-badge-card:nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+/* (5) Wide banner — icon + title side by side, soft peach */
+.why-rafena-grid .why-badge-card:nth-child(5) {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    flex-direction: row;
+    gap: 18px;
+    background-color: color-mix(in srgb, var(--color-peach) 30%, white);
+}
+.why-rafena-grid .why-badge-card:nth-child(5) .why-icon-avatar { margin-bottom: 0; }
 
 /* --- NEW RESPONSIVE STYLES FOR SCREENSHOT SECTIONS --- */
 @media (max-width: 992px) {
     .categories-visual-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .category-featured-card {
+        grid-column: span 2;
+        grid-row: span 1;
+        flex-direction: row;
+        justify-content: center;
+        gap: 32px;
+        text-align: right;
+        padding: 24px;
+    }
+    
+    .category-featured-card .cat-img-wrapper--large {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 0;
+    }
+    
+    .category-featured-card .cat-visual-title {
+        font-size: 1.3rem;
+    }
+    
+    .category-featured-card .cat-visual-subtitle {
+        font-size: 0.85rem;
+        margin-top: 4px;
+    }
+    
+    .categories-visual-grid .category-visual-card:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 1;
+        flex-direction: row;
+        justify-content: center;
+        gap: 32px;
+        text-align: right;
+        padding: 24px;
+    }
+    
+    .categories-visual-grid .category-visual-card:nth-child(4) .cat-img-wrapper {
+        margin-bottom: 0;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .categories-visual-grid .category-visual-card:nth-child(4) .cat-visual-title {
+        font-size: 1.3rem;
     }
     
     .problems-grid-bento {
@@ -2285,62 +2621,83 @@ a {
         height: 300px;
     }
     
+    /* Why Rafena bento → 2-col: wide banner on top, then 2x2 */
     .why-rafena-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    .why-rafena-grid .why-badge-card:nth-child(1) {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        flex-direction: row;
+    }
+    .why-rafena-grid .why-badge-card:nth-child(2),
+    .why-rafena-grid .why-badge-card:nth-child(3),
+    .why-rafena-grid .why-badge-card:nth-child(4),
+    .why-rafena-grid .why-badge-card:nth-child(5) {
+        grid-column: auto;
+        grid-row: auto;
+        flex-direction: column;
     }
 }
 
 @media (max-width: 576px) {
-    /* Break categories section padding so slider reaches screen edges */
     .categories-visual-section {
-        padding-left: 0;
-        padding-right: 0;
-        overflow: visible;
-    }
-
-    .categories-visual-section .section-title,
-    .categories-visual-section .section-subtitle {
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .categories-visual-grid {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: visible;
-        scroll-snap-type: x mandatory;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
-        /* Equal padding on both sides — 20px breathing room at start and end */
-        padding: 8px 20px 20px;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        -webkit-overflow-scrolling: touch;
-        /* Snap offset: keeps every snapped card 20px from the leading edge */
-        scroll-padding-inline-start: 20px;
-        /* Ensure the scroll container is truly full-width */
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
         box-sizing: border-box;
     }
 
-    /* Trailing spacer so last card doesn't snap flush to screen edge */
-    .categories-visual-grid::after {
-        content: '';
-        display: block;
-        flex: 0 0 8px;
-        min-width: 8px;
-    }
-    
-    .categories-visual-grid::-webkit-scrollbar {
-        display: none;
-    }
-    
     .categories-visual-grid .category-visual-card {
-        /* ~78% width → always shows a peek of the next card */
-        flex: 0 0 calc(78% - 6px);
-        max-width: 300px;
-        min-width: 220px;
-        scroll-snap-align: start;
+        flex: none;
+        max-width: none;
+        min-width: 0;
+        padding: 16px;
+    }
+
+    .categories-visual-grid .category-visual-card .cat-img-wrapper {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 12px;
+    }
+
+    .category-featured-card {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .category-featured-card .cat-img-wrapper--large {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+    }
+
+    .category-featured-card .cat-visual-title {
+        font-size: 1.1rem;
+    }
+
+    .categories-visual-grid .category-visual-card:nth-child(4) {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .categories-visual-grid .category-visual-card:nth-child(4) .cat-img-wrapper {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+    }
+
+    .categories-visual-grid .category-visual-card:nth-child(4) .cat-visual-title {
+        font-size: 1.1rem;
     }
     
     /* Problems section: horizontal scroll slider matching categories style */
@@ -2388,51 +2745,27 @@ a {
         scroll-snap-align: start;
     }
     
-    /* Why Rafena section: horizontal scroll slider matching categories style */
+    /* Why Rafena: compact 2-col bento (no slider) */
     .why-rafena-section {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
         overflow: visible;
     }
 
-    .why-rafena-section .section-title,
-    .why-rafena-section .section-subtitle {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
     .why-rafena-grid {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: visible;
-        scroll-snap-type: x mandatory;
         gap: 12px;
-        padding: 8px 20px 20px;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        -webkit-overflow-scrolling: touch;
-        scroll-padding-inline-start: 20px;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        box-sizing: border-box;
     }
 
-    .why-rafena-grid::-webkit-scrollbar {
-        display: none;
+    /* Slightly smaller feature icon so the tall badge fits a narrow cell */
+    .why-rafena-grid .why-badge-card:nth-child(3) .why-icon-avatar {
+        width: 72px;
+        height: 72px;
+        font-size: 2.4rem;
+    }
+    .why-rafena-grid .why-badge-card:nth-child(3) .why-badge-title {
+        font-size: 1rem;
     }
 
-    .why-rafena-grid::after {
-        content: '';
-        display: block;
-        flex: 0 0 8px;
-        min-width: 8px;
-    }
-
-    .why-rafena-grid .why-badge-card {
-        flex: 0 0 calc(44% - 6px);
-        scroll-snap-align: start;
-    }
-    
     .whatsapp-banner-card {
         padding: 24px;
         min-height: 280px;
@@ -2485,7 +2818,9 @@ a {
         display: block;
         position: relative;
         overflow: hidden;
-        padding: 8px 20px;
+        padding: 24px 20px 44px;
+        margin-top: -16px;
+        margin-bottom: -36px;
     }
 
     /* Slider track: flex row, clipped by wrapper */
@@ -2691,6 +3026,7 @@ a {
     font-weight: 900;
     margin-bottom: 16px;
     line-height: 1.15;
+    letter-spacing: -0.03em;
 }
 
 .club-benefit-list {
@@ -2764,7 +3100,7 @@ a {
 
 .club-input:focus {
     border-color: var(--color-gold);
-    box-shadow: 3px 3px 0 var(--color-green);
+    box-shadow: var(--shadow-gold);
 }
 
 /* --- SECTION 14: CUSTOMER STATS PROGRESS GAUGE CIRCLES --- */
@@ -2793,7 +3129,7 @@ a {
 .stat-gauge-card:hover {
     transform: translateY(-4px);
     background-color: var(--color-blue);
-    box-shadow: 4px 4px 0 var(--color-green);
+    box-shadow: var(--shadow-hover);
 }
 
 .gauge-svg-wrapper {
@@ -2878,6 +3214,7 @@ a {
     font-size: 2.2rem;
     font-weight: 900;
     margin-bottom: 12px;
+    letter-spacing: -0.03em;
 }
 
 .mailers-p {
@@ -2902,7 +3239,7 @@ a {
 
 .mailers-input:focus {
     border-color: var(--color-gold);
-    box-shadow: 3px 3px 0 var(--color-green);
+    box-shadow: var(--shadow-gold);
 }
 
 .mailers-visual {
@@ -3404,7 +3741,9 @@ a {
     }
 
     .blog-slider {
-        padding: 8px 20px !important;
+        padding: 24px 20px 44px !important;
+        margin-top: -16px !important;
+        margin-bottom: -36px !important;
         overflow: hidden !important;
         width: 100% !important;
         box-sizing: border-box !important;
@@ -3559,3 +3898,120 @@ a {
 
 
 
+
+/* ==========================================================================
+   SMART COLOR MAPPING — SITE-WIDE VISUAL RHYTHM (Nature-Pharm palette)
+   Each benefit category maps to a fixed brand color; generic card grids
+   rotate through the palette so no section reads as a uniform feature table.
+   Text stays dark forest green; trust elements stay grounded.
+   ========================================================================== */
+
+/* ---- COMMON PROBLEMS: icon circle = benefit category color ---- */
+/* 1:sleep→blue  2:anxiety→lavender  3:pain→peach  4:depression→lime  5:pets→mint */
+.problems-grid-bento .problem-card-bento:nth-child(1) .problem-icon-circle { background-color: var(--color-blue); }
+.problems-grid-bento .problem-card-bento:nth-child(2) .problem-icon-circle { background-color: var(--color-lavender); }
+.problems-grid-bento .problem-card-bento:nth-child(3) .problem-icon-circle { background-color: var(--color-peach); }
+.problems-grid-bento .problem-card-bento:nth-child(4) .problem-icon-circle { background-color: var(--color-lime); }
+.problems-grid-bento .problem-card-bento:nth-child(5) .problem-icon-circle { background-color: var(--color-mint); }
+
+/* Card hover tint matches its category color (light wash) */
+.problems-grid-bento .problem-card-bento:nth-child(1):hover { background-color: color-mix(in srgb, var(--color-blue) 28%, white); }
+.problems-grid-bento .problem-card-bento:nth-child(2):hover { background-color: color-mix(in srgb, var(--color-lavender) 28%, white); }
+.problems-grid-bento .problem-card-bento:nth-child(3):hover { background-color: color-mix(in srgb, var(--color-peach) 28%, white); }
+.problems-grid-bento .problem-card-bento:nth-child(4):hover { background-color: color-mix(in srgb, var(--color-lime) 28%, white); }
+.problems-grid-bento .problem-card-bento:nth-child(5):hover { background-color: color-mix(in srgb, var(--color-mint) 28%, white); }
+
+/* ---- CUSTOMER STATS GAUGES: ring color = use-case category ---- */
+/* 1:anxiety→lavender 2:pets→mint 3:sleep→blue 4:allergies→lime 5:arthritis→peach 6:pain→peach */
+.stats-grid-bento .stat-gauge-card:nth-child(1) .gauge-progress-circle { stroke: var(--color-lavender); }
+.stats-grid-bento .stat-gauge-card:nth-child(2) .gauge-progress-circle { stroke: var(--color-mint); }
+.stats-grid-bento .stat-gauge-card:nth-child(3) .gauge-progress-circle { stroke: var(--color-blue-dark); }
+.stats-grid-bento .stat-gauge-card:nth-child(4) .gauge-progress-circle { stroke: var(--color-lime); }
+.stats-grid-bento .stat-gauge-card:nth-child(5) .gauge-progress-circle { stroke: var(--color-peach); }
+.stats-grid-bento .stat-gauge-card:nth-child(6) .gauge-progress-circle { stroke: var(--color-gold-hover); }
+
+/* Hover tint each gauge card to its category color */
+.stats-grid-bento .stat-gauge-card:nth-child(1):hover { background-color: color-mix(in srgb, var(--color-lavender) 22%, white); }
+.stats-grid-bento .stat-gauge-card:nth-child(2):hover { background-color: color-mix(in srgb, var(--color-mint) 22%, white); }
+.stats-grid-bento .stat-gauge-card:nth-child(3):hover { background-color: color-mix(in srgb, var(--color-blue) 22%, white); }
+.stats-grid-bento .stat-gauge-card:nth-child(4):hover { background-color: color-mix(in srgb, var(--color-lime) 22%, white); }
+.stats-grid-bento .stat-gauge-card:nth-child(5):hover { background-color: color-mix(in srgb, var(--color-peach) 22%, white); }
+.stats-grid-bento .stat-gauge-card:nth-child(6):hover { background-color: color-mix(in srgb, var(--color-gold) 22%, white); }
+
+/* ---- WHY RAFENA: icon avatars rotate through palette for rhythm ---- */
+.why-rafena-grid .why-badge-card:nth-child(1) .why-icon-avatar { background-color: var(--color-blue); }
+.why-rafena-grid .why-badge-card:nth-child(2) .why-icon-avatar { background-color: var(--color-mint); }
+.why-rafena-grid .why-badge-card:nth-child(3) .why-icon-avatar { background-color: var(--color-lavender); }
+.why-rafena-grid .why-badge-card:nth-child(4) .why-icon-avatar { background-color: var(--color-lime); }
+.why-rafena-grid .why-badge-card:nth-child(5) .why-icon-avatar { background-color: var(--color-peach); }
+
+/* ---- TESTIMONIALS: avatar bubbles rotate through palette ---- */
+.testimonials-track .testimonial-card:nth-child(5n+1) .user-avatar { background-color: var(--color-blue); }
+.testimonials-track .testimonial-card:nth-child(5n+2) .user-avatar { background-color: var(--color-mint); }
+.testimonials-track .testimonial-card:nth-child(5n+3) .user-avatar { background-color: var(--color-lavender); }
+.testimonials-track .testimonial-card:nth-child(5n+4) .user-avatar { background-color: var(--color-peach); }
+.testimonials-track .testimonial-card:nth-child(5n+5) .user-avatar { background-color: var(--color-lime); }
+
+/* ---- BLOG: tag becomes a colored pill, rotating through palette ---- */
+.blog-grid .blog-tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: var(--border-width) solid var(--color-green);
+}
+.blog-grid .blog-card:nth-child(6n+1) .blog-tag { background-color: var(--color-blue); }
+.blog-grid .blog-card:nth-child(6n+2) .blog-tag { background-color: var(--color-lavender); }
+.blog-grid .blog-card:nth-child(6n+3) .blog-tag { background-color: var(--color-peach); }
+.blog-grid .blog-card:nth-child(6n+4) .blog-tag { background-color: var(--color-mint); }
+.blog-grid .blog-card:nth-child(6n+5) .blog-tag { background-color: var(--color-lime); }
+.blog-grid .blog-card:nth-child(6n+6) .blog-tag { background-color: var(--color-gold); }
+
+/* Blog card top accent strip rotates to match its tag */
+.blog-grid .blog-card { border-top-width: 6px; }
+.blog-grid .blog-card:nth-child(6n+1) { border-top-color: var(--color-blue-dark); }
+.blog-grid .blog-card:nth-child(6n+2) { border-top-color: var(--color-lavender); }
+.blog-grid .blog-card:nth-child(6n+3) { border-top-color: var(--color-peach); }
+.blog-grid .blog-card:nth-child(6n+4) { border-top-color: var(--color-mint); }
+.blog-grid .blog-card:nth-child(6n+5) { border-top-color: var(--color-lime); }
+.blog-grid .blog-card:nth-child(6n+6) { border-top-color: var(--color-gold); }
+
+/* ==========================================================================
+   FULL-BLEED SOFT SECTION BACKGROUNDS — consumer-brand colour rhythm
+   Centered sections get a 100vw tinted band behind them via ::before.
+   body has overflow-x:hidden, so 100vw never creates a horizontal scrollbar.
+   ========================================================================== */
+.categories-visual-section,
+.problems-section,
+.customer-stats-section,
+.blog-section {
+    position: relative;
+    isolation: isolate;
+}
+
+.categories-visual-section::before,
+.problems-section::before,
+.customer-stats-section::before,
+.blog-section::before {
+    content: '';
+    position: absolute;
+    top: -55px;
+    bottom: -55px;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.categories-visual-section::before {
+    background: color-mix(in srgb, var(--color-blue) 18%, white);
+}
+.problems-section::before {
+    background: color-mix(in srgb, var(--color-lavender) 16%, white);
+}
+.customer-stats-section::before {
+    background: color-mix(in srgb, var(--color-mint) 16%, white);
+}
+.blog-section::before {
+    background: color-mix(in srgb, var(--color-peach) 18%, white);
+}

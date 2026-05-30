@@ -799,11 +799,14 @@ document.addEventListener('DOMContentLoaded', () => {
         goTo(0);
     })();
 
-    // --- EXPERTS SLIDER (mobile only) ---
+    // --- EXPERTS SLIDER (disabled) ---
+    // Experts now use a responsive bento grid at every breakpoint (no slider),
+    // so this carousel is intentionally left inert.
     (function () {
         const wrapper = document.querySelector('.experts-slider-wrapper');
         const track = document.getElementById('experts-slider-track');
         if (!wrapper || !track) return;
+        return; // bento grid handles all layouts — no slider needed
 
         const prevBtn = wrapper.querySelector('.e-prev');
         const nextBtn = wrapper.querySelector('.e-next');
