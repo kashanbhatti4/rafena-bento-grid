@@ -171,10 +171,20 @@
     flex-direction: column;
     min-height: 160px;
     border: var(--border-width) solid var(--color-green);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15), 
-                box-shadow 0.3s ease, 
-                border-color 0.3s ease, 
-                background 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.2s ease, 
+                background 0.2s ease;
+}
+.ecs-card:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: var(--color-green-bright);
+    box-shadow: 
+        0 14px 28px rgba(17, 12, 26, 0.08), 
+        0 0 20px rgba(138, 43, 226, 0.15); /* Modern violet aura glow on hover! */
+}
+.ecs-card:active {
+    transform: translateY(-1px) scale(0.995);
 }
 .ecs-card--glass {
     background: rgba(255, 255, 255, 0.7);
@@ -343,7 +353,7 @@
 }
 .ecs-symptom-icon {
     font-size: 2.2rem;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .ecs-symptom-label {
     font-size: 1.1rem;
@@ -354,7 +364,7 @@
     font-weight: 700;
     opacity: 0;
     transform: translateY(6px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Custom individual accent rhythms matching categories visual grid */

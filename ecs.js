@@ -141,7 +141,7 @@
             
             // Add a subtle tactile button loading response to feel like a Progress Trigger
             var originalText = btn.innerHTML;
-            btn.innerHTML = 'מחשב מסלול... <span class="spinner" style="display:inline-block; animation: ecsLive 1s infinite;">⏳</span>';
+            btn.innerHTML = window.currentLoaderText || 'היועץ שלך מרכיב לך את הקוקטייל הבוטני המדויק... 🧠✨';
             btn.style.pointerEvents = 'none';
             btn.style.opacity = '0.85';
             

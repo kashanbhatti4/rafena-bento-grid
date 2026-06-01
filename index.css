@@ -5,37 +5,43 @@
 
 /* --- 1. DESIGN SYSTEM VARIABLES --- */
 :root {
-    /* ── Nature-Pharm Brand Palette ── */
-    --color-green: #1F3D2E;         /* Dark Forest Green — text, borders, headings */
-    --color-green-bright: #2d7a4d;  /* Bright Forest Green */
-    --color-teal: #66CFC2;          /* Brand Mint Teal — decorative accents */
-    --color-white: #FFFFFF;         /* Pure White — card backgrounds */
-    --color-cream: #F9F9F7;         /* Pistachio Cream — page background */
+    /* ── Vibrant Holistic Pop Palette ── */
+    --color-green: #110C1A;         /* Deep Night Plum — primary dark background/text/borders */
+    --color-green-bright: #8A2BE2;  /* Active Matcha Violet — modern wellness spiritual base */
+    --color-teal: #00FA9A;          /* Electric Neon Mint — premium action/highlight */
+    --color-white: #FFFFFF;         /* Pure White — crisp card backgrounds */
+    --color-cream: #FFFDF9;         /* Cream Pop — lifestyle warm background atmosphere */
 
-    /* Category accent colors (Nature-Pharm palette) */
-    --color-blue: #79CEE3;          /* Sky Blue — Sleep / Restful Nights cards */
-    --color-blue-dark: #4BA8C8;     /* Sky Blue darker — hover borders */
-    --color-lavender: #CF9AC6;      /* Lavender — Anxiety / Calm cards */
-    --color-peach: #F6C178;         /* Peach / Warm Orange — Pain / Recovery cards */
-    --color-mint: #8CCD8D;          /* Mint Green — Pets cards */
-    --color-lime: #ADC865;          /* Lime — Energy / Focus accent */
+    /* Category accent colors (Vibrant modern self-care palette) */
+    --color-blue: #A78BFA;          /* Modern Lavender/Matcha Violet — Sleep / Restful Nights */
+    --color-blue-dark: #8A2BE2;     /* Deeper Violet — hover borders */
+    --color-lavender: #CF9AC6;      /* Calm Lavender — Anxiety / Calm */
+    --color-peach: #F472B6;         /* Dreamy Rose — Pain / Recovery */
+    --color-mint: #00FA9A;          /* Electric Neon Mint — Pets */
+    --color-lime: #34D399;          /* Emerald Mint — Energy / Focus */
 
-    /* CTA colours */
-    --color-gold: #FAC172;          /* Warm Gold — all CTAs, active states */
-    --color-gold-hover: #F0A855;    /* Gold Hover (deeper) */
+    /* CTA / Conversion Trigger colors */
+    --color-gold: #00FA9A;          /* Electric Neon Mint — conversion/action highlights */
+    --color-gold-hover: #00E587;    /* Bright Neon Mint Hover */
 
     --border-width: 2px;
     --border-radius-large: 24px;
     --border-radius-medium: 16px;
     --border-radius-small: 12px;
 
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Snappy springs ($0.2s$ transition speeds with elastic bounce) */
+    --transition-fast: 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-medium: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-slow: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    --shadow-soft: 0 12px 24px rgba(31, 61, 46, 0.08);
-    --shadow-hover: 0 18px 36px rgba(31, 61, 46, 0.14);
-    --shadow-gold: 0 8px 20px rgba(250, 193, 114, 0.45);
+    --shadow-soft: 0 12px 24px rgba(17, 12, 26, 0.06);
+    --shadow-hover: 0 18px 36px rgba(17, 12, 26, 0.12);
+    --shadow-gold: 0 8px 20px rgba(0, 250, 154, 0.35);
+
+    --bg-image: radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 60%, rgba(0, 250, 154, 0.06) 0%, transparent 40%);
+    --font-heading: 'Assistant', 'Rubik', 'Segoe UI', sans-serif;
+    --font-heading-weight: 800;
 }
 
 /* --- 2. BASE RESET & GENERAL STYLES --- */
@@ -50,13 +56,22 @@ html {
     font-size: 16px;
 }
 
+/* Bold typography for headlines */
+h1, h2, h3, h4, h5, h6, .section-title, .hero-h1-centered, .narrative-h2, .ecs-title, .teaser-question, .brand-name {
+    font-family: var(--font-heading) !important;
+    font-weight: var(--font-heading-weight) !important;
+}
+
 body {
     font-family: 'Rubik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-cream);
+    background-image: var(--bg-image);
+    background-attachment: fixed;
     color: var(--color-green);
     overflow-x: hidden;
     line-height: 1.6;
     padding-top: 80px; /* Space for persistent header */
+    transition: background-color var(--transition-medium), color var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
 }
 
 a {
@@ -198,7 +213,17 @@ a {
     padding: 32px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color var(--transition-medium);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-medium);
+}
+.bento-card:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: var(--color-green-bright);
+    box-shadow: 
+        0 14px 28px rgba(17, 12, 26, 0.08), 
+        0 0 20px rgba(138, 43, 226, 0.15); /* Modern violet aura glow on hover! */
+}
+.bento-card:active {
+    transform: translateY(-1px) scale(0.995);
 }
 
 /* Hard borders instead of soft drop shadows for premium trendy look */
@@ -4080,4 +4105,91 @@ a {
 }
 .shimmer-container.is-loaded img {
     opacity: 1;
+}
+
+/* ==========================================================================
+   THEME COMPARER / STYLESWAP SYSTEM
+   Allows toggling between "Vibrant Pop" (default) and "Forest Classic" (Nature-Pharm)
+   ========================================================================== */
+
+body.theme-nature-pharm {
+    /* -- Revert Brand Colors back to Classic Nature-Pharm -- */
+    --color-green: #1F3D2E;         /* Dark Forest Green */
+    --color-green-bright: #2d7a4d;  /* Bright Forest Green */
+    --color-teal: #66CFC2;          /* Brand Mint Teal */
+    --color-cream: #F9F9F7;         /* Pistachio Cream */
+
+    /* Revert category accents */
+    --color-blue: #79CEE3;          /* Sky Blue */
+    --color-blue-dark: #4BA8C8;     
+    --color-lavender: #CF9AC6;      
+    --color-peach: #F6C178;         
+    --color-mint: #8CCD8D;          
+    --color-lime: #ADC865;          
+
+    /* Revert CTA colors */
+    --color-gold: #FAC172;          /* Warm Gold */
+    --color-gold-hover: #F0A855;    
+
+    /* Revert transitions to classic smooth standard */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --shadow-soft: 0 12px 24px rgba(31, 61, 46, 0.08);
+    --shadow-hover: 0 18px 36px rgba(31, 61, 46, 0.14);
+    --shadow-gold: 0 8px 20px rgba(250, 193, 114, 0.45);
+
+    --bg-image: none;
+    --font-heading: 'Rubik', 'Segoe UI', sans-serif;
+    --font-heading-weight: 700;
+}
+
+/* Redefine hover effects for classic theme to remove purple glows */
+body.theme-nature-pharm .ecs-card:hover,
+body.theme-nature-pharm .bento-card:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: var(--color-green-bright);
+    box-shadow: 0 14px 28px rgba(31, 61, 46, 0.12) !important;
+}
+
+/* Floating Comparer Widget CSS */
+.theme-toggle-floating {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid var(--color-green);
+    border-radius: 50px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 30px rgba(17, 12, 26, 0.15);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    direction: rtl; /* Hebrew label flow */
+}
+.theme-toggle-floating:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+.theme-toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Assistant', 'Rubik', sans-serif;
+    color: var(--color-green);
+    outline: none;
+}
+.theme-toggle-btn.active {
+    background: var(--color-green);
+    color: var(--color-cream);
+    box-shadow: var(--shadow-soft);
 }
