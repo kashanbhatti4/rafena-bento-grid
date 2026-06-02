@@ -357,7 +357,7 @@ a {
 /* --- 7. HERO SECTION GRID - CENTERED DESIGN --- */
 .hero-section {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 12px auto 40px; /* Reduced top gap by 70% from 40px to 12px */
     padding: 0 20px;
 }
 
@@ -367,7 +367,7 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 48px 32px;
+    padding: 28px 24px; /* Tightened padding from 48px 32px to fit CTAs above the fold */
     width: 100%;
     /* Soft branded wash instead of flat white */
     background:
@@ -383,22 +383,22 @@ a {
 .hero-eyebrow-pill {
     background-color: var(--color-blue);
     color: var(--color-green);
-    padding: 8px 24px;
+    padding: 6px 20px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     display: inline-block;
-    margin-bottom: 24px;
+    margin-bottom: 16px; /* Tightened from 24px */
     border: none;
     letter-spacing: 0.5px;
 }
 
 .hero-h1-centered {
-    font-size: 3.2rem;
+    font-size: 2.8rem; /* Compact from 3.2rem */
     font-weight: 900;
     line-height: 1.2;
     letter-spacing: -0.04em;
-    margin-bottom: 20px;
+    margin-bottom: 16px; /* Tightened from 20px */
     color: var(--color-green-bright);
 }
 
@@ -423,11 +423,11 @@ a {
 }
 
 .hero-p-centered {
-    font-size: 1.15rem;
+    font-size: 1.1rem; /* Compact from 1.15rem */
     max-width: 680px;
     margin: 0 auto 12px;
     opacity: 0.9;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .hero-divider {
@@ -436,20 +436,20 @@ a {
     border: none;
     border-top: var(--border-width) solid var(--color-green);
     opacity: 0.15;
-    margin: 24px 0;
+    margin: 16px 0; /* Tightened from 24px 0 */
 }
 
 .hero-onboarding-teaser {
     width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 20px; /* Tightened from 32px */
 }
 
 .teaser-question {
-    font-size: 1.35rem;
+    font-size: 1.2rem; /* Compact from 1.35rem */
     font-weight: 800;
     color: var(--color-green);
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
+    margin-bottom: 12px; /* Tightened from 20px */
 }
 
 .teaser-pills {
@@ -463,8 +463,8 @@ a {
     background-color: var(--color-white);
     border: var(--border-width) solid var(--color-green);
     border-radius: 50px;
-    padding: 10px 24px;
-    font-size: 1rem;
+    padding: 8px 20px; /* Compact padding */
+    font-size: 0.95rem; /* Compact size */
     font-weight: 700;
     color: var(--color-green);
     cursor: pointer;
@@ -487,7 +487,7 @@ a {
     display: flex;
     justify-content: center;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 24px; /* Tightened from 40px */
     width: 100%;
 }
 
@@ -550,30 +550,32 @@ a {
 /* Responsive Overrides for Hero Card */
 @media (max-width: 768px) {
     .hero-centered-card {
-        padding: 32px 20px;
+        padding: 20px 16px; /* Tightened padding */
     }
     
     .hero-h1-centered {
-        font-size: 2.1rem;
+        font-size: 1.7rem; /* Compact size */
     }
     
     .hero-p-centered {
-        font-size: 1.05rem;
+        font-size: 0.95rem; /* Compact size */
     }
     
     .teaser-question {
-        font-size: 1.1rem;
+        font-size: 1.05rem; /* Compact size */
+        margin-bottom: 10px;
     }
     
     .teaser-pill {
-        padding: 8px 18px;
-        font-size: 0.9rem;
+        padding: 6px 14px;
+        font-size: 0.85rem;
     }
     
     .hero-cta-group-centered {
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
+        margin-bottom: 20px;
     }
     
     .hero-cta-group-centered .btn {
@@ -583,7 +585,7 @@ a {
     
     .hero-trust-row-centered {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
     }
 }
 
@@ -1582,9 +1584,9 @@ a {
     pointer-events: none;
 }
 
-/* RTL: prev (›) on the right, next (‹) on the left */
-.t-prev { right: 4px; }
-.t-next { left: 4px; }
+/* Prev (‹) on the left, next (›) on the right */
+.t-prev { left: 4px; }
+.t-next { right: 4px; }
 
 .t-dots {
     display: flex;
@@ -2899,8 +2901,8 @@ a {
         pointer-events: none;
     }
 
-    .p-prev { right: 4px; }
-    .p-next { left: 4px; }
+    .p-prev { left: 4px; }
+    .p-next { right: 4px; }
 
     /* Dots for products slider */
     .p-dots {
@@ -3823,8 +3825,8 @@ a {
         pointer-events: none !important;
     }
 
-    .b-prev { right: 4px !important; }
-    .b-next { left: 4px !important; }
+    .b-prev { left: 4px !important; }
+    .b-next { right: 4px !important; }
 
     .b-dots {
         display: flex !important;
@@ -4192,4 +4194,19 @@ body.theme-nature-pharm .bento-card:hover {
     background: var(--color-green);
     color: var(--color-cream);
     box-shadow: var(--shadow-soft);
+}
+
+/* --- Dynamic Icon Swapping between themes --- */
+.classic-icon {
+    display: none !important;
+}
+.pop-icon {
+    display: inline-flex !important;
+}
+
+body.theme-nature-pharm .classic-icon {
+    display: inline-flex !important;
+}
+body.theme-nature-pharm .pop-icon {
+    display: none !important;
 }
