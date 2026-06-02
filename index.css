@@ -3879,7 +3879,6 @@ a {
 }
 
 /* Increase vertical margin between sections globally for high clarity & neatness */
-.hero-section,
 .onboarding-section,
 .category-carousel-section,
 .products-section,
@@ -3900,7 +3899,10 @@ a {
 
 /* Set small viewport adjustments for global margins to keep it comfortable */
 @media (max-width: 768px) {
-    .hero-section,
+    .hero-section {
+        margin-top: 10px !important;
+        margin-bottom: 30px !important;
+    }
     .onboarding-section,
     .category-carousel-section,
     .products-section,
