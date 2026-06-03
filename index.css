@@ -4664,6 +4664,7 @@ a {
     grid-auto-rows: 1fr;
     gap: 20px;
     margin-top: 40px;
+    grid-auto-flow: dense;
 }
 
 .protocols-grid-bento .bento-card {
@@ -4838,30 +4839,45 @@ a {
     transform: translateY(-4px);
 }
 
-/* Responsive adjustments for Protocols Grid */
-@media (max-width: 1200px) {
+/* Bento Grid Spans for Desktop (> 1200px) */
+@media (min-width: 1201px) {
+    .bento-card-sleep { grid-column: span 2; }
+    .bento-card-ptsd { grid-column: span 2; }
+    .bento-card-skin { grid-column: span 2; }
+    .bento-card-inflammation { grid-column: span 2; }
+}
+
+/* Bento Grid Spans for Small Desktop (992px to 1200px) */
+@media (max-width: 1200px) and (min-width: 993px) {
     .protocols-grid-bento {
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
     }
+    .bento-card-sleep { grid-column: span 2; }
+    .bento-card-ptsd { grid-column: span 2; }
+    .bento-card-inflammation { grid-column: span 2; }
 }
 
-@media (max-width: 992px) {
+/* Bento Grid Spans for Tablet (768px to 992px) */
+@media (max-width: 992px) and (min-width: 768px) {
     .protocols-grid-bento {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: auto;
     }
+    .bento-card-sleep { grid-column: span 2; }
+    .bento-card-ptsd { grid-column: span 2; }
 }
 
-@media (max-width: 768px) {
+/* Mobile: Single Column */
+@media (max-width: 767px) {
     .protocols-grid-bento {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
         gap: 16px;
     }
-    
     .protocols-grid-bento .bento-card {
         padding: 16px;
+        grid-column: span 1 !important;
     }
 }
 
