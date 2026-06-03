@@ -1002,6 +1002,23 @@ a {
     overflow: hidden;
 }
 
+/* Condition-based product card backgrounds */
+.product-card.cond-sleep .product-glow-wrapper {
+    background-color: var(--color-blue);
+}
+.product-card.cond-anxiety .product-glow-wrapper {
+    background-color: var(--color-lavender);
+}
+.product-card.cond-pain .product-glow-wrapper {
+    background-color: var(--color-peach);
+}
+.product-card.cond-pets .product-glow-wrapper {
+    background-color: var(--color-mint);
+}
+.product-card.cond-energy .product-glow-wrapper {
+    background-color: var(--color-lime);
+}
+
 /* Ambient Backglow Expand Effect on Hover (MX) */
 .product-bg-glow {
     position: absolute;
@@ -4123,13 +4140,13 @@ body.theme-nature-pharm {
     --color-teal: #66CFC2;          /* Brand Mint Teal */
     --color-cream: #F9F9F7;         /* Pistachio Cream */
 
-    /* Revert category accents */
-    --color-blue: #79CEE3;          /* Sky Blue */
+    /* Revert category accents to match official Nature-Pharm categories */
+    --color-blue: #79CEE3;          /* Sky Blue - Sleep */
     --color-blue-dark: #4BA8C8;     
-    --color-lavender: #CF9AC6;      
-    --color-peach: #F6C178;         
-    --color-mint: #8CCD8D;          
-    --color-lime: #ADC865;          
+    --color-lavender: #FBB358;      /* Orange/Yellow - Anxiety */
+    --color-peach: #7ECBAF;         /* Teal/Green - Pain */
+    --color-mint: #D3946D;          /* Peach/Brown - Pets */
+    --color-lime: #B3A1CF;          /* Purple - Energy & Focus */
 
     /* Revert CTA colors */
     --color-gold: #FAC172;          /* Warm Gold */
