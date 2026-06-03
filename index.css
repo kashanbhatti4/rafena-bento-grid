@@ -4699,19 +4699,19 @@ a {
     white-space: nowrap;
 }
 
-/* Condition Badges Colors (High contrast for light background) */
-.badge-sleep { background: rgba(138, 43, 226, 0.06); color: #8A2BE2; }
-.badge-pain { background: rgba(219, 39, 119, 0.06); color: #DB2777; }
-.badge-anxiety { background: rgba(5, 150, 105, 0.06); color: #059669; }
-.badge-digestive { background: rgba(217, 119, 6, 0.06); color: #B45309; }
-.badge-adhd { background: rgba(37, 99, 235, 0.06); color: #1D4ED8; }
-.badge-ptsd { background: rgba(124, 58, 237, 0.06); color: #6D28D9; }
-.badge-allergies { background: rgba(13, 148, 136, 0.06); color: #0F766E; }
-.badge-skin { background: rgba(225, 29, 72, 0.06); color: #BE123C; }
-.badge-cognitive { background: rgba(75, 85, 99, 0.06); color: #374151; }
-.badge-inflammation { background: rgba(101, 163, 13, 0.06); color: #4D7C0F; }
-.badge-cancer { background: rgba(192, 38, 211, 0.06); color: #A21CAF; }
-.badge-concentration { background: rgba(22, 163, 74, 0.06); color: #15803D; }
+/* Condition Badges Colors (Using ONLY existing root variables + dynamic color-mix) */
+.badge-sleep { background: color-mix(in srgb, var(--color-green-bright) 6%, white); color: var(--color-green-bright); }
+.badge-pain { background: color-mix(in srgb, var(--color-peach) 12%, white); color: color-mix(in srgb, var(--color-peach) 75%, black); }
+.badge-anxiety { background: color-mix(in srgb, var(--color-lavender) 12%, white); color: color-mix(in srgb, var(--color-lavender) 75%, black); }
+.badge-digestive { background: color-mix(in srgb, var(--color-peach) 12%, white); color: color-mix(in srgb, var(--color-peach) 75%, black); }
+.badge-adhd { background: color-mix(in srgb, var(--color-lime) 12%, white); color: color-mix(in srgb, var(--color-lime) 75%, black); }
+.badge-ptsd { background: color-mix(in srgb, var(--color-green-bright) 6%, white); color: var(--color-green-bright); }
+.badge-allergies { background: color-mix(in srgb, var(--color-mint) 12%, white); color: color-mix(in srgb, var(--color-mint) 70%, black); }
+.badge-skin { background: color-mix(in srgb, var(--color-peach) 12%, white); color: color-mix(in srgb, var(--color-peach) 75%, black); }
+.badge-cognitive { background: color-mix(in srgb, var(--color-green-bright) 6%, white); color: var(--color-green-bright); }
+.badge-inflammation { background: color-mix(in srgb, var(--color-lime) 12%, white); color: color-mix(in srgb, var(--color-lime) 75%, black); }
+.badge-cancer { background: color-mix(in srgb, var(--color-peach) 12%, white); color: color-mix(in srgb, var(--color-peach) 75%, black); }
+.badge-concentration { background: color-mix(in srgb, var(--color-lime) 12%, white); color: color-mix(in srgb, var(--color-lime) 75%, black); }
 
 .protocols-grid-bento .tracking-indicator {
     font-size: 0.7rem;
@@ -4796,42 +4796,42 @@ a {
     margin-top: 0;
 }
 
-/* Card Glows on Hover matching Condition Themes */
-.bento-card-sleep:hover { box-shadow: 0 10px 25px rgba(138, 43, 226, 0.08); border-color: #8A2BE2 !important; }
-.bento-card-sleep .metric-value { color: #8A2BE2; }
+/* Card Glows on Hover matching Condition Themes (Using ONLY existing root variables + dynamic color-mix) */
+.bento-card-sleep:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-green-bright) 8%, transparent); border-color: var(--color-green-bright) !important; }
+.bento-card-sleep .metric-value { color: var(--color-green-bright); }
 
-.bento-card-pain:hover { box-shadow: 0 10px 25px rgba(219, 39, 119, 0.08); border-color: #DB2777 !important; }
-.bento-card-pain .metric-value { color: #DB2777; }
+.bento-card-pain:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
+.bento-card-pain .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
 
-.bento-card-anxiety:hover { box-shadow: 0 10px 25px rgba(5, 150, 105, 0.08); border-color: #059669 !important; }
-.bento-card-anxiety .metric-value { color: #059669; }
+.bento-card-anxiety:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lavender) 16%, transparent); border-color: var(--color-lavender) !important; }
+.bento-card-anxiety .metric-value { color: color-mix(in srgb, var(--color-lavender) 75%, black); }
 
-.bento-card-digestive:hover { box-shadow: 0 10px 25px rgba(217, 119, 6, 0.08); border-color: #d97706 !important; }
-.bento-card-digestive .metric-value { color: #B45309; }
+.bento-card-digestive:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
+.bento-card-digestive .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
 
-.bento-card-adhd:hover { box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08); border-color: #2563eb !important; }
-.bento-card-adhd .metric-value { color: #1D4ED8; }
+.bento-card-adhd:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lime) 16%, transparent); border-color: var(--color-lime) !important; }
+.bento-card-adhd .metric-value { color: color-mix(in srgb, var(--color-lime) 75%, black); }
 
-.bento-card-ptsd:hover { box-shadow: 0 10px 25px rgba(124, 58, 237, 0.08); border-color: #7c3aed !important; }
-.bento-card-ptsd .metric-value { color: #6D28D9; }
+.bento-card-ptsd:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-green-bright) 8%, transparent); border-color: var(--color-green-bright) !important; }
+.bento-card-ptsd .metric-value { color: var(--color-green-bright); }
 
-.bento-card-allergies:hover { box-shadow: 0 10px 25px rgba(13, 148, 136, 0.08); border-color: #0d9488 !important; }
-.bento-card-allergies .metric-value { color: #0F766E; }
+.bento-card-allergies:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-mint) 16%, transparent); border-color: var(--color-mint) !important; }
+.bento-card-allergies .metric-value { color: color-mix(in srgb, var(--color-mint) 70%, black); }
 
-.bento-card-skin:hover { box-shadow: 0 10px 25px rgba(225, 29, 72, 0.08); border-color: #e11d48 !important; }
-.bento-card-skin .metric-value { color: #BE123C; }
+.bento-card-skin:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
+.bento-card-skin .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
 
-.bento-card-cognitive:hover { box-shadow: 0 10px 25px rgba(75, 85, 99, 0.08); border-color: #4b5563 !important; }
-.bento-card-cognitive .metric-value { color: #374151; }
+.bento-card-cognitive:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-green-bright) 8%, transparent); border-color: var(--color-green-bright) !important; }
+.bento-card-cognitive .metric-value { color: var(--color-green-bright); }
 
-.bento-card-inflammation:hover { box-shadow: 0 10px 25px rgba(101, 163, 13, 0.08); border-color: #65a30d !important; }
-.bento-card-inflammation .metric-value { color: #4D7C0F; }
+.bento-card-inflammation:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lime) 16%, transparent); border-color: var(--color-lime) !important; }
+.bento-card-inflammation .metric-value { color: color-mix(in srgb, var(--color-lime) 75%, black); }
 
-.bento-card-cancer:hover { box-shadow: 0 10px 25px rgba(192, 38, 211, 0.08); border-color: #c026d3 !important; }
-.bento-card-cancer .metric-value { color: #A21CAF; }
+.bento-card-cancer:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
+.bento-card-cancer .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
 
-.bento-card-concentration:hover { box-shadow: 0 10px 25px rgba(22, 163, 74, 0.08); border-color: #16a34a !important; }
-.bento-card-concentration .metric-value { color: #15803D; }
+.bento-card-concentration:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lime) 16%, transparent); border-color: var(--color-lime) !important; }
+.bento-card-concentration .metric-value { color: color-mix(in srgb, var(--color-lime) 75%, black); }
 
 /* Global hover fallback for grid cards */
 .protocols-grid-bento .bento-card:hover {
