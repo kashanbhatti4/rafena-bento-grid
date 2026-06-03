@@ -1200,5 +1200,75 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('error', markLoaded);
         }
     });
+
+    // --- 13. TARGETED PROTOCOLS COUNT-UP ANIMATION (MX) ---
+    (function () {
+        const protocolsGrid = document.querySelector('.protocols-grid-bento');
+        if (!protocolsGrid) return;
+
+        const metrics = protocolsGrid.querySelectorAll('.metric-value');
+        const countData = [];
+
+        // Store original percentages and reset to 0%
+        metrics.forEach((el) => {
+            const text = el.textContent.trim();
+            const target = parseInt(text.replace('%', ''), 10) || 0;
+            countData.push({
+                element: el,
+                target: target
+            });
+            el.textContent = '0%';
+        });
+
+        let animated = false;
+
+        function startCountUp() {
+            if (animated) return;
+            animated = true;
+
+            const duration = 1500; // Animation duration in milliseconds
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function: easeOutQuad
+                const easeProgress = progress * (2 - progress);
+
+                countData.forEach(item => {
+                    const currentVal = Math.floor(easeProgress * item.target);
+                    item.element.textContent = currentVal + '%';
+                });
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    // Ensure final values are precise
+                    countData.forEach(item => {
+                        item.element.textContent = item.target + '%';
+                    });
+                }
+            }
+
+            requestAnimationFrame(updateCounter);
+        }
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCountUp();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            observer.observe(protocolsGrid);
+        } else {
+            // Fallback for older browsers
+            startCountUp();
+        }
+    })();
 });
 
