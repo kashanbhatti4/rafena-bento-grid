@@ -4672,29 +4672,15 @@ a {
     flex-direction: column;
     justify-content: space-between;
     padding: 18px 20px;
-    background-color: var(--color-white);
+    background-color: var(--color-white) !important;
     border: var(--border-width) solid var(--color-green) !important;
     border-radius: var(--border-radius-large);
     position: relative;
     overflow: hidden;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-medium);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
     direction: rtl;
     text-align: right;
 }
-
-/* Card Background Colors mapping Category themes */
-.bento-card-sleep { background-color: var(--color-blue) !important; }
-.bento-card-pain { background-color: var(--color-peach) !important; }
-.bento-card-anxiety { background-color: var(--color-lavender) !important; }
-.bento-card-digestive { background-color: var(--color-peach) !important; }
-.bento-card-adhd { background-color: var(--color-lime) !important; }
-.bento-card-ptsd { background-color: var(--color-lavender) !important; }
-.bento-card-allergies { background-color: var(--color-mint) !important; }
-.bento-card-skin { background-color: var(--color-peach) !important; }
-.bento-card-cognitive { background-color: var(--color-blue) !important; }
-.bento-card-inflammation { background-color: var(--color-lime) !important; }
-.bento-card-cancer { background-color: var(--color-peach) !important; }
-.bento-card-concentration { background-color: var(--color-lime) !important; }
 
 .protocols-grid-bento .card-meta {
     display: flex;
@@ -4713,22 +4699,21 @@ a {
     border-radius: 50px;
     white-space: nowrap;
     border: var(--border-width) solid var(--color-green);
-    background-color: var(--color-white) !important;
 }
 
-/* Condition Badges Text Colors (Using solid high-contrast theme category colors on solid white background) */
-.badge-sleep { color: var(--color-green-bright) !important; }
-.badge-pain { color: color-mix(in srgb, var(--color-peach) 75%, black) !important; }
-.badge-anxiety { color: color-mix(in srgb, var(--color-lavender) 75%, black) !important; }
-.badge-digestive { color: color-mix(in srgb, var(--color-peach) 75%, black) !important; }
-.badge-adhd { color: color-mix(in srgb, var(--color-lime) 75%, black) !important; }
-.badge-ptsd { color: var(--color-green-bright) !important; }
-.badge-allergies { color: color-mix(in srgb, var(--color-mint) 70%, black) !important; }
-.badge-skin { color: color-mix(in srgb, var(--color-peach) 75%, black) !important; }
-.badge-cognitive { color: var(--color-green-bright) !important; }
-.badge-inflammation { color: color-mix(in srgb, var(--color-lime) 75%, black) !important; }
-.badge-cancer { color: color-mix(in srgb, var(--color-peach) 75%, black) !important; }
-.badge-concentration { color: color-mix(in srgb, var(--color-lime) 75%, black) !important; }
+/* Condition Badges Colors (Solid 100% opacity background colors matching overall homepage) */
+.badge-sleep { background-color: var(--color-green-bright); color: var(--color-white); }
+.badge-pain { background-color: var(--color-peach); color: var(--color-green); }
+.badge-anxiety { background-color: var(--color-lavender); color: var(--color-green); }
+.badge-digestive { background-color: var(--color-peach); color: var(--color-green); }
+.badge-adhd { background-color: var(--color-lime); color: var(--color-green); }
+.badge-ptsd { background-color: var(--color-green-bright); color: var(--color-white); }
+.badge-allergies { background-color: var(--color-mint); color: var(--color-green); }
+.badge-skin { background-color: var(--color-peach); color: var(--color-green); }
+.badge-cognitive { background-color: var(--color-green-bright); color: var(--color-white); }
+.badge-inflammation { background-color: var(--color-lime); color: var(--color-green); }
+.badge-cancer { background-color: var(--color-peach); color: var(--color-green); }
+.badge-concentration { background-color: var(--color-lime); color: var(--color-green); }
 
 .protocols-grid-bento .tracking-indicator {
     font-size: 0.7rem;
