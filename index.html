@@ -2788,13 +2788,69 @@
         </nav>
     </div>
 
+    <!-- Floating Version Comparer Toggle (Gen-Z Preview Mode) -->
+    <div class="theme-toggle-floating" id="theme-toggle-container">
+        <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-green); opacity: 0.7; margin-left: 6px;">תצוגה:</span>
+        <button class="theme-toggle-btn active" id="theme-btn-pop">Vibrant Pop 🔮✨</button>
+        <button class="theme-toggle-btn" id="theme-btn-classic">Forest Classic 🌲</button>
+    </div>
+
     <!-- Script execution -->
     <script src="index.js"></script>
     <script src="ecs.js"></script>
 
-    <!-- Global configurations -->
+    <!-- Theme Toggle Interactivity script -->
     <script>
-        window.currentLoaderText = 'היועץ שלך מרכיב לך את הקוקטייל הבוטני המדויק... 🧠✨';
+        (function() {
+            var btnPop = document.getElementById('theme-btn-pop');
+            var btnClassic = document.getElementById('theme-btn-classic');
+            var ecsTitle = document.querySelector('#ecs-mapping .ecs-title');
+            var ecsSubtitle = document.querySelector('#ecs-mapping .ecs-subtitle');
+            
+            // Store default texts for Pop theme
+            var popTexts = {
+                title: "מאפסים את מערכת העצבים",
+                subtitle: "הדרך המדעית (והקלה) להחזיר את השליטה ליום-יום שלך. לא מוכרים בקבוקים — מתאימים פרוטוקול אישי ומלווים אתכם."
+            };
+            
+            // Classic Nature-Pharm texts
+            var classicTexts = {
+                title: "מפו את מערכת העצבים שלכם להתאוששות",
+                subtitle: "לא מוכרים בקבוקים — מאבחנים, מלווים ובונים פרוטוקול אישי לאיזון מערכת ה‑ECS שלכם."
+            };
+            
+            // Pre-load default state
+            window.currentLoaderText = 'היועץ שלך מרכיב לך את הקוקטייל הבוטני המדויק... 🧠✨';
+            
+            function updateTexts(theme) {
+                if (!ecsTitle || !ecsSubtitle) return;
+                if (theme === 'classic') {
+                    ecsTitle.textContent = classicTexts.title;
+                    ecsSubtitle.textContent = classicTexts.subtitle;
+                    window.currentLoaderText = 'מחשב מסלול... ⏳';
+                } else {
+                    ecsTitle.textContent = popTexts.title;
+                    ecsSubtitle.textContent = popTexts.subtitle;
+                    window.currentLoaderText = 'היועץ שלך מרכיב לך את הקוקטייל הבוטני המדויק... 🧠✨';
+                }
+            }
+            
+            if (btnPop && btnClassic) {
+                btnPop.addEventListener('click', function() {
+                    document.body.classList.remove('theme-nature-pharm');
+                    btnClassic.classList.remove('active');
+                    btnPop.classList.add('active');
+                    updateTexts('pop');
+                });
+                
+                btnClassic.addEventListener('click', function() {
+                    document.body.classList.add('theme-nature-pharm');
+                    btnPop.classList.remove('active');
+                    btnClassic.classList.add('active');
+                    updateTexts('classic');
+                });
+            }
+        })();
     </script>
 </body>
 

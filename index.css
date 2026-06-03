@@ -4227,12 +4227,106 @@ a {
     opacity: 1;
 }
 
+/* ==========================================================================
+   THEME COMPARER / STYLESWAP SYSTEM
+   Allows toggling between "Vibrant Pop" (default) and "Forest Classic" (Nature-Pharm)
+   ========================================================================== */
+
+body.theme-nature-pharm {
+    /* -- Revert Brand Colors back to Classic Nature-Pharm -- */
+    --color-green: #1F3D2E;         /* Dark Forest Green */
+    --color-green-bright: #2d7a4d;  /* Bright Forest Green */
+    --color-teal: #66CFC2;          /* Brand Mint Teal */
+    --color-cream: #F9F9F7;         /* Pistachio Cream */
+
+    /* Revert category accents to match official Nature-Pharm categories */
+    --color-blue: #79CEE3;          /* Sky Blue - Sleep */
+    --color-blue-dark: #4BA8C8;     
+    --color-lavender: #FBB358;      /* Orange/Yellow - Anxiety */
+    --color-peach: #7ECBAF;         /* Teal/Green - Pain */
+    --color-mint: #D3946D;          /* Peach/Brown - Pets */
+    --color-lime: #B3A1CF;          /* Purple - Energy & Focus */
+
+    /* Revert CTA colors */
+    --color-gold: #FAC172;          /* Warm Gold */
+    --color-gold-hover: #F0A855;    
+
+    /* Revert transitions to classic smooth standard */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --shadow-soft: 0 12px 24px rgba(31, 61, 46, 0.08);
+    --shadow-hover: 0 18px 36px rgba(31, 61, 46, 0.14);
+    --shadow-gold: 0 8px 20px rgba(250, 193, 114, 0.45);
+
+    --bg-image: none;
+    --font-heading: 'Rubik', 'Segoe UI', sans-serif;
+    --font-heading-weight: 700;
+}
+
+/* Redefine hover effects for classic theme to remove purple glows */
+body.theme-nature-pharm .ecs-card:hover,
+body.theme-nature-pharm .bento-card:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: var(--color-green-bright);
+    box-shadow: 0 14px 28px rgba(31, 61, 46, 0.12) !important;
+}
+
+/* Floating Comparer Widget CSS */
+.theme-toggle-floating {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid var(--color-green);
+    border-radius: 50px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 30px rgba(17, 12, 26, 0.15);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    direction: rtl; /* Hebrew label flow */
+}
+.theme-toggle-floating:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+.theme-toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Assistant', 'Rubik', sans-serif;
+    color: var(--color-green);
+    outline: none;
+}
+.theme-toggle-btn.active {
+    background: var(--color-green);
+    color: var(--color-cream);
+    box-shadow: var(--shadow-soft);
+}
+
 /* --- Icon visibility --- */
 .classic-icon {
     display: none !important;
 }
 .pop-icon {
     display: inline-flex !important;
+}
+
+body.theme-nature-pharm .classic-icon {
+    display: inline-flex !important;
+}
+body.theme-nature-pharm .pop-icon {
+    display: none !important;
 }
 
 /* ==========================================
