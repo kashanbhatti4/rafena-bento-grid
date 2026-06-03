@@ -4229,7 +4229,7 @@ a {
 
 /* ==========================================================================
    THEME COMPARER / STYLESWAP SYSTEM
-   Allows toggling between "Vibrant Pop" (default) and "Forest Classic" (Nature-Pharm)
+   Allows toggling between "Vibrant Pop" (default), "Forest Classic", and "Organic Sage"
    ========================================================================== */
 
 body.theme-nature-pharm {
@@ -4265,12 +4265,82 @@ body.theme-nature-pharm {
     --font-heading-weight: 700;
 }
 
+body.theme-organic-sage {
+    /* -- Revert Brand Colors to Organic Sage / Elevated Earthy Neutrals -- */
+    --color-green: #2C2A29;         /* Deep Charcoal / Warm Espresso */
+    --color-green-bright: #4A5D53;  /* Deep Eucalyptus Green */
+    --color-teal: #8FA89B;          /* Muted Sage Green */
+    --color-cream: #F5F2EB;         /* Warm Sand / Ivory Page Background */
+    --color-white: #FFFDFB;         /* Alabaster / Soft Cream Card Background */
+
+    /* Revert category accents to earthy sage palette */
+    --color-blue: #8FA89B;          /* Sage Green */
+    --color-blue-dark: #4A5D53;     
+    --color-lavender: #CF9AC6;      /* Keep calm lavender for anxiety or map to muted earth tones */
+    --color-peach: #FAC172;         /* Warm Gold / Earthy Ochre */
+    --color-mint: #8FA89B;          /* Sage Green */
+    --color-lime: #4A5D53;          /* Eucalyptus Green */
+
+    /* Revert CTA colors */
+    --color-gold: #4A5D53;          /* Deep Eucalyptus for primary buttons */
+    --color-gold-hover: #5A7064;    
+
+    --shadow-soft: 0 12px 24px rgba(44, 42, 41, 0.04);
+    --shadow-hover: 0 18px 36px rgba(44, 42, 41, 0.08);
+    --shadow-gold: 0 8px 20px rgba(74, 93, 83, 0.2);
+
+    --bg-image: none;
+    --font-heading: 'Assistant', 'Rubik', sans-serif;
+    --font-heading-weight: 800;
+}
+
 /* Redefine hover effects for classic theme to remove purple glows */
 body.theme-nature-pharm .ecs-card:hover,
 body.theme-nature-pharm .bento-card:hover {
     transform: translateY(-4px) scale(1.005);
     border-color: var(--color-green-bright);
     box-shadow: 0 14px 28px rgba(31, 61, 46, 0.12) !important;
+}
+
+/* Subtle Card Styling & Borders for Organic Sage */
+body.theme-organic-sage .bento-card {
+    background-color: var(--color-white) !important;
+    border: 1px solid rgba(44, 42, 41, 0.08) !important;
+    box-shadow: var(--shadow-soft) !important;
+}
+
+body.theme-organic-sage .bento-card:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: var(--color-teal) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+/* Specific Badge overrides for Organic Sage (use clean sage tags) */
+body.theme-organic-sage .protocols-grid-bento .badge {
+    background-color: var(--color-cream) !important;
+    color: var(--color-green-bright) !important;
+    border-color: rgba(44, 42, 41, 0.15) !important;
+}
+body.theme-organic-sage .badge-sleep { background-color: var(--color-green-bright) !important; color: var(--color-white) !important; }
+body.theme-organic-sage .badge-ptsd { background-color: var(--color-green-bright) !important; color: var(--color-white) !important; }
+body.theme-organic-sage .badge-cognitive { background-color: var(--color-green-bright) !important; color: var(--color-white) !important; }
+
+/* Inversion for WhatsApp/Hero cards inside the grid in Organic Sage theme */
+body.theme-organic-sage .wa-card,
+body.theme-organic-sage .hero-bento-card,
+body.theme-organic-sage .split-narrative-card {
+    background-color: var(--color-green-bright) !important; /* Deep Eucalyptus */
+    color: var(--color-white) !important;
+    border-color: var(--color-green-bright) !important;
+}
+body.theme-organic-sage .wa-card *,
+body.theme-organic-sage .hero-bento-card *,
+body.theme-organic-sage .split-narrative-card * {
+    color: var(--color-white) !important;
+}
+body.theme-organic-sage .wa-card .wa-btn {
+    background-color: var(--color-white) !important;
+    color: var(--color-green-bright) !important;
 }
 
 /* Floating Comparer Widget CSS */
@@ -4327,6 +4397,13 @@ body.theme-nature-pharm .classic-icon {
 }
 body.theme-nature-pharm .pop-icon {
     display: none !important;
+}
+
+body.theme-organic-sage .classic-icon {
+    display: none !important;
+}
+body.theme-organic-sage .pop-icon {
+    display: inline-flex !important;
 }
 
 /* ==========================================

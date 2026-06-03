@@ -2793,6 +2793,7 @@
         <span style="font-size: 0.8rem; font-weight: 800; color: var(--color-green); opacity: 0.7; margin-left: 6px;">תצוגה:</span>
         <button class="theme-toggle-btn active" id="theme-btn-pop">Vibrant Pop 🔮✨</button>
         <button class="theme-toggle-btn" id="theme-btn-classic">Forest Classic 🌲</button>
+        <button class="theme-toggle-btn" id="theme-btn-sage">Organic Sage 🌿</button>
     </div>
 
     <!-- Script execution -->
@@ -2804,6 +2805,7 @@
         (function() {
             var btnPop = document.getElementById('theme-btn-pop');
             var btnClassic = document.getElementById('theme-btn-classic');
+            var btnSage = document.getElementById('theme-btn-sage');
             var ecsTitle = document.querySelector('#ecs-mapping .ecs-title');
             var ecsSubtitle = document.querySelector('#ecs-mapping .ecs-subtitle');
             
@@ -2818,6 +2820,12 @@
                 title: "מפו את מערכת העצבים שלכם להתאוששות",
                 subtitle: "לא מוכרים בקבוקים — מאבחנים, מלווים ובונים פרוטוקול אישי לאיזון מערכת ה‑ECS שלכם."
             };
+
+            // Organic Sage texts
+            var sageTexts = {
+                title: "איזון טבעי למערכת העצבים",
+                subtitle: "מדע ובוטניקה נפגשים לפרוטוקול בריאות מותאם אישית. גלו את האיזון הראוי לכם בליווי אישי."
+            };
             
             // Pre-load default state
             window.currentLoaderText = 'היועץ שלך מרכיב לך את הקוקטייל הבוטני המדויק... 🧠✨';
@@ -2828,6 +2836,10 @@
                     ecsTitle.textContent = classicTexts.title;
                     ecsSubtitle.textContent = classicTexts.subtitle;
                     window.currentLoaderText = 'מחשב מסלול... ⏳';
+                } else if (theme === 'sage') {
+                    ecsTitle.textContent = sageTexts.title;
+                    ecsSubtitle.textContent = sageTexts.subtitle;
+                    window.currentLoaderText = 'רוקח קליני מכין את הפרוטוקול הבוטני האישי שלך... 🌿';
                 } else {
                     ecsTitle.textContent = popTexts.title;
                     ecsSubtitle.textContent = popTexts.subtitle;
@@ -2835,19 +2847,32 @@
                 }
             }
             
-            if (btnPop && btnClassic) {
+            if (btnPop && btnClassic && btnSage) {
                 btnPop.addEventListener('click', function() {
                     document.body.classList.remove('theme-nature-pharm');
+                    document.body.classList.remove('theme-organic-sage');
                     btnClassic.classList.remove('active');
+                    btnSage.classList.remove('active');
                     btnPop.classList.add('active');
                     updateTexts('pop');
                 });
                 
                 btnClassic.addEventListener('click', function() {
                     document.body.classList.add('theme-nature-pharm');
+                    document.body.classList.remove('theme-organic-sage');
                     btnPop.classList.remove('active');
+                    btnSage.classList.remove('active');
                     btnClassic.classList.add('active');
                     updateTexts('classic');
+                });
+
+                btnSage.addEventListener('click', function() {
+                    document.body.classList.add('theme-organic-sage');
+                    document.body.classList.remove('theme-nature-pharm');
+                    btnPop.classList.remove('active');
+                    btnClassic.classList.remove('active');
+                    btnSage.classList.add('active');
+                    updateTexts('sage');
                 });
             }
         })();
