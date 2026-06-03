@@ -3990,7 +3990,8 @@ a {
 .rafena-club-section,
 .customer-stats-section,
 .mailers-section,
-.problems-section {
+.problems-section,
+.protocols-section {
     margin-top: 100px !important;
     margin-bottom: 100px !important;
 }
@@ -4014,7 +4015,8 @@ a {
     .rafena-club-section,
     .customer-stats-section,
     .mailers-section,
-    .problems-section {
+    .problems-section,
+    .protocols-section {
         margin-top: 80px !important;
         margin-bottom: 80px !important;
     }
@@ -4647,5 +4649,223 @@ a {
     transform: scale(1.08) translateY(-2px);
     box-shadow: 0 8px 20px var(--bg-soft);
     background: var(--bg-soft);
+}
+
+/* --- SECTION 5.5: TARGETED HEALTH PROTOCOLS BENTO GRID --- */
+.protocols-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.protocols-grid-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(320px, auto);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.protocols-grid-bento .bento-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    border-radius: var(--border-radius-large);
+    border: var(--border-width) solid var(--color-green);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    direction: rtl;
+    text-align: right;
+}
+
+.protocols-grid-bento .bento-card-wide {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.protocols-grid-bento .card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.protocols-grid-bento .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.protocols-grid-bento .badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+/* Condition Badges Colors */
+.badge-sleep { background: rgba(167, 139, 250, 0.15); color: #c4b5fd; }
+.badge-pain { background: rgba(244, 114, 182, 0.15); color: #fbcfe8; }
+.badge-anxiety { background: rgba(52, 211, 153, 0.15); color: #a7f3d0; }
+.badge-digestive { background: rgba(251, 191, 36, 0.15); color: #fde68a; }
+.badge-adhd { background: rgba(96, 165, 250, 0.15); color: #bfdbfe; }
+.badge-ptsd { background: rgba(192, 132, 252, 0.15); color: #e9d5ff; }
+.badge-allergies { background: rgba(45, 212, 191, 0.15); color: #99f6e4; }
+.badge-skin { background: rgba(251, 113, 133, 0.15); color: #fecdd3; }
+.badge-cognitive { background: rgba(156, 163, 175, 0.15); color: #e5e7eb; }
+.badge-inflammation { background: rgba(163, 230, 53, 0.15); color: #ecfccb; }
+.badge-cancer { background: rgba(232, 121, 249, 0.15); color: #f5d0fe; }
+.badge-concentration { background: rgba(34, 197, 94, 0.15); color: #bbf7d0; }
+
+.protocols-grid-bento .tracking-indicator {
+    font-size: 0.75rem;
+    color: #10b981;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.protocols-grid-bento .card-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.protocols-grid-bento .card-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.protocols-grid-bento .card-body strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.protocols-grid-bento .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: auto;
+    width: fit-content;
+}
+
+.protocols-grid-bento .arrow-icon {
+    transition: transform var(--transition-fast);
+    transform: rotate(0deg);
+}
+
+/* Horizontal RTL translation on hover */
+.protocols-grid-bento .bento-card:hover .arrow-icon {
+    transform: translateX(-4px);
+}
+
+/* Metric Container */
+.protocols-grid-bento .card-metric-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    padding-right: 24px;
+    height: 100%;
+    text-align: right;
+}
+
+.protocols-grid-bento .bento-card:not(.bento-card-wide) .card-metric-container {
+    border-right: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    padding-right: 0;
+    padding-top: 24px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.protocols-grid-bento .metric-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #ffffff;
+    font-family: var(--font-heading);
+}
+
+.protocols-grid-bento .metric-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+}
+
+/* Condition Card Dark Background Colors & Border Glows */
+.bento-card-sleep { background-color: #0b1126 !important; color: #f0f4ff !important; border-color: #273469 !important; }
+.bento-card-sleep:hover { box-shadow: 0 0 25px rgba(167, 139, 250, 0.25); border-color: #8a2be2 !important; }
+
+.bento-card-pain { background-color: #260e0e !important; color: #fff0f0 !important; border-color: #5c1e1e !important; }
+.bento-card-pain:hover { box-shadow: 0 0 25px rgba(244, 114, 182, 0.25); border-color: #db2777 !important; }
+
+.bento-card-anxiety { background-color: #091c13 !important; color: #f0fff4 !important; border-color: #1b4530 !important; }
+.bento-card-anxiety:hover { box-shadow: 0 0 25px rgba(52, 211, 153, 0.25); border-color: #059669 !important; }
+
+.bento-card-digestive { background-color: #21150a !important; color: #fffcf5 !important; border-color: #4e3217 !important; }
+.bento-card-digestive:hover { box-shadow: 0 0 25px rgba(251, 191, 36, 0.25); border-color: #d97706 !important; }
+
+.bento-card-adhd { background-color: #0a1726 !important; color: #f2f7ff !important; border-color: #1e3a5f !important; }
+.bento-card-adhd:hover { box-shadow: 0 0 25px rgba(96, 165, 250, 0.25); border-color: #2563eb !important; }
+
+.bento-card-ptsd { background-color: #160c24 !important; color: #f9f5ff !important; border-color: #3b1e5f !important; }
+.bento-card-ptsd:hover { box-shadow: 0 0 25px rgba(192, 132, 252, 0.25); border-color: #7c3aed !important; }
+
+.bento-card-allergies { background-color: #0a1f21 !important; color: #f5fcff !important; border-color: #1e4d52 !important; }
+.bento-card-allergies:hover { box-shadow: 0 0 25px rgba(45, 212, 191, 0.25); border-color: #0d9488 !important; }
+
+.bento-card-skin { background-color: #241117 !important; color: #fff5f8 !important; border-color: #591e32 !important; }
+.bento-card-skin:hover { box-shadow: 0 0 25px rgba(251, 113, 133, 0.25); border-color: #e11d48 !important; }
+
+.bento-card-cognitive { background-color: #0f1014 !important; color: #f5f5f7 !important; border-color: #2b2d35 !important; }
+.bento-card-cognitive:hover { box-shadow: 0 0 25px rgba(156, 163, 175, 0.25); border-color: #4b5563 !important; }
+
+.bento-card-inflammation { background-color: #181b0a !important; color: #f9fff2 !important; border-color: #3e451b !important; }
+.bento-card-inflammation:hover { box-shadow: 0 0 25px rgba(163, 230, 53, 0.25); border-color: #65a30d !important; }
+
+.bento-card-cancer { background-color: #1f0b21 !important; color: #fff5fc !important; border-color: #4c1a52 !important; }
+.bento-card-cancer:hover { box-shadow: 0 0 25px rgba(232, 121, 249, 0.25); border-color: #c026d3 !important; }
+
+.bento-card-concentration { background-color: #061b11 !important; color: #f2fff9 !important; border-color: #12422a !important; }
+.bento-card-concentration:hover { box-shadow: 0 0 25px rgba(34, 197, 94, 0.25); border-color: #16a34a !important; }
+
+/* Responsive adjustments for Protocols Grid */
+@media (max-width: 1024px) {
+    .protocols-grid-bento {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(280px, auto);
+    }
+}
+
+@media (max-width: 768px) {
+    .protocols-grid-bento {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 16px;
+    }
+    
+    .protocols-grid-bento .bento-card {
+        padding: 24px;
+    }
 }
 
