@@ -473,9 +473,10 @@
 }
 .ecs-radar {
     width: 100%;
-    max-width: 170px;
+    max-width: 240px;
     aspect-ratio: 1 / 1;
     color: var(--color-green-bright);
+    overflow: visible;
 }
 .ecs-radar-shape {
     animation: ecsRadar 5s ease-in-out infinite alternate;

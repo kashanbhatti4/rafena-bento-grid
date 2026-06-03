@@ -220,28 +220,51 @@
             </article>
 
             <!-- SYMPTOM CARDS (clickable → update protocol) -->
-            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="2" data-symptom="sleep"
+            <button class="ecs-card ecs-card--glass ecs-symptom cond-sleep bento-anim" data-anim-order="2" data-symptom="sleep"
                 data-keywords="נדודי שינה לא ישן עייף תשוש מתעורר אינסומניה insomnia tired exhausted sleepless"
                 aria-pressed="false">
-                <span class="ecs-symptom-icon pop-icon">🌙</span>
-                <span class="ecs-symptom-icon classic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                <span class="ecs-symptom-icon pop-icon">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="sleepGradEcs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#A78BFA" />
+                                <stop offset="100%" stop-color="#8A2BE2" />
+                            </linearGradient>
+                            <linearGradient id="cloudGradEcs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFFFF" />
+                                <stop offset="100%" stop-color="#CF9AC6" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradEcs)" stroke="url(#sleepGradEcs)" stroke-width="1" />
+                        <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradEcs)" stroke="url(#cloudGradEcs)" stroke-width="1" />
+                        <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradEcs)" stroke-width="1.8" />
+                        <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradEcs)" stroke-width="1.5" />
+                        <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradEcs)" stroke-width="1.2" />
                     </svg>
                 </span>
                 <span class="ecs-symptom-label">נדודי שינה</span>
                 <span class="ecs-symptom-hint">יש לנו פרוטוקול לזה ←</span>
             </button>
 
-            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="3" data-symptom="anxiety"
+            <button class="ecs-card ecs-card--glass ecs-symptom cond-anxiety bento-anim" data-anim-order="3" data-symptom="anxiety"
                 data-keywords="חרדה לחץ מוצף רועד דאגה פאניקה סטרס anxious overwhelmed shaky stressed panic"
                 aria-pressed="false">
-                <span class="ecs-symptom-icon pop-icon">🫧</span>
-                <span class="ecs-symptom-icon classic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-                        <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"></path>
-                        <path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"></path>
-                        <circle cx="12" cy="12" r="2"></circle>
+                <span class="ecs-symptom-icon pop-icon">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="anxietyGradEcs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F472B6" />
+                                <stop offset="100%" stop-color="#8A2BE2" />
+                            </linearGradient>
+                            <linearGradient id="anxietyRippleEcs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00FA9A" />
+                                <stop offset="100%" stop-color="#8A2BE2" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradEcs)" stroke="url(#anxietyGradEcs)" stroke-width="1" />
+                        <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleEcs)" stroke-width="2" />
+                        <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleEcs)" stroke-width="1.5" />
+                        <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleEcs)" stroke-width="1.2" stroke-dasharray="3 3" />
                     </svg>
                 </span>
                 <span class="ecs-symptom-label">חרדה ולחץ</span>
@@ -265,7 +288,7 @@
                         </g>
                         <polygon class="ecs-radar-shape" points="100,40 150,72 138,132 100,150 55,128 48,70"
                             fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2" />
-                        <g class="ecs-radar-axis-labels" fill="currentColor" font-size="9" font-weight="700"
+                        <g class="ecs-radar-axis-labels" fill="currentColor" font-size="11" font-weight="700"
                             text-anchor="middle" opacity="0.8">
                             <text x="100" y="14">שינה</text>
                             <text x="184" y="60">מצב רוח</text>
@@ -312,24 +335,46 @@
             </article>
 
             <!-- MORE SYMPTOM CARDS -->
-            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="6" data-symptom="pain"
+            <button class="ecs-card ecs-card--glass ecs-symptom cond-pain bento-anim" data-anim-order="6" data-symptom="pain"
                 data-keywords="כאב כרוני דלקת שרירים פרקים גב recovery pain inflammation ache" aria-pressed="false">
-                <span class="ecs-symptom-icon pop-icon">🔥</span>
-                <span class="ecs-symptom-icon classic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                <span class="ecs-symptom-icon pop-icon">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="painGradEcs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF5A79" />
+                                <stop offset="100%" stop-color="#DB2777" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradEcs)" stroke="url(#painGradEcs)" stroke-width="1" />
+                        <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradEcs)" stroke-width="2" />
+                        <circle class="ani-pain-pulse2" cx="12" cy="14" r="8" stroke="url(#painGradEcs)" stroke-width="1.5" />
                     </svg>
                 </span>
                 <span class="ecs-symptom-label">כאב כרוני</span>
                 <span class="ecs-symptom-hint">יש לנו פרוטוקול לזה ←</span>
             </button>
 
-            <button class="ecs-card ecs-card--glass ecs-symptom bento-anim" data-anim-order="7" data-symptom="focus"
+            <button class="ecs-card ecs-card--glass ecs-symptom cond-focus bento-anim" data-anim-order="7" data-symptom="focus"
                 data-keywords="ערפל מוחי פוקוס ריכוז עייפות מנטלית brain fog focus clarity foggy" aria-pressed="false">
-                <span class="ecs-symptom-icon pop-icon">🧠</span>
-                <span class="ecs-symptom-icon classic-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-                        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-4.12 2.5 2.5 0 0 1 0-4.88 2.5 2.5 0 0 1 0-4.12A2.5 2.5 0 0 1 9.5 2zM14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-4.12 2.5 2.5 0 0 0 0-4.88 2.5 2.5 0 0 0 0-4.12A2.5 2.5 0 0 0 14.5 2z"></path>
+                <span class="ecs-symptom-icon pop-icon">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="brainGradEcs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00FA9A" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Left and Right hemispheres (filled solid with gradient, no outlines) -->
+                        <path class="ani-brain-body" d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" fill="url(#brainGradEcs)" stroke="none" />
+                        <path class="ani-brain-body" d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" fill="url(#brainGradEcs)" stroke="none" />
+                        
+                        <!-- Midline divider (white separation) -->
+                        <path d="M12 5v13" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.9" />
+                        
+                        <!-- Floating/flashing synapse nodes -->
+                        <circle class="ani-brain-synapse1" cx="7.5" cy="8.5" r="1.5" fill="#FFFFFF" />
+                        <circle class="ani-brain-synapse2" cx="16.5" cy="11" r="1.5" fill="#FFFFFF" />
+                        <circle class="ani-brain-synapse3" cx="9.5" cy="15.5" r="1.5" fill="#FFFFFF" />
                     </svg>
                 </span>
                 <span class="ecs-symptom-label">ערפל מוחי</span>
@@ -368,7 +413,18 @@
             <!-- COMPLIANCE / SECURITY BLOCK (objection handling) -->
             <article class="ecs-card ecs-card--compliance bento-anim" data-anim-order="10"
                 data-keywords="סודיות אבטחה רגולציה compliance security trust">
-                <span class="ecs-compliance-icon" aria-hidden="true">🛡️</span>
+                <span class="ecs-compliance-icon" aria-hidden="true">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="shieldGradComp" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3b82f6" />
+                                <stop offset="100%" stop-color="#00FA9A" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-shield-base" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#shieldGradComp)" stroke="url(#shieldGradComp)" stroke-width="1" />
+                        <path class="ani-shield-check" d="M9.5 11l1.5 1.5 3.5-3.5" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
                 <p class="ecs-compliance-copy">סודיות רפואית מלאה. ייעוץ מבוסס פרוטוקולים בלבד. אנחנו מוכרים תוצאות, לא בקבוקים.</p>
             </article>
 
@@ -443,7 +499,7 @@
         <div class="categories-visual-grid">
             <!-- Category Item 1 (Featured - wider via grid) -->
             <div class="bento-card category-visual-card category-featured-card">
-                <div class="cat-img-wrapper cat-img-wrapper--large">
+                <div class="cat-img-wrapper cat-img-wrapper--large cat-img-wrapper--oil">
                     <img src="wp-content/uploads/2024/11/Group-95-1.png" alt="שמן CBD" class="cat-visual-img">
                 </div>
                 <div class="cat-text-group">
@@ -454,7 +510,7 @@
 
             <!-- Category Item 2 -->
             <div class="bento-card category-visual-card">
-                <div class="cat-img-wrapper">
+                <div class="cat-img-wrapper cat-img-wrapper--pets">
                     <img src="wp-content/uploads/2024/11/Group-96.webp" alt="CBD לחיות מחמד" class="cat-visual-img">
                 </div>
                 <h3 class="cat-visual-title">CBD לחיות מחמד</h3>
@@ -463,7 +519,7 @@
             <!-- Category Item 3 -->
             <div class="bento-card category-visual-card">
                 <span class="soon-badge">בקרוב!</span>
-                <div class="cat-img-wrapper grayscale-img">
+                <div class="cat-img-wrapper cat-img-wrapper--creams grayscale-img">
                     <img src="wp-content/uploads/2024/11/Group-98.webp" alt="משחות CBD" class="cat-visual-img">
                 </div>
                 <h3 class="cat-visual-title">משחות CBD</h3>
@@ -472,7 +528,7 @@
             <!-- Category Item 4 -->
             <div class="bento-card category-visual-card">
                 <span class="soon-badge">בקרוב!</span>
-                <div class="cat-img-wrapper grayscale-img">
+                <div class="cat-img-wrapper cat-img-wrapper--capsules grayscale-img">
                     <img src="wp-content/uploads/2024/11/Group-95-1-1.png" alt="קפסולות CBD" class="cat-visual-img">
                 </div>
                 <h3 class="cat-visual-title">קפסולות CBD</h3>
@@ -509,10 +565,16 @@
                 </div>
                 <!-- Lab Certificate Badge Link -->
                 <div class="coa-quick-bento">
-                    <span class="badge-icon pop-icon">🛡️</span>
-                    <span class="badge-icon classic-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <span class="badge-icon pop-icon">
+                        <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                            <defs>
+                                <linearGradient id="shieldGradCoa" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="100%" stop-color="#00FA9A" />
+                                </linearGradient>
+                            </defs>
+                            <path class="ani-shield-base" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#shieldGradCoa)" stroke="url(#shieldGradCoa)" stroke-width="1" />
+                            <path class="ani-shield-check" d="M9.5 11l1.5 1.5 3.5-3.5" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </span>
                     <div>
@@ -533,7 +595,7 @@
                 </div>
                 <!-- Products Slider Track: wraps all cards for mobile horizontal scroll -->
                 <div class="products-slider-wrapper">
-                    <button class="p-nav p-prev" aria-label="הקודם" type="button">‹</button>
+                    <button class="p-nav p-prev" aria-label="הקודם" type="button">›</button>
                     <div class="products-slider-track" id="products-slider-track">
                         <!-- PRODUCT 1: 30% + 8% CBG Nature-Pharm -->
                         <div class="bento-card product-card cond-pain" data-category="sleep pain" id="prod-1">
@@ -1056,7 +1118,7 @@
                         </div>
                         <!-- end .products-slider-track -->
                     </div>
-                    <button class="p-nav p-next" aria-label="הבא" type="button">›</button>
+                    <button class="p-nav p-next" aria-label="הבא" type="button">‹</button>
                 </div><!-- end .products-slider-wrapper -->
             </div>
     </section>
@@ -1066,7 +1128,7 @@
         <h2 class="section-title text-center">סיפורי ההצלחה של רפאנא</h2>
         <p class="section-subtitle text-center">קראו מה יש ללקוחות המרוצים שלנו לספר על השינוי באיכות חייהם</p>
         <div class="testimonials-slider">
-            <button class="t-nav t-prev" aria-label="הקודם" type="button">‹</button>
+            <button class="t-nav t-prev" aria-label="הקודם" type="button">›</button>
             <div class="testimonials-grid testimonials-track" id="testimonials-track">
                 <!-- Janice -->
                 <div class="bento-card testimonial-card">
@@ -1166,7 +1228,7 @@
                     <div class="rating-stars">⭐⭐⭐⭐⭐</div>
                 </div>
             </div>
-            <button class="t-nav t-next" aria-label="הבא" type="button">›</button>
+            <button class="t-nav t-next" aria-label="הבא" type="button">‹</button>
         </div>
     </section>
 
@@ -1175,7 +1237,7 @@
         <h2 class="section-title text-center">הכירו את יועצי ה‑ECS שלכם</h2>
         <p class="section-subtitle text-center">צוות הרופאים והמדענים שמלווה אתכם אישית במיפוי הדרך להתאוששות</p>
         <div class="experts-slider-wrapper">
-            <button class="e-nav e-prev" aria-label="הקודם" type="button">‹</button>
+            <button class="e-nav e-prev" aria-label="הקודם" type="button">›</button>
             <div class="experts-grid" id="experts-slider-track">
                 <!-- Expert 1 — Featured lead (large 2x2 bento card) -->
                 <div class="bento-card expert-card expert-card--feature">
@@ -1232,7 +1294,7 @@
                         בריא.</p>
                 </div>
             </div><!-- end .experts-grid -->
-            <button class="e-nav e-next" aria-label="הבא" type="button">›</button>
+            <button class="e-nav e-next" aria-label="הבא" type="button">‹</button>
         </div><!-- end .experts-slider-wrapper -->
     </section>
 
@@ -1243,28 +1305,100 @@
 
         <div class="problems-grid-bento">
             <!-- Problem 1 -->
-            <div class="bento-card problem-card-bento">
-                <div class="problem-icon-circle">💤</div>
+            <div class="bento-card problem-card-bento cond-sleep">
+                <div class="problem-icon-circle">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="sleepGradProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#A78BFA" />
+                                <stop offset="100%" stop-color="#8A2BE2" />
+                            </linearGradient>
+                            <linearGradient id="cloudGradProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFFFF" />
+                                <stop offset="100%" stop-color="#CF9AC6" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradProb)" stroke="url(#sleepGradProb)" stroke-width="1" />
+                        <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradProb)" stroke="url(#cloudGradProb)" stroke-width="1" />
+                        <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradProb)" stroke-width="1.8" />
+                        <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradProb)" stroke-width="1.5" />
+                        <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradProb)" stroke-width="1.2" />
+                    </svg>
+                </div>
                 <h4 class="problem-title-bento">בעיות שינה</h4>
             </div>
             <!-- Problem 2 -->
-            <div class="bento-card problem-card-bento">
-                <div class="problem-icon-circle">🧘</div>
+            <div class="bento-card problem-card-bento cond-anxiety">
+                <div class="problem-icon-circle">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="anxietyGradProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F472B6" />
+                                <stop offset="100%" stop-color="#8A2BE2" />
+                            </linearGradient>
+                            <linearGradient id="anxietyRippleProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00FA9A" />
+                                <stop offset="100%" stop-color="#8A2BE2" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradProb)" stroke="url(#anxietyGradProb)" stroke-width="1" />
+                        <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleProb)" stroke-width="2" />
+                        <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleProb)" stroke-width="1.5" />
+                        <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleProb)" stroke-width="1.2" stroke-dasharray="3 3" />
+                    </svg>
+                </div>
                 <h4 class="problem-title-bento">חרדה</h4>
             </div>
             <!-- Problem 3 -->
-            <div class="bento-card problem-card-bento">
-                <div class="problem-icon-circle">🦴</div>
+            <div class="bento-card problem-card-bento cond-pain">
+                <div class="problem-icon-circle">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="painGradProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF5A79" />
+                                <stop offset="100%" stop-color="#DB2777" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradProb)" stroke="url(#painGradProb)" stroke-width="1" />
+                        <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradProb)" stroke-width="2" />
+                        <circle class="ani-pain-pulse2" cx="12" cy="14" r="8" stroke="url(#painGradProb)" stroke-width="1.5" />
+                    </svg>
+                </div>
                 <h4 class="problem-title-bento">דלקות וכאבים</h4>
             </div>
             <!-- Problem 4 -->
-            <div class="bento-card problem-card-bento">
-                <div class="problem-icon-circle">😔</div>
+            <div class="bento-card problem-card-bento cond-anxiety">
+                <div class="problem-icon-circle">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="heartGradProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F472B6" />
+                                <stop offset="100%" stop-color="#CF9AC6" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-mood-heart" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heartGradProb)" stroke="url(#heartGradProb)" stroke-width="1" />
+                        <circle class="ani-mood-pulse" cx="12" cy="10" r="5" stroke="url(#heartGradProb)" stroke-width="2" />
+                    </svg>
+                </div>
                 <h4 class="problem-title-bento">דיכאון</h4>
             </div>
             <!-- Problem 5 -->
-            <div class="bento-card problem-card-bento">
-                <div class="problem-icon-circle">🐾</div>
+            <div class="bento-card problem-card-bento cond-pets">
+                <div class="problem-icon-circle">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="petsGradProb" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00FA9A" />
+                                <stop offset="100%" stop-color="#34D399" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-pets-main" d="M12 11c-2.5 0-4.5 1.8-4.5 3.8 0 1.8 2 3.2 4.5 3.2s4.5-1.4 4.5-3.2c0-2-2-3.8-4.5-3.8z" fill="url(#petsGradProb)" stroke="url(#petsGradProb)" stroke-width="1" />
+                        <circle class="ani-pets-pad1" cx="6.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                        <circle class="ani-pets-pad2" cx="9.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                        <circle class="ani-pets-pad3" cx="14.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                        <circle class="ani-pets-pad4" cx="17.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                    </svg>
+                </div>
                 <h4 class="problem-title-bento">בעלי חיים</h4>
             </div>
         </div>
@@ -1287,19 +1421,80 @@
                     <h3 class="quiz-q">מה המטרה העיקרית שלך בשימוש ב-CBD?</h3>
                     <div class="quiz-options">
                         <button class="quiz-pill" data-value="sleep" data-next="step-2">
-                            <span class="pill-icon">💤</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="sleepGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#A78BFA" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                        <linearGradient id="cloudGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FFFFFF" />
+                                            <stop offset="100%" stop-color="#CF9AC6" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradQuiz)" stroke="url(#sleepGradQuiz)" stroke-width="1" />
+                                    <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradQuiz)" stroke="url(#cloudGradQuiz)" stroke-width="1" />
+                                    <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradQuiz)" stroke-width="1.8" />
+                                    <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradQuiz)" stroke-width="1.5" />
+                                    <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradQuiz)" stroke-width="1.2" />
+                                </svg>
+                            </span>
                             <span class="pill-title">שינה עמוקה ורציפה</span>
                         </button>
                         <button class="quiz-pill" data-value="anxiety" data-next="step-2">
-                            <span class="pill-icon">🧘</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="anxietyGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#F472B6" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                        <linearGradient id="anxietyRippleQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00FA9A" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradQuiz)" stroke="url(#anxietyGradQuiz)" stroke-width="1" />
+                                    <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleQuiz)" stroke-width="2" />
+                                    <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleQuiz)" stroke-width="1.5" />
+                                    <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleQuiz)" stroke-width="1.2" stroke-dasharray="3 3" />
+                                </svg>
+                            </span>
                             <span class="pill-title">הפחתת חרדה ולחצים</span>
                         </button>
                         <button class="quiz-pill" data-value="pain" data-next="step-2">
-                            <span class="pill-icon">🏃</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="painGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FF5A79" />
+                                            <stop offset="100%" stop-color="#DB2777" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradQuiz)" stroke="url(#painGradQuiz)" stroke-width="1" />
+                                    <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradQuiz)" stroke-width="2" />
+                                    <circle class="ani-pain-pulse2" cx="12" cy="14" r="8" stroke="url(#painGradQuiz)" stroke-width="1.5" />
+                                </svg>
+                            </span>
                             <span class="pill-title">שיכוך כאבים ודלקות</span>
                         </button>
                         <button class="quiz-pill" data-value="pets" data-next="step-2">
-                            <span class="pill-icon">🐾</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="petsGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00FA9A" />
+                                            <stop offset="100%" stop-color="#34D399" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-pets-main" d="M12 11c-2.5 0-4.5 1.8-4.5 3.8 0 1.8 2 3.2 4.5 3.2s4.5-1.4 4.5-3.2c0-2-2-3.8-4.5-3.8z" fill="url(#petsGradQuiz)" stroke="url(#petsGradQuiz)" stroke-width="1" />
+                                    <circle class="ani-pets-pad1" cx="6.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                                    <circle class="ani-pets-pad2" cx="9.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                                    <circle class="ani-pets-pad3" cx="14.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                                    <circle class="ani-pets-pad4" cx="17.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                                </svg>
+                            </span>
                             <span class="pill-title">טיפול ורוגע לבעלי חיים</span>
                         </button>
                     </div>
@@ -1311,15 +1506,63 @@
                     <h3 class="quiz-q">כיצד אתה מעדיף לצרוך את ה-CBD שלך?</h3>
                     <div class="quiz-options">
                         <button class="quiz-pill" data-value="oil" data-finish="true">
-                            <span class="pill-icon">💧</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="oilGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FFB03A" />
+                                            <stop offset="100%" stop-color="#D97706" />
+                                        </linearGradient>
+                                    </defs>
+                                    <g class="ani-drop-bottle">
+                                        <path d="M10 7V4.5a2 2 0 0 1 4 0V7z" fill="url(#oilGradQuiz)" stroke="none" />
+                                        <path d="M8 7h8v2H8z" fill="url(#oilGradQuiz)" stroke="none" />
+                                        <path d="M10 9v5.5l2 2 2-2V9z" fill="#FFFFFF" fill-opacity="0.95" stroke="url(#oilGradQuiz)" stroke-width="1.8" />
+                                        <path d="M11 11v3.5l1 1 1-1V11z" fill="url(#oilGradQuiz)" stroke="none" />
+                                    </g>
+                                    <path class="ani-drop-liquid" d="M12 21a1.5 1.5 0 0 1-1.5-1.5c0-1.5 1.5-2.5 1.5-2.5s1.5 1 1.5 2.5A1.5 1.5 0 0 1 12 21z" fill="url(#oilGradQuiz)" stroke="none" />
+                                </svg>
+                            </span>
                             <span class="pill-title">שמן בטיפות (ספיגה מהירה)</span>
                         </button>
                         <button class="quiz-pill" data-value="gummies" data-finish="true">
-                            <span class="pill-icon">🍬</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="candyGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FF2E93" />
+                                            <stop offset="100%" stop-color="#FF5A79" />
+                                        </linearGradient>
+                                    </defs>
+                                    <g class="ani-gummy-candy">
+                                        <path d="M12 6a6 6 0 0 0-6 6v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2a6 6 0 0 0-6-6z" fill="url(#candyGradQuiz)" stroke="none" />
+                                        <circle cx="9" cy="11" r="1.2" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="15" cy="11" r="1.2" fill="#FFFFFF" stroke="none" />
+                                        <path d="M10 14s1 1 2 0" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none" />
+                                    </g>
+                                </svg>
+                            </span>
                             <span class="pill-title">סוכריות גומי (טעים וקל)</span>
                         </button>
                         <button class="quiz-pill" data-value="external" data-finish="true">
-                            <span class="pill-icon">🧴</span>
+                            <span class="pill-icon">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="lotionGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00FA9A" />
+                                            <stop offset="100%" stop-color="#3b82f6" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M8 11h8v9a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-9z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                    <g class="ani-lotion-pump">
+                                        <path d="M11 8h2v3h-2z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                        <path d="M9 8h6v1.5H9z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                        <path d="M9 5.5h4.5l-.5-2.5h-3.5l-.5 2.5z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                        <path d="M9 4.5H6.5v1.5H9z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                    </g>
+                                    <path class="ani-lotion-spray" d="M4 6.5a1.5 1.5 0 1 1 3 0" stroke="url(#lotionGradQuiz)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+                                </svg>
+                            </span>
                             <span class="pill-title">משחה לטיפול חיצוני עמוק</span>
                         </button>
                     </div>
@@ -1385,27 +1628,112 @@
         <div class="why-rafena-grid">
             <!-- Card 1 -->
             <div class="bento-card why-badge-card">
-                <div class="why-icon-avatar">🐰</div>
+                <div class="why-icon-avatar">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="rabbitGradWhy" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F472B6" />
+                                <stop offset="100%" stop-color="#A78BFA" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Heart silhouette representing love/cruelty-free (filled solid with gradient) -->
+                        <path class="ani-rabbit-face" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#rabbitGradWhy)" stroke="none" />
+                        
+                        <!-- Paw print silhouette representing animals (white detail on top of heart) -->
+                        <circle cx="12" cy="13.2" r="2.8" fill="#FFFFFF" stroke="none" />
+                        <circle cx="7.8" cy="11.2" r="1" fill="#FFFFFF" stroke="none" />
+                        <circle cx="10" cy="8.6" r="1.1" fill="#FFFFFF" stroke="none" />
+                        <circle cx="14" cy="8.6" r="1.1" fill="#FFFFFF" stroke="none" />
+                        <circle cx="16.2" cy="11.2" r="1" fill="#FFFFFF" stroke="none" />
+                    </svg>
+                </div>
                 <h3 class="why-badge-title">לא נוסו על בעלי חיים</h3>
             </div>
             <!-- Card 2 -->
             <div class="bento-card why-badge-card">
-                <div class="why-icon-avatar">🧪</div>
+                <div class="why-icon-avatar">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="flaskGradWhy" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00FA9A" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <g class="ani-lab-flask">
+                            <path d="M 7.3 14 L 16.7 14 L 18 17 a 2 2 0 0 1 -2 2 H 8 a 2 2 0 0 1 -2 -2 Z" fill="url(#flaskGradWhy)" />
+                            <path d="M9 3h6M10 3v5L6 17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2L14 8V3z" stroke="url(#flaskGradWhy)" stroke-width="2.2" fill="none" />
+                            <path d="M7.3 14h9.4" stroke="url(#flaskGradWhy)" stroke-width="2.2" />
+                        </g>
+                        <circle class="ani-lab-bubble1" cx="10" cy="11" r="1.2" fill="url(#flaskGradWhy)" />
+                        <circle class="ani-lab-bubble2" cx="13" cy="12" r="1.5" fill="url(#flaskGradWhy)" />
+                        <circle class="ani-lab-bubble3" cx="11.5" cy="14" r="1" fill="url(#flaskGradWhy)" />
+                    </svg>
+                </div>
                 <h3 class="why-badge-title">נבדקו ע”י מעבדה בלתי תלויה</h3>
             </div>
             <!-- Card 3 -->
             <div class="bento-card why-badge-card">
-                <div class="why-icon-avatar">🛡️</div>
+                <div class="why-icon-avatar">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="shieldGradWhy" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3b82f6" />
+                                <stop offset="100%" stop-color="#00FA9A" />
+                            </linearGradient>
+                        </defs>
+                        <path class="ani-shield-base" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#shieldGradWhy)" stroke="url(#shieldGradWhy)" stroke-width="1" />
+                        <path class="ani-shield-check" d="M9.5 11l1.5 1.5 3.5-3.5" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
                 <h3 class="why-badge-title">בקרת איכות פרמצבטית</h3>
             </div>
             <!-- Card 4 -->
             <div class="bento-card why-badge-card">
-                <div class="why-icon-avatar">🌱</div>
+                <div class="why-icon-avatar">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="seedGradWhy" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#34D399" />
+                                <stop offset="100%" stop-color="#00FA9A" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Leaf body (filled solid with gradient, no outlines) -->
+                        <path class="ani-seedling-stem" d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" fill="url(#seedGradWhy)" stroke="none" />
+                        <!-- Leaf stem and veins (white details on top of leaf) -->
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.95" />
+                        <path d="M9 14.5c-1-1.5-2.5-2-3-2" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.8" />
+                        <path d="M11 13.5c1.5-.5 2.5-1.5 3-2" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.8" />
+                    </svg>
+                </div>
                 <h3 class="why-badge-title">100% רכיבים טבעיים</h3>
             </div>
             <!-- Card 5 -->
             <div class="bento-card why-badge-card">
-                <div class="why-icon-avatar">🚜</div>
+                <div class="why-icon-avatar">
+                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="sproutGradWhy" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF8A00" />
+                                <stop offset="100%" stop-color="#DB2777" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Sun (glowing in the background) -->
+                        <circle cx="16" cy="8" r="3.5" fill="url(#sproutGradWhy)" stroke="none" />
+                        
+                        <!-- Background Hill (semi-transparent for depth) -->
+                        <path d="M2 18c4-2.5 9-2.5 14 0l6 2.5V22H2v-4z" fill="url(#sproutGradWhy)" stroke="none" opacity="0.6" />
+                        
+                        <!-- Foreground Hill (solid) -->
+                        <path d="M2 21c5-3 11-3 20 0v3H2v-3z" fill="url(#sproutGradWhy)" stroke="none" />
+                        
+                        <!-- Sprouting crop details on the hill (swaying animate) -->
+                        <g class="ani-tractor-wheel-l" style="transform-origin: 6px 21px;">
+                            <path d="M6 21v-4" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M6 18.5c-1.2-.8-2-.5-2.5-.2c.5.5 1.2 1 2.5.2z" fill="#FFFFFF" />
+                            <path d="M6 18c1.2-.8 2-.5 2.5-.2c-.5.5-1.2 1-2.5.2z" fill="#FFFFFF" />
+                        </g>
+                    </svg>
+                </div>
                 <h3 class="why-badge-title">מופקים מגידולים אורגניים בלבד</h3>
             </div>
         </div>
@@ -1567,7 +1895,7 @@
                 ממליצים עליהם לתוצאות מהירות ואפקטיביות.</p>
             <!-- Products slider: 3-col grid on desktop, transform slider on mobile (matches top products) -->
             <div class="bs-slider-wrapper">
-                <button class="p-nav bs-prev" aria-label="הקודם" type="button">‹</button>
+                <button class="p-nav bs-prev" aria-label="הקודם" type="button">›</button>
                 <div class="bs-products-grid" id="bs-products-grid">
 
                     <!-- OILS TAB: top 3 best-sellers -->
@@ -1697,57 +2025,18 @@
                     </div>
 
                 </div>
-                <button class="p-nav bs-next" aria-label="הבא" type="button">›</button>
+                <button class="p-nav bs-next" aria-label="הבא" type="button">‹</button>
             </div><!-- /bs-slider-wrapper -->
         </div><!-- /best-sellers-wrapper -->
     </section>
 
-    <!-- SECTION 16: INTERACTIVE FAQS SECTION -->
-    <section class="faq-section" id="faq">
-        <h2 class="section-title text-center">שאלות נפוצות</h2>
-        <p class="section-subtitle text-center">כל מה שחשוב לדעת על שימוש במוצרי סיבידי של רפאנא</p>
-        <div class="faq-container">
-            <details class="bento-accordion faq-item">
-                <summary class="accordion-header">
-                    <span class="accordion-title">❓ האם זה חוקי? האם יש בזה השפעה פסיכואקטיבית?</span>
-                    <span class="accordion-arrow">▼</span>
-                </summary>
-                <div class="accordion-body">
-                    <p><strong>תשובה:</strong> ה-CBD מופק מצמח המפ, אינו פסיכואקטיבי כלל (0% THC) ואינו ממכר או גורם
-                        לתחושת "היי". המוצרים בטוחים לחלוטין לשימוש יומיומי.</p>
-                </div>
-            </details>
-
-            <details class="bento-accordion faq-item">
-                <summary class="accordion-header">
-                    <span class="accordion-title">❓ תוך כמה זמן מרגישים את ההשפעה של השמן?</span>
-                    <span class="accordion-arrow">▼</span>
-                </summary>
-                <div class="accordion-body">
-                    <p><strong>תשובה:</strong> בטפטוף תת-לשוני, השפעת שמן ה-CBD מתחילה בדרך כלל תוך 15 עד 45 דקות ונמשכת
-                        בין 4 ל-6 שעות. סוכריות גומי נספגות דרך מערכת העיכול ומשפיעות תוך 45-90 דקות.</p>
-                </div>
-            </details>
-
-            <details class="bento-accordion faq-item">
-                <summary class="accordion-header">
-                    <span class="accordion-title">❓ כיצד כדאי לאחסן את מוצרי ה-CBD?</span>
-                    <span class="accordion-arrow">▼</span>
-                </summary>
-                <div class="accordion-body">
-                    <p><strong>תשובה:</strong> מומלץ לשמור את השמן והסוכריות במקום קריר, יבש וחשוך (ארון מוצל או מגירה),
-                        הרחק מאור שמש ישיר. אין צורך לשמור במקרר.</p>
-                </div>
-            </details>
-        </div>
-    </section>
 
     <!-- SECTION 17: KNOWLEDGE CENTER & BLOG -->
     <section class="blog-section" id="blog">
         <h2 class="section-title text-center">מרכז הידע של Rafena</h2>
         <p class="section-subtitle text-center">מאמרים, מחקרים ומדריכים לקריאה והעמקה בעולם ה-CBD</p>
         <div class="blog-slider">
-            <button class="b-nav b-prev" aria-label="הקודם" type="button">‹</button>
+            <button class="b-nav b-prev" aria-label="הקודם" type="button">›</button>
             <div class="blog-grid" id="blog-track" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                 <!-- Blog 1 -->
                 <div class="bento-card blog-card">
@@ -1803,7 +2092,7 @@
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
             </div>
-            <button class="b-nav b-next" aria-label="הבא" type="button">›</button>
+            <button class="b-nav b-next" aria-label="הבא" type="button">‹</button>
         </div>
     </section>
 
@@ -1823,6 +2112,260 @@
             <div class="mailers-visual">
                 <img src="wp-content/uploads/2022/03/image.png" alt="Join Our Mailers" class="mailers-img">
             </div>
+        </div>
+    </section>
+
+    <!-- SECTION 16: INTERACTIVE FAQS SECTION -->
+    <section class="faq-section" id="faq">
+        <h2 class="section-title text-center">שאלות נפוצות</h2>
+        <p class="section-subtitle text-center">כל מה שחשוב לדעת על שימוש במוצרי סיבידי של רפאנא</p>
+        <div class="faq-container">
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם זה חוקי? האם יש בזה השפעה פסיכואקטיבית?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> ה-CBD מופק מצמח המפ, אינו פסיכואקטיבי כלל (0% THC) ואינו ממכר או גורם
+                        לתחושת "היי". המוצרים בטוחים לחלוטין לשימוש יומיומי.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ תוך כמה זמן מרגישים את ההשפעה של השמן?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> בטפטוף תת-לשוני, השפעת שמן ה-CBD מתחילה בדרך כלל תוך 15 עד 45 דקות ונמשכת
+                        בין 4 ל-6 שעות. סוכריות גומי נספגות דרך מערכת העיכול ומשפיעות תוך 45-90 דקות.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ כיצד כדאי לאחסן את מוצרי ה-CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> מומלץ לשמור את השמן והסוכריות במקום קריר, יבש וחשוך (ארון מוצל או מגירה),
+                        הרחק מאור שמש ישיר. אין צורך לשמור במקרר.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מה אתר רפאנה CBD מציע ולמי הוא פונה?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> אתר Rafena CBD Shop (אתר וחנות CBD) מציע את המגוון הרחב והאיכותי ביותר של מוצרי CBD (סי בי די) על כל צורותיו ותועלותיו דרך: שמנים, קפסולות, קרמים ומשחות, טיפות, תכשירים, תוספי מזון ועוד. האתר פונה לקבוצות רבות באוכלוסייה הנהנות מנפלאות ה- CBD, בין אם על ידי הקלה על כאב וסימפטומים מקשת רחבה של בעיות רפואיות, בעיות נפשיות, בעיות תזונה, בעיות שינה, דלקות, כאבים ועוד ועד שימוש במוצרי סי.בי.די כתכשירי טיפוח מצויינים המסייעים להקלה במקרים של בעיות עור כמו אקנה, צלקות וכדומה ועד בעיות חמורות יותר.</p>
+                    <p>ספורטאים, נשים, בעלי חיות מחמד וכל המעוניין לשמור על אורח חים טבעי ובריא, יכולים להפיק את המיטב מסגולות הסיבידי ומיתרונותיו הרבים, הרותמים את יתרונותיו הייחודיים של קנאבינואיד זה להתקשר עם המערכת האנדו-קנאבינואידית בגוף ולסייע בוויסות ואיזון הגוף בשורה של יישומים.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ למה כדאי לרכוש מאתר Rafena CBD Shop?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong></p>
+                    <ul>
+                        <li><strong>איכות ובקרה</strong> – כל מוצרי ה-CBD באתר טבעיים, לא נוסו על חיות, נבדקו במעבדה בלתי תלויה, מיוצרים ועשויים מ- 100% רכיבים טבעיים המופקים מגידולים אורגניים בלבד.</li>
+                        <li><strong>היצע ומבחר</strong> – אנו מספקים את פורמולציות ה-CBD האיכותיות ביותר ואת המבחר הרב ביותר של מוצרי סיבידי במגוון תחומים ובעיות רפואיות שונות.</li>
+                        <li><strong>תנאי רכישה ותשלום</strong> – הצטרפות למועדון הלקוחות שלנו מהווה 10% הנחה בהזמנה ראשונה של כל מוצרי הסי בי די באתר והטבות נוספות על רכישה מעל 650 שקלים של כל מוצרי הסיבידי למכירה.</li>
+                        <li><strong>רכישה מאובטחת און ליין</strong> ותנאי תשלום נוחים.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מה זה CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> המילה CBD היא קיצור של המילה קנאבידיול. זהו אחד מבין שני החומרים הפעילים המצויים בצמח הקנאביס, זוהי תמצית שאינה פסיכו אקטיבית המופקת מהצמח.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מה השימושים של תמצית CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> התמצית העוצמתית תומכת במגוון רחב של מצבים בריאותיים ותסמינים שונים. בין השאר, זהו תוסף הניתן להקלה על הפרעות נירולוגיות כמו אפילפסיה, חרדה ודיכאון והוא משמש גם להקלה על כאב, נדודי שינה, הוא מקל על דלקות ואפילו מיועד לשימוש בעלי חיים, זאת לצד מגוון רחב של שימושים נוספים.</p>
+                    <p>הודות להשפעות המיטיבות מרחיקות הלכת של ה-CBD, הוא הפך להיות לאחד התוספים הפופולריים ביותר שיש, בישראל ובעולם. ניתן למצוא אותו במגוון צורות, כמו שמן CBD, משחות, כמוסות, קרמים ועוד.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם CBD חוקי בישראל?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> נכון לשנת 2021, מותר להשתמש ב-CBD למטרות רפואיות. במילים אחרות, מי שהוא בעל רישיון לשימוש בקנאביס רפואי מסיבות שונות, מורשה להשתמש בשלל מוצרי CBD לפי טעמו האישי, המטרה, התקציב וכדומה.</p>
+                    <p>ככל שרבים המחקרים אודות היתרונות הרבים של ה-CBD והדרכים הרבות בהן הוא מסייע לתחלואות רבות, כמו גם לבריאות נפשית טובה יותר, כך גובר הלחץ על רשויות החוק להתיר את השימוש במוצרי CBD גם עבור צרכנים שאינם זקוקים למוצר למטרות רפואיות בלבד.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ איך משתמשים ב-CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> יש מספר דרכים להשתמש ב-CBD:</p>
+                    <ul>
+                        <li><strong>שימוש פנימי</strong> – באמצעות נטילת כמוסות, מסטיקים או שמן CBD.</li>
+                        <li><strong>אינהלציה</strong> – באמצעות שאיפה של פרחי קנבוס גולמיים או שמן.</li>
+                        <li><strong>שימוש מקומי</strong> – באמצעות שימוש בקרמים או מדבקות.</li>
+                        <li><strong>הזרקה</strong> – שימוש רפואי בלבד.</li>
+                        <li><strong>החדרה פנימית</strong> – באמצעות שימוש בנרות CBD.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מה ההבדל בין קנבוס ומריחואנה?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> קנבוס ומריחואנה משתייכים למין זהה של אותו הצמח – קנאביס סאטיבה. בדומה לצמחים אחרים, יש לקנאביס מגוון צורות (הנקראות פנוטיפים) בהתאם לשושלת הגנטית וסביבת הגידול האינדיבידואלית. לכן, למרות ששני הצמחים משתייכים לאותה משפחה הם יכולים להיות שונים זה מזה לחלוטין.</p>
+                    <p>ההבדל העיקרי בין קנבוס למריחואנה נעוץ בכמות ה-THC שכל אחד מהם מייצר. ה-THC הוא המרכיב הפסיכו אקטיבי המצוי בקנאביס, הגורם להתנהגות בלתי מודעת ותגובות לא נשלטות.</p>
+                    <p>כל צמח המכיל פחות מ-0.3% THC ייחשב לקנבוס, וכל צמח קנאביס המכיל יותר מ-0.3% THC ייחשב למריחואנה.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם שמן זרעי המפ זהה לשמן CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> שמן זרעי המפ שונה מאוד משמן CBD והוא אינו מהווה חלופה מתאימה. כדי להבין מדוע, כדאי להכיר את שניהם.</p>
+                    <p>שמן זרעי המפ מיוצר מזרעי צמח הקנאביס. הזרעים הללו עשירים בחומצות שומן מסוג אומגה 6 וגם בפיטונוטריאנטים (חומרים טבעיים המעניקים לצמח את תכונותיו הייחודיות), אך הם לא מכילים טרפנים או קנבינואידים.</p>
+                    <p>לעומתם, שמן CBD עשוי מהעלים והפרחים של צמח ההמפ. הוא עשיר באותם פיטונוטריאנטים, טרפנים, קנביונואידים ותרכובות רפואיות נוספות, ולכן יש בו חומרים פעילים התורמים לסגולותיו הרבות – וליתרונות שפירטנו לעיל.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מה היתרונות לשימוש ב-CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> ל-CBD ישנם אינספור יתרונות בריאותיים, המגובים בספרות מחקרית ענפה. לרוב ההשפעות יש מכנה משותף אחד, והן נובעות מהיכולת של ה-CBD ליצור אינטראקציה עם מערכת המורכבת מסדרה של קולטנים הפזורים בכל הגוף, הנקראת המערכת האנדוקנבינואידית (ECS).</p>
+                    <p>יתרונות נוספים נובעים מההשפעה שיש ל-CBD על התחדשות התאים ועל נוירוטרנסמיטרים כגון סרוטונין ודופמין.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מהם היתרונות העיקריים של CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> הנה היתרונות העיקריים של CBD:</p>
+                    <ul>
+                        <li>עשוי להקל על כאבים ודלקות.</li>
+                        <li>יכול לסייע לבריאות נפשית טובה יותר.</li>
+                        <li>סיוע לתפקוד מערכת העיכול.</li>
+                        <li>עשוי לתמוך בעור בריא יותר.</li>
+                        <li>עשוי להגן על מערכת הלב וכלי הדם.</li>
+                        <li>עשוי לסייע לפעילות ההורמונלית ותומך בחילוף חומרים תקין.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ איך יכול להיות של-CBD יש כל כך הרבה יתרונות?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> רשימת היתרונות שיש ל-CBD בהחלט אינה מבוטלת, והיא מונה כ-55 יתרונות בריאותיים שונים. איך זה ייתכן? התשובה לכך טמונה בקולטנים הספציפיים עמם CBD מתקשר.</p>
+                    <p>כיום, רוב תוספי התזונה הבריאותיים מתייחסים לקולטן ספציפי המפעיל אפקט מסוים, בהתאם לסוג התוסף והאפקט הרצוי. כך למשל, תרופות מסוג SSRI המיועדות לטיפול בדיכאון וחרדה חוסמות ספיגה חוזרת של סרוטונין, וכך גורמות לרמות הסרוטונין לעלות – טריגר אחד והשפעה אחת.</p>
+                    <p>בהשוואה לתרופות הללו, CBD מתנהג באופן שונה: הוא מכוון לסדרה של קולטנים המרכיבים את המערכת האנדוקנבינואידית, המעורבים במאות שונות של פונקציות בגוף האדם. הודות לעובדה שמדובר במערכת רחבה כל כך, CBD מסוגל ליצור אינטראקציה עם כמעט כל איבר בגוף שלנו – וכך נוצרת רשימת יתרונות כמעט אינסופית, שאינה תלויה במסלול ספציפי עם השפעה ספציפית, אלא במערכת שלמה המשפיעה על כל גוף האדם.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם CBD בטוח לילדים?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> כל עוד ה-CBD אינו מכיל מינון פסיכו אקטיבי של THC מעל ל-0.3%, הוא ברוב המקרים בטוח לשימוש ילדים.</p>
+                    <p>חשוב לציין שלצד בחינת מרכיב זה, גם מינון הוא פקטור חשוב מאוד וחשוב לזכור שכל אחד מגיב אחרת למוצר סיבידי. מתן כמות גבוהה מדי של CBD לילד עשוי לגרום לתופעות לוואי לא חמורות אך גם לא רצויות. בנוסף, יש להרחיק מספר שעות מלקיחת מוצרי סיבידי לילדים אם הם נוטלים תרופות אחרות, או שהם סובלים ממצב בריאותי כרוני ובכל מקרה אנחנו ממליצים לפני מתן סיבידי לילד, להתייעץ תמיד עם הרופא או הרופאה המטפלים.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם CBD בטוח לשימוש גם לאנשים לא בריאים (בעלי מחלות כרוניות)?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> אם אתם סובלים ממחלה כרונית או מצב רפואי אחר, חשוב לדבר עם הרופא או הרופאה שלכם לפני שמנסים לצרוך CBD. זה חשוב בייחוד אם אתם נוטלים תרופות מרשם לטיפול במצב הרפואי.</p>
+                    <p>חשוב לדעת: CBD הוא מוצר בטוח מאוד ורק לעתים רחוקות יפריע לאפקטיביות של תרופות אחרות, אך יש כמה יוצאי דופן שבהם כדאי להתייעץ עם גורם רפואי לפני השימוש, הנה חלק מהם:</p>
+                    <ul>
+                        <li>לחץ דם נמוך</li>
+                        <li>מחלת לב</li>
+                        <li>בזמן נטילת תרופות מדכאות חיסון</li>
+                        <li>לאחר השתלת איברים או ניתוח גדול</li>
+                        <li>דיכאון חמור</li>
+                        <li>סכיזופרניה או פסיכוזה</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ מהן תופעות הלוואי של CBD?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> כאמור, CBD גורם לתופעות לוואי לעתים רחוקות מאוד, אך עדיין כדאי להיות מודעים לכמה משינויים העשויים להיגרם מהשימוש, בעיקר במינונים גבוהים או אנשים רגישים.</p>
+                    <p>אלו הן תופעות הלוואי שכדאי לשים לב אליהן:</p>
+                    <ul>
+                        <li>שינויים בתיאבון</li>
+                        <li>שינויים במצב הרוח</li>
+                        <li>שלשול</li>
+                        <li>סחרחורת</li>
+                        <li>עייפות</li>
+                        <li>פה יבש</li>
+                        <li>בחילה</li>
+                        <li>הקאות</li>
+                    </ul>
+                    <p>בכל מקרה שאתם מרגישים תופעת לוואי כזו או אחרת, מומלץ להמתין, לנוח ולחכות שהשפעת ה-CBD תעבור, ובנטילה הבאה לנסות מינון נמוך יותר.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם שימוש ב- CBD גורם לעייפות?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> אם נוטלים מינון גבוה של CBD (יותר מ-30 מ”ג) או אם אתם רגישים במיוחד לקנבינואיד, ייתכן ותרגישו עייפים לאחר נטילתו. מוצרי CBD המכילים טרפנים מרגיעים (דוגמת מירקן, הומולן, ביסבולול או לינולול) עשויים לגרום לעייפות במידה רבה יותר, אך כדאי לדעת: עבור משתמשים רבים, זוהי תופעה חיובית ואפילו רצויה.</p>
+                    <p>עבור אחרים, באופן טבעי, ההשפעה המרגיעה והמעייפת עשויה להיות שלילית, ולכן אם אתם חפצים להשתמש במוצרי CBD מבלי להרגיש עייפות, חפשו מוצרים המכילים מינונים נמוכים יותר של קנבינואיד ההרגעה CBN או הטרפנים שהוזכרו לעיל.</p>
+                </div>
+            </details>
+
+            <details class="bento-accordion faq-item">
+                <summary class="accordion-header">
+                    <span class="accordion-title">❓ האם CBD ממכר?</span>
+                    <span class="accordion-arrow">▼</span>
+                </summary>
+                <div class="accordion-body">
+                    <p><strong>תשובה:</strong> לא, CBD אינו ממכר. בניגוד ל-THC, הרכיב הפסיכואקטיבי בקנאביס, ל-CBD אין השפעה ממכרת או תחושת "היי". מחקרים רבים מראים כי CBD בטוח לשימוש ארוך טווח ואינו יוצר תלות גופנית או נפשית. למעשה במדינות רבות, הוא אף יכול לעזור בטיפול בהתמכרויות לחומרים אחרים.</p>
+                </div>
+            </details>
         </div>
     </section>
 
