@@ -361,6 +361,13 @@ a {
     padding: 0 20px;
 }
 
+/* Desktop: push hero section down to clear the 80px fixed header + comfortable gap */
+@media (min-width: 769px) {
+    .hero-section {
+        margin-top: 60px;
+    }
+}
+
 .hero-centered-card {
     display: flex;
     flex-direction: column;
@@ -4341,6 +4348,99 @@ body.theme-organic-sage .split-narrative-card * {
 body.theme-organic-sage .wa-card .wa-btn {
     background-color: var(--color-white) !important;
     color: var(--color-green-bright) !important;
+}
+
+/* The .coa-quick-bento lab certificate box has a white bg inside the dark card →
+   restore dark text so it's not white-on-white */
+body.theme-organic-sage .split-narrative-card .coa-quick-bento,
+body.theme-organic-sage .split-narrative-card .coa-quick-bento * {
+    color: var(--color-green) !important;
+}
+body.theme-organic-sage .split-narrative-card .coa-quick-bento .badge-link {
+    color: var(--color-green-bright) !important;
+}
+
+/* --- Organic Sage: White text on dark buttons, tabs, pills & labels --- */
+
+/* Primary buttons use --color-gold which maps to dark eucalyptus #4A5D53 in sage */
+body.theme-organic-sage .btn-primary,
+body.theme-organic-sage .btn-primary:hover {
+    color: #FFFDFB !important;
+}
+
+/* Outline buttons use dark green border/text — keep readable with white bg override */
+body.theme-organic-sage .btn-outline {
+    color: var(--color-green) !important;
+}
+
+/* Active/selected tabs and pills have dark gold (eucalyptus) bg → need white text */
+body.theme-organic-sage .products-tab.active,
+body.theme-organic-sage .products-tab:hover {
+    color: #FFFDFB !important;
+}
+
+body.theme-organic-sage .teaser-pill.active,
+body.theme-organic-sage .teaser-pill:hover {
+    color: #FFFDFB !important;
+}
+
+body.theme-organic-sage .category-bento-pill.active,
+body.theme-organic-sage .category-bento-pill:hover {
+    color: #FFFDFB !important;
+}
+
+body.theme-organic-sage .quiz-pill:active,
+body.theme-organic-sage .quiz-pill.selected {
+    color: #FFFDFB !important;
+}
+
+/* Card CTA links and badge labels on dark cards */
+body.theme-organic-sage .hero-bento-card .card-cta,
+body.theme-organic-sage .split-narrative-card .card-cta,
+body.theme-organic-sage .wa-card .card-cta {
+    color: #FFFDFB !important;
+}
+
+/* Section labels / teaser pill inactive — dark text is fine on cream bg, keep as-is */
+
+/* "בקרוב" coming-soon labels & warning pills use --color-gold bg (dark eucalyptus in sage) → white text */
+body.theme-organic-sage .soon-badge {
+    color: #FFFDFB !important;
+}
+
+body.theme-organic-sage .pill-badge,
+body.theme-organic-sage .warning-pill {
+    color: #FFFDFB !important;
+}
+
+/* ECS protocol pill label ("בחרו סימפטום למעלה") uses --color-gold bg → white text */
+body.theme-organic-sage .ecs-pill,
+body.theme-organic-sage .ecs-pill--gold {
+    color: #FFFDFB !important;
+}
+
+/* Expert specialist role badges (e.g. "חוקר קנבינואידים בכיר") use --color-gold bg → white text */
+body.theme-organic-sage .expert-role {
+    color: #FFFDFB !important;
+}
+
+/* Product card badges ("פופולרי", "הנמכר ביותר", "איזון יומי" etc.) use --color-gold bg → white text */
+body.theme-organic-sage .prod-badge {
+    color: #FFFDFB !important;
+}
+
+/* Featured expert "מוביל הצוות המקצועי" pill uses --color-gold bg → white text */
+body.theme-organic-sage .expert-feature-badge {
+    color: #FFFDFB !important;
+}
+
+/* Blog card category tags: base text override + dark-background variants (lime & gold) → white text */
+body.theme-organic-sage .blog-tag {
+    color: var(--color-green) !important; /* light tags stay readable with dark charcoal text */
+}
+body.theme-organic-sage .blog-grid .blog-card:nth-child(6n+5) .blog-tag,
+body.theme-organic-sage .blog-grid .blog-card:nth-child(6n+6) .blog-tag {
+    color: #FFFDFB !important; /* lime & gold bg → dark eucalyptus in sage → white text */
 }
 
 /* Floating Comparer Widget CSS */
