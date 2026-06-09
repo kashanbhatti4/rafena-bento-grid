@@ -504,6 +504,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const productsTabs = document.querySelectorAll('.products-tab');
     const creamsPlaceholder = document.getElementById('creams-placeholder');
 
+    // Cache default creams placeholder text for restoring on reset/tab switch
+    if (creamsPlaceholder) {
+        const creamsDesc = creamsPlaceholder.querySelector('p');
+        const creamsTitle = creamsPlaceholder.querySelector('h3');
+        const creamsBadge = creamsPlaceholder.querySelector('.pill-badge');
+        window._defaultCreamsText = creamsDesc ? creamsDesc.innerText : '';
+        window._defaultCreamsTitle = creamsTitle ? creamsTitle.innerText : '';
+        window._defaultCreamsBadge = creamsBadge ? creamsBadge.innerText : '';
+    }
+
     function filterProductsByTab(tabValue) {
         // Update active tab buttons
         productsTabs.forEach(tab => {
@@ -513,6 +523,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 tab.classList.remove('active');
             }
         });
+
+        // Toggle wellness subcategory group visibility
+        const pathwayGroups = document.querySelectorAll('.wellness-pathways-group');
+        pathwayGroups.forEach(group => {
+            if (group.getAttribute('data-pathway-group') === tabValue) {
+                group.style.display = 'flex';
+                // Reset active subcategory button to default
+                group.querySelectorAll('.wellness-pathway-btn').forEach(btn => {
+                    const filterVal = btn.getAttribute('data-filter');
+                    if (filterVal === 'all' || filterVal === 'pets-all' || filterVal === 'creams-all') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            } else {
+                group.style.display = 'none';
+            }
+        });
+
+        // Hide tip banner on tab switch
+        const tipBanner = document.getElementById('wellness-tip-banner');
+        if (tipBanner) {
+            tipBanner.style.display = 'none';
+        }
+
+        // Restore default creams placeholder content if switching away or on reset
+        if (creamsPlaceholder) {
+            const creamsDesc = creamsPlaceholder.querySelector('p');
+            const creamsTitle = creamsPlaceholder.querySelector('h3');
+            const creamsBadge = creamsPlaceholder.querySelector('.pill-badge');
+            if (creamsDesc && window._defaultCreamsText) {
+                creamsDesc.innerText = window._defaultCreamsText;
+                if (creamsTitle) creamsTitle.innerText = window._defaultCreamsTitle;
+                if (creamsBadge) {
+                    creamsBadge.innerText = window._defaultCreamsBadge;
+                    creamsBadge.className = 'pill-badge warning-pill';
+                    creamsBadge.style.backgroundColor = '';
+                    creamsBadge.style.color = '';
+                }
+            }
+        }
 
         // Filter products in the grid
         productCardsList.forEach(card => {
@@ -569,6 +621,237 @@ document.addEventListener('DOMContentLoaded', () => {
             filterProductsByTab(tabValue);
         });
     });
+
+    // --- Wellness Subcategory Pathways Interaction (Bento UI Addition) ---
+    const pathwayBtns = document.querySelectorAll('.wellness-pathway-btn');
+    const tipBanner = document.getElementById('wellness-tip-banner');
+    const tipContent = document.getElementById('tip-content');
+
+    pathwayBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Get sibling buttons in the same group and remove active class
+            const parentGroup = btn.closest('.wellness-pathways-group');
+            if (parentGroup) {
+                parentGroup.querySelectorAll('.wellness-pathway-btn').forEach(b => b.classList.remove('active'));
+            }
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            applyPathwayFilter(filter);
+        });
+    });
+
+    function applyPathwayFilter(filter) {
+        // Hide tip banner by default
+        if (tipBanner) tipBanner.style.display = 'none';
+        
+        // Restore default creams placeholder content
+        if (creamsPlaceholder) {
+            const creamsDesc = creamsPlaceholder.querySelector('p');
+            const creamsTitle = creamsPlaceholder.querySelector('h3');
+            const creamsBadge = creamsPlaceholder.querySelector('.pill-badge');
+            if (creamsDesc && window._defaultCreamsText) {
+                creamsDesc.innerText = window._defaultCreamsText;
+                if (creamsTitle) creamsTitle.innerText = window._defaultCreamsTitle;
+                if (creamsBadge) {
+                    creamsBadge.innerText = window._defaultCreamsBadge;
+                    creamsBadge.className = 'pill-badge warning-pill';
+                    creamsBadge.style.backgroundColor = '';
+                    creamsBadge.style.color = '';
+                }
+            }
+        }
+
+        if (filter === 'all') {
+            // Show all oils
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const cardCategory = card.getAttribute('data-category') || '';
+                if (!cardCategory.split(' ').includes('pets')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        } else if (filter === 'pets-all') {
+            // Show all pets
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const cardCategory = card.getAttribute('data-category') || '';
+                if (cardCategory.split(' ').includes('pets')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        } else if (filter === 'creams-all') {
+            // Creams default placeholder is managed by restore above
+        } else if (['sleep', 'anxiety', 'pain'].includes(filter)) {
+            // Filter oils by condition
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const cardCategory = card.getAttribute('data-category') || '';
+                const categoriesArray = cardCategory.split(' ');
+                if (!categoriesArray.includes('pets') && categoriesArray.includes(filter)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        } else if (filter === 'digestive') {
+            // Show all oils, display digestive tip
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const cardCategory = card.getAttribute('data-category') || '';
+                if (!cardCategory.split(' ').includes('pets')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("בריאות מערכת העיכול: שמני CBD פול ספקטרום מסייעים באיזון מערכת העיכול באמצעות ויסות קולטני ה-ECS במעיים. מומלץ לשלב שמן 10% או 20% כחלק משגרת הבוקר.");
+        } else if (filter === 'aging') {
+            // Show CBG/CBGa/CBC oils (prod-1, prod-3, prod-5)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const id = card.getAttribute('id');
+                if (['prod-1', 'prod-3', 'prod-5'].includes(id)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("חיוניות ואנטי-אייג'ינג: שמנים המשלבים קנבינואידים כמו CBG ו-CBC נחשבים למעוררי אנרגיה ומגיני תאים עוצמתיים לתמיכה קוגניטיבית ואנטי-אייג'ינג.");
+        } else if (filter === 'sport') {
+            // Show pain oils (prod-1, prod-3, prod-5)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const id = card.getAttribute('id');
+                if (['prod-1', 'prod-3', 'prod-5'].includes(id)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("ספורטאים ודלקות: שילוב ה-CBG וה-CBGa בפורמולות מחקר מעניק הגנה מוגברת מפני דלקות ומזרז את תהליכי התאוששות השריר והמפרקים לאחר אימונים.");
+        } else if (filter === 'pets-anxiety') {
+            // Filter pets for anxiety (prod-12 is 10%, description mentions separation anxiety)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                if (card.getAttribute('id') === 'prod-12') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("תמיכה בחרדה: שמן 10% מסייע לכלבים וחתולים להתמודד עם חרדת נטישה, רעשים חזקים וסערות.");
+        } else if (filter === 'pets-pain') {
+            // Filter pets for pain (prod-9 & prod-10)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                const id = card.getAttribute('id');
+                if (['prod-9', 'prod-10'].includes(id)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("הקלה בכאבים: פורמולות 20% או 18% עם CBGa תומכות במפרקים ומקלות על כאבים כרוניים.");
+        } else if (filter === 'pets-aging') {
+            // Filter pets for aging (prod-10)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                if (card.getAttribute('id') === 'prod-10') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("גיל מבוגר: שמן 18% + CBGa מותאם במיוחד לתמיכה בחיות מחמד מבוגרות, מפרקים כואבים וירידה ברמת האנרגיה.");
+        } else if (filter === 'pets-cognitive') {
+            // Filter pets for cognitive (prod-10)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                if (card.getAttribute('id') === 'prod-10') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("תמיכה קוגניטיבית: שילוב ה-CBGa מסייע לתפקוד קוגניטיבי תקין ושמירה על ערנות בחיות מחמד מבוגרות.");
+        } else if (filter === 'pets-allergies') {
+            // Filter pets for allergies (prod-9)
+            productCardsList.forEach(card => {
+                if (card.classList.contains('placeholder-card')) return;
+                if (card.getAttribute('id') === 'prod-9') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showWellnessTip("אלרגיות ודלקות: שמן 20% + 5% CBG תומך בוויסות דלקתי במקרים של אלרגיות עוריות או דלקות מעיים.");
+        } else if (filter.startsWith('creams-')) {
+            // Update creams coming soon card contents to be solution-oriented
+            if (creamsPlaceholder) {
+                const creamsDesc = creamsPlaceholder.querySelector('p');
+                const creamsTitle = creamsPlaceholder.querySelector('h3');
+                const creamsBadge = creamsPlaceholder.querySelector('.pill-badge');
+                if (creamsDesc) {
+                    if (filter === 'creams-neuropathic') {
+                        if (creamsTitle) creamsTitle.innerText = "משחת CBD להקלה נוירופתית";
+                        creamsDesc.innerText = "פורמולת המשחה העשירה שלנו מפותחת במיוחד לחדירה עמוקה והקלה בכאבים עצביים, נוירופתיה ודגדוגים מטרידים בגפיים. שילוב של CBD בריכוז גבוה במיוחד עם מנטול וקמפור להרגעה מהירה.";
+                        if (creamsBadge) {
+                            creamsBadge.innerText = "בפיתוח מתקדם";
+                            creamsBadge.className = "pill-badge prod-badge";
+                            creamsBadge.style.backgroundColor = "var(--color-blue)";
+                            creamsBadge.style.color = "var(--color-white)";
+                        }
+                    } else if (filter === 'creams-muscle') {
+                        if (creamsTitle) creamsTitle.innerText = "ג'ל CBD לשיקום ודלקות שרירים";
+                        creamsDesc.innerText = "ג'ל התאוששות אקטיבי לספורטאים ולסובלים משרירים תפוסים ודלקתיים. מעורר את זרימת הדם, מסייע בפירוק חומצת חלב ומזרז שיקום רקמות שריר לאחר מאמץ פיזי אינטנסיבי.";
+                        if (creamsBadge) {
+                            creamsBadge.innerText = "בבדיקות מעבדה";
+                            creamsBadge.className = "pill-badge prod-badge";
+                            creamsBadge.style.backgroundColor = "var(--color-peach)";
+                            creamsBadge.style.color = "var(--color-white)";
+                        }
+                    } else if (filter === 'creams-skin') {
+                        if (creamsTitle) creamsTitle.innerText = "קרם CBD טיפולי לאלרגיות וגירויי עור";
+                        creamsDesc.innerText = "קרם עדין והיפואלרגני להרגעת עור אדמומי, מגרד ומגורה. מועשר ב-CBD טהור, שיבולת שועל קולואידית ותמציות קלנדולה להחזרת הלחות הטבעית ושיקום מחסום העור במצבי אקזמה או פסוריאזיס.";
+                        if (creamsBadge) {
+                            creamsBadge.innerText = "בבדיקות מעבדה";
+                            creamsBadge.className = "pill-badge prod-badge";
+                            creamsBadge.style.backgroundColor = "var(--color-mint)";
+                            creamsBadge.style.color = "var(--color-white)";
+                        }
+                    } else if (filter === 'creams-hemorrhoids') {
+                        if (creamsTitle) creamsTitle.innerText = "קרם CBD מרגיע לנוחות מקומית";
+                        creamsDesc.innerText = "נוסחה טיפולית עדינה ומלטפת המיועדת להקלה מיידית על כאבים, גרד ונפיחויות באזורים רגישים ואינטימיים (טחורים). תומכת בכיווץ כלי דם מקומיים והחלמה מהירה של רקמות פגועות.";
+                        if (creamsBadge) {
+                            creamsBadge.innerText = "בפיתוח מתקדם";
+                            creamsBadge.className = "pill-badge prod-badge";
+                            creamsBadge.style.backgroundColor = "var(--color-lime)";
+                            creamsBadge.style.color = "var(--color-white)";
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Reset products slider position after filter
+        if (typeof window._resetProductsSlider === 'function') {
+            window._resetProductsSlider();
+        }
+    }
+
+    function showWellnessTip(text) {
+        if (tipBanner && tipContent) {
+            tipContent.innerText = text;
+            tipBanner.style.display = 'flex';
+        }
+    }
 
     if (teaserPills.length > 0 && productCardsList.length > 0) {
         teaserPills.forEach(pill => {

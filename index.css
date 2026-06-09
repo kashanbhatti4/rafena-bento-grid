@@ -823,6 +823,162 @@ a {
     transform: translateY(-2px);
 }
 
+/* --- Wellness Subcategory Pathways (Bento UI Addition) --- */
+.wellness-pathways-container {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.wellness-pathways-group {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 6px;
+    width: 100%;
+}
+
+.wellness-pathways-group.active {
+    display: flex;
+}
+
+.wellness-pathway-btn {
+    font-family: var(--font-heading);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 16px;
+    border: var(--border-width) solid var(--color-green);
+    background-color: var(--color-white);
+    color: var(--color-green);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    direction: rtl;
+    text-align: right;
+    box-shadow: var(--shadow-soft);
+}
+
+.wellness-pathway-btn .pathway-icon {
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.wellness-pathway-btn .pathway-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.wellness-pathway-btn .pathway-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.wellness-pathway-btn .pathway-subtitle {
+    font-weight: 500;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+.wellness-pathway-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-green-bright);
+    box-shadow: var(--shadow-hover);
+}
+
+.wellness-pathway-btn.active {
+    background-color: var(--color-green-bright);
+    border-color: var(--color-green-bright);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.25);
+}
+
+body.theme-nature-pharm .wellness-pathway-btn.active {
+    box-shadow: 0 6px 20px rgba(45, 122, 77, 0.25);
+}
+
+body.theme-organic-sage .wellness-pathway-btn.active {
+    color: #FFFDFB;
+    box-shadow: 0 6px 20px rgba(74, 93, 83, 0.2);
+}
+
+/* Dynamic Wellness Tip Banner */
+.wellness-tip-banner {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--color-green-bright) 5%, var(--color-white));
+    border: var(--border-width) dashed var(--color-green-bright);
+    color: var(--color-green);
+    margin: -8px auto 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    max-width: 800px;
+    width: calc(100% - 12px);
+    text-align: center;
+    direction: rtl;
+    box-shadow: var(--shadow-soft);
+    animation: fadeInPath 250ms ease-out;
+}
+
+.wellness-tip-banner .tip-spark {
+    font-size: 1.3rem;
+    color: var(--color-green-bright);
+    flex-shrink: 0;
+}
+
+@keyframes fadeInPath {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .wellness-pathways-group {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 4px 16px 12px;
+        margin-bottom: 12px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+    }
+    
+    .wellness-pathways-group::-webkit-scrollbar {
+        height: 4px;
+    }
+    .wellness-pathways-group::-webkit-scrollbar-thumb {
+        background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
+        border-radius: 4px;
+    }
+    
+    .wellness-pathway-btn {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        padding: 10px 16px;
+    }
+    
+    .wellness-pathway-btn .pathway-title {
+        font-size: 0.9rem;
+    }
+    
+    .wellness-tip-banner {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+}
+
+
 .split-grid {
     display: grid;
     grid-template-columns: 0.75fr 1.25fr;
