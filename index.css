@@ -2098,9 +2098,15 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     .trust-pillar-card.span-3 .trust-icon-wrapper {
         margin-bottom: 16px;
     }
+    .trust-pillar-card {
+        padding: 20px 16px !important;
+    }
     .short-testimonials-grid {
         grid-template-columns: 1fr;
         gap: 12px;
+    }
+    .short-testimonial-card {
+        padding: 16px 16px !important;
     }
 }
 
@@ -2109,7 +2115,10 @@ body.theme-organic-sage .wellness-pathway-btn.active {
         gap: 12px;
     }
     .trust-pillar-card {
-        padding: 20px !important;
+        padding: 18px 12px !important;
+    }
+    .short-testimonial-card {
+        padding: 14px 12px !important;
     }
     .st-quote {
         font-size: 0.95rem;
