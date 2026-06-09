@@ -824,17 +824,29 @@ a {
 }
 
 /* --- Wellness Subcategory Pathways (Bento UI Addition) --- */
-.wellness-pathways-container {
+.wellness-pathways-card {
     grid-column: 1 / -1;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
     margin-bottom: 24px;
+    width: 100%;
+}
+
+/* Stable card: disable hover translation for parent wrapper to avoid clunky motion when clicking buttons inside */
+.wellness-pathways-card:hover {
+    transform: none !important;
+    box-shadow: var(--shadow-soft) !important;
+    border-color: var(--color-green) !important;
 }
 
 .wellness-pathways-group {
     display: none;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
     padding: 6px;
     width: 100%;
 }
@@ -847,6 +859,7 @@ a {
     font-family: var(--font-heading);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     padding: 12px 20px;
     border-radius: 16px;
@@ -858,6 +871,10 @@ a {
     direction: rtl;
     text-align: right;
     box-shadow: var(--shadow-soft);
+    
+    /* Desktop balanced width */
+    width: 220px;
+    flex-shrink: 0;
 }
 
 .wellness-pathway-btn .pathway-icon {
@@ -942,6 +959,11 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 }
 
 @media (max-width: 768px) {
+    .wellness-pathways-card {
+        padding: 16px 10px;
+        margin-bottom: 16px;
+    }
+
     .wellness-pathways-group {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -965,6 +987,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
         scroll-snap-align: start;
         flex-shrink: 0;
         padding: 10px 16px;
+        width: auto;
     }
     
     .wellness-pathway-btn .pathway-title {
