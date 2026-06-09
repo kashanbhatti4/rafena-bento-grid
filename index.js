@@ -528,7 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pathwayGroups = document.querySelectorAll('.wellness-pathways-group');
         pathwayGroups.forEach(group => {
             if (group.getAttribute('data-pathway-group') === tabValue) {
-                group.style.display = 'flex';
+                group.classList.add('active');
                 // Reset active subcategory button to default
                 group.querySelectorAll('.wellness-pathway-btn').forEach(btn => {
                     const filterVal = btn.getAttribute('data-filter');
@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             } else {
-                group.style.display = 'none';
+                group.classList.remove('active');
             }
         });
 

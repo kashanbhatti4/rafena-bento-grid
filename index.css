@@ -828,7 +828,7 @@ a {
     grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     padding: 24px;
     margin-bottom: 24px;
@@ -844,24 +844,24 @@ a {
 
 .wellness-pathways-group {
     display: none;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding: 6px;
     width: 100%;
+    direction: rtl;
 }
 
 .wellness-pathways-group.active {
-    display: flex;
+    display: grid;
 }
 
 .wellness-pathway-btn {
     font-family: var(--font-heading);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Aligns icon and text to the right (RTL start) */
     gap: 12px;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border-radius: 16px;
     border: var(--border-width) solid var(--color-green);
     background-color: var(--color-white);
@@ -872,8 +872,8 @@ a {
     text-align: right;
     box-shadow: var(--shadow-soft);
     
-    /* Desktop balanced width */
-    width: 220px;
+    /* Cover full grid column width */
+    width: 100%;
     flex-shrink: 0;
 }
 
@@ -960,44 +960,56 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 @media (max-width: 768px) {
     .wellness-pathways-card {
-        padding: 16px 10px;
-        margin-bottom: 16px;
+        padding: 18px 24px;
+        margin-bottom: 20px;
     }
 
     .wellness-pathways-group {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 4px 16px 12px;
-        margin-bottom: 12px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 10px;
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        width: 100%;
+        padding: 0;
     }
     
-    .wellness-pathways-group::-webkit-scrollbar {
-        height: 4px;
-    }
-    .wellness-pathways-group::-webkit-scrollbar-thumb {
-        background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
-        border-radius: 4px;
+    .wellness-pathways-group.active {
+        display: grid;
     }
     
     .wellness-pathway-btn {
-        scroll-snap-align: start;
-        flex-shrink: 0;
-        padding: 10px 16px;
-        width: auto;
+        width: 100%;
+        padding: 12px 14px;
+        justify-content: flex-start;
     }
     
-    .wellness-pathway-btn .pathway-title {
-        font-size: 0.9rem;
+    .wellness-pathway-btn .pathway-label {
+        font-size: 0.95rem;
     }
     
     .wellness-tip-banner {
         padding: 12px 16px;
         font-size: 0.9rem;
         margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wellness-pathways-card {
+        padding: 14px 16px;
+        margin-bottom: 16px;
+    }
+
+    .wellness-pathways-group {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .wellness-pathway-btn {
+        padding: 10px 12px;
+    }
+    
+    .wellness-pathway-btn .pathway-label {
+        font-size: 0.9rem;
     }
 }
 
@@ -2658,6 +2670,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     width: auto;
     object-fit: contain;
     z-index: 2;
+    border-radius: var(--border-radius-medium);
 }
 
 .what-is-cbd-text {
@@ -3114,14 +3127,22 @@ body.theme-organic-sage .wellness-pathway-btn.active {
         overflow: visible;
     }
 
-    /* Tab bar gets side margin to match other content inset */
-    .products-tabs-card {
+    /* Tab bar and wellness pathways card get side margin to match other content inset */
+    .products-tabs-card,
+    .wellness-pathways-card {
         width: calc(100% - 40px);
         margin-left: 20px;
         margin-right: 20px;
-        margin-bottom: 16px;
         flex-shrink: 0;
         box-sizing: border-box;
+    }
+
+    .products-tabs-card {
+        margin-bottom: 16px;
+    }
+
+    .wellness-pathways-card {
+        margin-bottom: 20px;
     }
 
     /* Slider wrapper: relative container, arrows overlay card edges */
@@ -5331,4 +5352,120 @@ body.theme-organic-sage .pop-icon {
         grid-column: span 1 !important;
     }
 }
+
+
+/* --- SECTION 6.5: EMOTIONAL GALLERY --- */
+.emotional-gallery-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.emotional-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.emotional-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 !important; /* Image fills card top */
+    border: var(--border-width) solid var(--color-green);
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-white);
+    transition: var(--transition-fast);
+}
+
+.emotional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.emotional-img-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.emotional-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.emotional-card:hover .emotional-img {
+    transform: scale(1.05);
+}
+
+.emotional-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: right;
+    direction: rtl;
+}
+
+.emotional-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-green);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    display: inline-block;
+}
+
+.emotional-card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-green-bright);
+    margin-bottom: 12px;
+}
+
+.emotional-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-green);
+    opacity: 0.95;
+    margin: 0;
+}
+
+/* Responsive Emotional Gallery */
+@media (max-width: 992px) {
+    .emotional-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .emotional-card--active {
+        grid-column: 1 / -1; /* Stretch the third card to full width */
+    }
+    .emotional-card--active .emotional-img-wrapper {
+        height: 280px;
+    }
+}
+
+@media (max-width: 576px) {
+    .emotional-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .emotional-card--active {
+        grid-column: auto;
+    }
+    .emotional-img-wrapper {
+        height: 200px;
+    }
+    .emotional-card--active .emotional-img-wrapper {
+        height: 200px;
+    }
+    .emotional-info {
+        padding: 16px;
+    }
+}
+
 
