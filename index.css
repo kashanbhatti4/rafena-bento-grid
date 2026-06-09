@@ -861,8 +861,20 @@ a {
 }
 
 .wellness-pathway-btn .pathway-icon {
-    font-size: 1.35rem;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.wellness-pathway-btn .pathway-icon svg {
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition-fast);
+}
+
+.wellness-pathway-btn:hover .pathway-icon svg {
+    transform: scale(1.1);
 }
 
 .wellness-pathway-btn .pathway-text {
