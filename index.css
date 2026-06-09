@@ -2127,12 +2127,6 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 @media (max-width: 768px) {
     .testimonials-section {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .testimonials-section .section-title,
-    .testimonials-section .section-subtitle {
         padding-left: 20px;
         padding-right: 20px;
     }
