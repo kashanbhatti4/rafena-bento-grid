@@ -877,22 +877,10 @@ a {
     transform: scale(1.1);
 }
 
-.wellness-pathway-btn .pathway-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.2;
-}
-
-.wellness-pathway-btn .pathway-title {
+.wellness-pathway-btn .pathway-label {
     font-weight: 700;
-    font-size: 0.95rem;
-}
-
-.wellness-pathway-btn .pathway-subtitle {
-    font-weight: 500;
-    font-size: 0.75rem;
-    opacity: 0.6;
+    font-size: 1.05rem;
+    line-height: 1;
 }
 
 .wellness-pathway-btn:hover {
