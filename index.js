@@ -622,6 +622,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- 11.5. HUMANS & PETS CARD CTAs switching tabs and scrolling (UX) ---
+    const btnHumans = document.querySelector('.family-btn-humans');
+    const btnPets = document.querySelector('.family-btn-pets');
+    
+    if (btnHumans) {
+        btnHumans.addEventListener('click', (e) => {
+            e.preventDefault();
+            teaserPills.forEach(p => p.classList.remove('active'));
+            filterProductsByTab('oils');
+            const productsSec = document.getElementById('products');
+            if (productsSec) {
+                productsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+    
+    if (btnPets) {
+        btnPets.addEventListener('click', (e) => {
+            e.preventDefault();
+            teaserPills.forEach(p => p.classList.remove('active'));
+            filterProductsByTab('pets');
+            const productsSec = document.getElementById('products');
+            if (productsSec) {
+                productsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
     // --- Wellness Subcategory Pathways Interaction (Bento UI Addition) ---
     const pathwayBtns = document.querySelectorAll('.wellness-pathway-btn');
     const tipBanner = document.getElementById('wellness-tip-banner');

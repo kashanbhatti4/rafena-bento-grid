@@ -596,6 +596,152 @@ a {
     }
 }
 
+/* --- 7.5. FAMILY WELLNESS SECTION (HUMANS & PETS PATHWAY) --- */
+.family-wellness-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.family-wellness-header {
+    margin-bottom: 32px;
+}
+
+.family-wellness-eyebrow {
+    background-color: var(--color-blue);
+    color: var(--color-green);
+    padding: 4px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.family-wellness-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-green-bright);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.family-wellness-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-green);
+    opacity: 0.8;
+}
+
+.family-wellness-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.family-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important; /* Remove internal padding to let image stretch edge to edge */
+    background-color: var(--color-white);
+    border: var(--border-width) solid var(--color-green);
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.family-card-img-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-bottom: var(--border-width) solid var(--color-green);
+    position: relative;
+}
+
+.family-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.family-card:hover .family-card-img {
+    transform: scale(1.04);
+}
+
+.family-card-body {
+    padding: 24px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    text-align: right;
+    direction: rtl;
+}
+
+.family-card-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-green-bright);
+    margin-bottom: 10px;
+}
+
+.family-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-green);
+    opacity: 0.85;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.family-card-footer {
+    margin-top: auto;
+}
+
+.family-card-btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 800;
+}
+
+/* Individual Card Styling & Glow Aura */
+.family-card-humans {
+    background: linear-gradient(135deg, #FFFDF9 0%, #FFF5F2 100%); /* Warm human cream pop glow */
+}
+.family-card-humans:hover {
+    border-color: var(--color-peach);
+    box-shadow: 0 14px 28px rgba(244, 114, 182, 0.08), 0 0 20px rgba(244, 114, 182, 0.15);
+    transform: translateY(-4px) scale(1.005);
+}
+
+.family-card-pets {
+    background: linear-gradient(135deg, #FFFDF9 0%, #F0FDF4 100%); /* Warm pet mint glow */
+}
+.family-card-pets:hover {
+    border-color: var(--color-mint);
+    box-shadow: 0 14px 28px rgba(0, 250, 154, 0.08), 0 0 20px rgba(0, 250, 154, 0.15);
+    transform: translateY(-4px) scale(1.005);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+    .family-wellness-section {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
+    .family-wellness-title {
+        font-size: 1.8rem;
+    }
+    .family-wellness-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .family-card-img-wrapper {
+        height: 240px;
+    }
+}
+
 /* --- 8. INJECTED ONBOARDING INTERFACE (UX) --- */
 .onboarding-card {
     grid-column: 1 / 3;
