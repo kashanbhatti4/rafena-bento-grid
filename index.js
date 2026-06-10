@@ -1518,7 +1518,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container) return;
 
         const selectorCards = container.querySelectorAll('.protocols-selector-card');
-        const dropdownSelect = document.getElementById('protocols-select-target');
+        const customSelect = document.getElementById('protocols-custom-select');
+        const selectTrigger = customSelect ? customSelect.querySelector('.select-trigger') : null;
+        const selectedText = customSelect ? customSelect.querySelector('.selected-text') : null;
+        const selectOptions = customSelect ? customSelect.querySelectorAll('.select-option') : [];
         const severitySlider = document.getElementById('protocols-severity-slider');
         const severityBadge = document.getElementById('protocols-severity-badge');
         const detailsPanel = document.getElementById('protocols-details-panel');
@@ -1785,45 +1788,80 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        function syncActiveProtocol(protocolId, triggerScroll = false) {
+            activeProtocolId = protocolId;
+
+            // Sync grid selector buttons
+            selectorCards.forEach(card => {
+                if (card.getAttribute('data-protocol') === protocolId) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Sync custom dropdown selections
+            selectOptions.forEach(opt => {
+                if (opt.getAttribute('data-value') === protocolId) {
+                    opt.classList.add('active');
+                    if (selectedText) {
+                        selectedText.textContent = opt.textContent.trim();
+                    }
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+
+            updateDetailsPanel();
+
+            // Mobile Smart Scroll Optimization (UX refinement)
+            if (triggerScroll && window.innerWidth <= 768 && detailsPanel) {
+                const detailsOffset = detailsPanel.getBoundingClientRect().top + window.pageYOffset - 90; // offset for fixed header
+                window.scrollTo({
+                    top: detailsOffset,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Toggle custom select open/close
+        if (selectTrigger && customSelect) {
+            selectTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                customSelect.classList.toggle('open');
+            });
+        }
+
+        // Close custom select on clicking anywhere outside
+        document.addEventListener('click', () => {
+            if (customSelect) {
+                customSelect.classList.remove('open');
+            }
+        });
+
+        // Event listener for custom dropdown option selection
+        selectOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const protocolId = opt.getAttribute('data-value');
+                if (protocolId) {
+                    syncActiveProtocol(protocolId, true);
+                }
+                if (customSelect) {
+                    customSelect.classList.remove('open');
+                }
+            });
+        });
+
         // Event listener for card selection
         selectorCards.forEach(card => {
             card.addEventListener('click', () => {
                 const protocolId = card.getAttribute('data-protocol');
-                if (!protocolId) return;
-
-                activeProtocolId = protocolId;
-
-                // Sync classes
-                selectorCards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-
-                // Sync dropdown select element
-                if (dropdownSelect) {
-                    dropdownSelect.value = protocolId;
+                if (protocolId) {
+                    syncActiveProtocol(protocolId, true);
                 }
-
-                updateDetailsPanel();
             });
         });
-
-        // Event listener for dropdown select sync
-        if (dropdownSelect) {
-            dropdownSelect.addEventListener('change', () => {
-                const protocolId = dropdownSelect.value;
-                activeProtocolId = protocolId;
-
-                // Sync classes
-                selectorCards.forEach(card => {
-                    if (card.getAttribute('data-protocol') === protocolId) {
-                        card.classList.add('active');
-                    } else {
-                        card.classList.remove('active');
-                    }
-                });
-
-                updateDetailsPanel();
-            });
-        }
 
         // Event listener for severity slider titration
         if (severitySlider) {

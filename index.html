@@ -657,84 +657,135 @@
                 <!-- Left Panel: Selector Grid & Severity Slider -->
                 <div class="protocols-left-panel">
                     
-                    <!-- Mobile/Desktop Dropdown Picker -->
+                    <!-- Custom Styled Dropdown Picker -->
                     <div class="protocols-dropdown-row">
-                        <label for="protocols-select-target" class="protocols-dropdown-label">בחר את היעד:</label>
-                        <div class="protocols-select-wrapper">
-                            <select id="protocols-select-target" class="protocols-select-element">
-                                <option value="sleep">סנכרון לילה (שינה)</option>
-                                <option value="pain">ויסות כאב (פיזי)</option>
-                                <option value="anxiety">איזון סטרס וחרדה</option>
-                                <option value="digestive">איזון מעי ועיכול</option>
-                                <option value="concentration">קשב וריכוז</option>
-                                <option value="cognitive">תמיכה קוגניטיבית</option>
-                                <option value="metastatic">איזון מטאפזי / מטאסטטי</option>
-                                <option value="inflammation">ויסות דלקות ואלרגיות</option>
-                                <option value="pets">רפנא לחיות מחמד</option>
-                            </select>
+                        <span class="protocols-dropdown-label">בחר את היעד:</span>
+                        <div class="protocols-custom-select" id="protocols-custom-select">
+                            <div class="select-trigger">
+                                <span class="selected-text">סנכרון לילה (שינה)</span>
+                                <svg class="select-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="select-options-container">
+                                <div class="select-option active" data-value="sleep">סנכרון לילה (שינה)</div>
+                                <div class="select-option" data-value="pain">ויסות כאב (פיזי)</div>
+                                <div class="select-option" data-value="anxiety">איזון סטרס וחרדה</div>
+                                <div class="select-option" data-value="digestive">איזון מעי ועיכול</div>
+                                <div class="select-option" data-value="concentration">קשב וריכוז</div>
+                                <div class="select-option" data-value="cognitive">תמיכה קוגניטיבית</div>
+                                <div class="select-option" data-value="metastatic">איזון מטאפזי / מטאסטטי</div>
+                                <div class="select-option" data-value="inflammation">ויסות דלקות ואלרגיות</div>
+                                <div class="select-option" data-value="pets">רפנא לחיות מחמד</div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 9 Bento Selector Cards -->
+                    <!-- 9 Bento Selector Cards with SVGs -->
                     <div class="protocols-selector-grid">
-                        <button class="protocols-selector-card active" data-protocol="sleep" style="--card-color: var(--color-blue)">
-                            <span class="card-icon">🌙</span>
+                        <button class="protocols-selector-card active" data-protocol="sleep" data-theme="blue">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">סנכרון לילה</span>
                             <span class="card-metric">84%</span>
                             <span class="card-metric-label">שיפור בשינה</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="pain" style="--card-color: var(--color-peach)">
-                            <span class="card-icon">🦴</span>
+                        <button class="protocols-selector-card" data-protocol="pain" data-theme="peach">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 10h-1.5a1.5 1.5 0 0 0 0 3H18M6 10h1.5a1.5 1.5 0 0 1 0 3H6"></path>
+                                    <circle cx="12" cy="5" r="2"></circle>
+                                    <path d="M12 7v10M9 22h6M9 10h6"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">ויסות כאב</span>
                             <span class="card-metric">89%</span>
                             <span class="card-metric-label">הקלה בכאב</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="anxiety" style="--card-color: var(--color-lavender)">
-                            <span class="card-icon">🧠</span>
+                        <button class="protocols-selector-card" data-protocol="anxiety" data-theme="lavender">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3 3 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2zM14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3 3 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2z"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">איזון מנטלי</span>
                             <span class="card-metric">91%</span>
                             <span class="card-metric-label">ירידה בסטרס</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="digestive" style="--card-color: var(--color-mint)">
-                            <span class="card-icon">🌱</span>
+                        <button class="protocols-selector-card" data-protocol="digestive" data-theme="mint">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 22C2 12.06 10.06 4 20 4H22V6C22 15.94 13.94 24 4 24H2Z"></path>
+                                    <path d="M22 4L12 14"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">איזון מעי</span>
                             <span class="card-metric">78%</span>
                             <span class="card-metric-label">הקלה בעיכול</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="concentration" style="--card-color: var(--color-lime)">
-                            <span class="card-icon">💡</span>
+                        <button class="protocols-selector-card" data-protocol="concentration" data-theme="lime">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18h6M10 22h4M15.09 14c.18-.98.76-1.74 1.4-2.5 1.17-1.38 1.51-3.25.1-4.83a6 6 0 0 0-9.18 0c-1.4 1.58-1.07 3.45.1 4.83.64.76 1.22 1.52 1.4 2.5"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">קשב וריכוז</span>
                             <span class="card-metric">82%</span>
                             <span class="card-metric-label">שיפור בריכוז</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="cognitive" style="--card-color: #FFFDF9">
-                            <span class="card-icon">✨</span>
+                        <button class="protocols-selector-card" data-protocol="cognitive" data-theme="blue">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3c0 4.5 1.5 6 6 6-4.5 0-6 1.5-6 6 0-4.5-1.5-6-6-6 4.5 0 6-1.5 6-6Z"></path>
+                                    <path d="M5 3c0 1.5.5 2 2 2-1.5 0-2 .5-2 2 0-1.5-.5-2-2-2 1.5 0 2-.5 2-2Z"></path>
+                                    <path d="M19 17c0 2 .5 2.5 2.5 2.5-2 0-2.5.5-2.5 2.5 0-2-.5-2.5-2.5-2.5 2 0 2.5-.5 2.5-2.5Z"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">תמיכה קוגניטיבית</span>
                             <span class="card-metric">21 יום</span>
                             <span class="card-metric-label">לבהירות מנטלית</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="metastatic" style="--card-color: #E2ECE9">
-                            <span class="card-icon">🛡️</span>
+                        <button class="protocols-selector-card" data-protocol="metastatic" data-theme="teal">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">איזון מטאפזי</span>
                             <span class="card-metric">קליני</span>
                             <span class="card-metric-label">ליווי צמוד</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="inflammation" style="--card-color: #FFF9F5">
-                            <span class="card-icon">🦠</span>
+                        <button class="protocols-selector-card" data-protocol="inflammation" data-theme="peach">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                            </span>
                             <span class="card-name">ויסות דלקות</span>
                             <span class="card-metric">82%</span>
                             <span class="card-metric-label">הפחתת אלרגיה</span>
                         </button>
 
-                        <button class="protocols-selector-card" data-protocol="pets" style="--card-color: #FFF5F5">
-                            <span class="card-icon">🐾</span>
+                        <button class="protocols-selector-card" data-protocol="pets" data-theme="blue">
+                            <span class="card-icon">
+                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+                                    <circle cx="8" cy="8" r="2"></circle>
+                                    <circle cx="16" cy="8" r="2"></circle>
+                                    <circle cx="5" cy="11" r="1.5"></circle>
+                                    <circle cx="19" cy="11" r="1.5"></circle>
+                                </svg>
+                            </span>
                             <span class="card-name">רפנא לחיות</span>
                             <span class="card-metric">12-19 יום</span>
                             <span class="card-metric-label">הקלה בסטרס</span>
