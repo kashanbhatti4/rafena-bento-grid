@@ -642,280 +642,132 @@
     </section>
 
     <!-- SECTION 5.5: TARGETED HEALTH PROTOCOLS BENTO GRID -->
-    <!-- 
-<section class="protocols-section" id="protocols">
-        <h2 class="section-title text-center">פרוטוקולים מותאמים לפי מצב בריאותי</h2>
-        <p class="section-subtitle text-center">בחר את האתגר הבריאותי שלך וגלה כיצד תוכנית הליווי המקצועית של Rafena מסייעת לך להגיע לאיזון</p>
-
-        <div class="protocols-grid-bento">
+    <!-- SECTION 5.5: TARGETED HEALTH PROTOCOLS BENTO GRID -->
+    <section class="protocols-section" id="protocols">
+        <div class="bento-card protocols-main-card">
             
-            [ Protocol 1: Sleep ]
-            <article class="bento-card bento-card-sleep">
-                <div class="card-meta">
-                    <span class="badge badge-sleep">תמיכה במחזור השינה</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול סנכרון לילה</h3>
-                <p class="card-body">
-                    סיוע בזיהוי חלון הקנבינואידים האופטימלי לתמיכה ב<strong>שעון הביולוגי</strong> ושינה עמוקה.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">84%</div>
-                    <div class="metric-label">שיפור באיכות השינה</div>
-                </div>
-            </article>
+            <div class="protocols-header text-center">
+                <span class="protocols-eyebrow">הפרוטוקולים של Rafena</span>
+                <h2 class="protocols-main-title">בחר את פרוטוקול הבריאות המותאם שלך</h2>
+                <p class="protocols-main-subtitle">גלה את תוכנית ה-Rafena האופטימלית עבורך</p>
+            </div>
 
-            [ Protocol 2: Pain ]
-            <article class="bento-card bento-card-pain">
-                <div class="card-meta">
-                    <span class="badge badge-pain">ניהול כאב ומפרקים</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול ויסות כאב</h3>
-                <p class="card-body">
-                    הפחתת <strong>תהליכים דלקתיים</strong> והרגעת קולטני כאב במערכת העצבים לשיפור התנועתיות.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">89%</div>
-                    <div class="metric-label">הקלה ברמת הכאב</div>
-                </div>
-            </article>
+            <!-- Interactive Component Layout -->
+            <div class="protocols-interactive-container">
+                <!-- Left Panel: Selector Grid & Severity Slider -->
+                <div class="protocols-left-panel">
+                    
+                    <!-- Mobile/Desktop Dropdown Picker -->
+                    <div class="protocols-dropdown-row">
+                        <label for="protocols-select-target" class="protocols-dropdown-label">בחר את היעד:</label>
+                        <div class="protocols-select-wrapper">
+                            <select id="protocols-select-target" class="protocols-select-element">
+                                <option value="sleep">סנכרון לילה (שינה)</option>
+                                <option value="pain">ויסות כאב (פיזי)</option>
+                                <option value="anxiety">איזון סטרס וחרדה</option>
+                                <option value="digestive">איזון מעי ועיכול</option>
+                                <option value="concentration">קשב וריכוז</option>
+                                <option value="cognitive">תמיכה קוגניטיבית</option>
+                                <option value="metastatic">איזון מטאפזי / מטאסטטי</option>
+                                <option value="inflammation">ויסות דלקות ואלרגיות</option>
+                                <option value="pets">רפנא לחיות מחמד</option>
+                            </select>
+                        </div>
+                    </div>
 
-            [ Protocol 3: Anxiety ]
-            <article class="bento-card bento-card-anxiety">
-                <div class="card-meta">
-                    <span class="badge badge-anxiety">איזון לחצים והרגעה</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול איזון מנטלי</h3>
-                <p class="card-body">
-                    איזון רמות הקורטיזול ותמיכה במערכת העצבים להשגת <strong>רוגע ושלווה</strong>.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">91%</div>
-                    <div class="metric-label">ירידה במדדי הלחץ</div>
-                </div>
-            </article>
+                    <!-- 9 Bento Selector Cards -->
+                    <div class="protocols-selector-grid">
+                        <button class="protocols-selector-card active" data-protocol="sleep" style="--card-color: var(--color-blue)">
+                            <span class="card-icon">🌙</span>
+                            <span class="card-name">סנכרון לילה</span>
+                            <span class="card-metric">84%</span>
+                            <span class="card-metric-label">שיפור בשינה</span>
+                        </button>
 
-            [ Protocol 4: Digestive ]
-            <article class="bento-card bento-card-digestive">
-                <div class="card-meta">
-                    <span class="badge badge-digestive">בריאות מערכת העיכול</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול איזון מעי</h3>
-                <p class="card-body">
-                    פעילות ישירה להפחתת <strong>דלקות במעי</strong> והרגעת התכווצויות מערכת העיכול.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">78%</div>
-                    <div class="metric-label">הקלה בתסמיני העיכול</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="pain" style="--card-color: var(--color-peach)">
+                            <span class="card-icon">🦴</span>
+                            <span class="card-name">ויסות כאב</span>
+                            <span class="card-metric">89%</span>
+                            <span class="card-metric-label">הקלה בכאב</span>
+                        </button>
 
-            [ Protocol 5: ADHD ]
-            <article class="bento-card bento-card-adhd">
-                <div class="card-meta">
-                    <span class="badge badge-adhd">מיקוד וקשב מוגבר</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול קשב וריכוז</h3>
-                <p class="card-body">
-                    התאמת מינון לשיפור ה<strong>בהירות המנטלית</strong> והפחתת אי-שקט פיזי.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">82%</div>
-                    <div class="metric-label">שיפור בריכוז ובמיקוד</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="anxiety" style="--card-color: var(--color-lavender)">
+                            <span class="card-icon">🧠</span>
+                            <span class="card-name">איזון מנטלי</span>
+                            <span class="card-metric">91%</span>
+                            <span class="card-metric-label">ירידה בסטרס</span>
+                        </button>
 
-            [ Protocol 6: PTSD ]
-            <article class="bento-card bento-card-ptsd">
-                <div class="card-meta">
-                    <span class="badge badge-ptsd">ויסות מערכת העצבים</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול שיקום ואיזון</h3>
-                <p class="card-body">
-                    ויסות רגישות יתר של מערכת העצבים והפחתת <strong>תגובות לחץ</strong> חריפות.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">85%</div>
-                    <div class="metric-label">שיפור בוויסות החרדה</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="digestive" style="--card-color: var(--color-mint)">
+                            <span class="card-icon">🌱</span>
+                            <span class="card-name">איזון מעי</span>
+                            <span class="card-metric">78%</span>
+                            <span class="card-metric-label">הקלה בעיכול</span>
+                        </button>
 
-            [ Protocol 7: Allergies ]
-            <article class="bento-card bento-card-allergies">
-                <div class="card-meta">
-                    <span class="badge badge-allergies">איזון מערכת החיסון</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול הגנה עונתית</h3>
-                <p class="card-body">
-                    ויסות תאי חיסון והפחתת <strong>רגישויות בדרכי הנשימה</strong> ובריריות.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">76%</div>
-                    <div class="metric-label">הפחתה בעוצמת האלרגיה</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="concentration" style="--card-color: var(--color-lime)">
+                            <span class="card-icon">💡</span>
+                            <span class="card-name">קשב וריכוז</span>
+                            <span class="card-metric">82%</span>
+                            <span class="card-metric-label">שיפור בריכוז</span>
+                        </button>
 
-            [ Protocol 8: Skin ]
-            <article class="bento-card bento-card-skin">
-                <div class="card-meta">
-                    <span class="badge badge-skin">טיפוח ושיקום העור</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול דרמטולוגי</h3>
-                <p class="card-body">
-                    איזון ייצור הסבום והרגעת <strong>גירויים ואדמומיות</strong> בעור סדוק.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">88%</div>
-                    <div class="metric-label">שיפור במרקם העור</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="cognitive" style="--card-color: #FFFDF9">
+                            <span class="card-icon">✨</span>
+                            <span class="card-name">תמיכה קוגניטיבית</span>
+                            <span class="card-metric">21 יום</span>
+                            <span class="card-metric-label">לבהירות מנטלית</span>
+                        </button>
 
-            [ Protocol 9: Cognitive ]
-            <article class="bento-card bento-card-cognitive">
-                <div class="card-meta">
-                    <span class="badge badge-cognitive">הגנה קוגניטיבית</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול בהירות מוחית</h3>
-                <p class="card-body">
-                    תמיכה ב<strong>גמישות קוגניטיבית</strong> והגנה על תאי העצב מפני חמצון.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">81%</div>
-                    <div class="metric-label">הפחתת תחושת ערפול</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="metastatic" style="--card-color: #E2ECE9">
+                            <span class="card-icon">🛡️</span>
+                            <span class="card-name">איזון מטאפזי</span>
+                            <span class="card-metric">קליני</span>
+                            <span class="card-metric-label">ליווי צמוד</span>
+                        </button>
 
-            [ Protocol 10: Inflammation ]
-            <article class="bento-card bento-card-inflammation">
-                <div class="card-meta">
-                    <span class="badge badge-inflammation">נוגד דלקת עוצמתי</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול הפחתת דלקת</h3>
-                <p class="card-body">
-                    חסימת שחרור ציטוקינים דלקתיים לתמיכה ב<strong>שיקום שרירים</strong> ורקמות.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">93%</div>
-                    <div class="metric-label">ירידה במדדי הדלקת</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="inflammation" style="--card-color: #FFF9F5">
+                            <span class="card-icon">🦠</span>
+                            <span class="card-name">ויסות דלקות</span>
+                            <span class="card-metric">82%</span>
+                            <span class="card-metric-label">הפחתת אלרגיה</span>
+                        </button>
 
-            [ Protocol 11: Cancer ]
-            <article class="bento-card bento-card-cancer">
-                <div class="card-meta">
-                    <span class="badge badge-cancer">ליווי ותמיכה אונקולוגית</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
-                </div>
-                <h3 class="card-title">פרוטוקול תמיכה והקלה</h3>
-                <p class="card-body">
-                    הקלה על <strong>תופעות לוואי</strong> כמו בחילות, אובדן תיאבון וכאבים נלווים.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">90%</div>
-                    <div class="metric-label">הקלה מדווחת בבחילות</div>
-                </div>
-            </article>
+                        <button class="protocols-selector-card" data-protocol="pets" style="--card-color: #FFF5F5">
+                            <span class="card-icon">🐾</span>
+                            <span class="card-name">רפנא לחיות</span>
+                            <span class="card-metric">12-19 יום</span>
+                            <span class="card-metric-label">הקלה בסטרס</span>
+                        </button>
+                    </div>
 
-            [ Protocol 12: Concentration ]
-            <article class="bento-card bento-card-concentration">
-                <div class="card-meta">
-                    <span class="badge badge-concentration">אנרגיה ומיקוד מנטלי</span>
-                    <span class="tracking-indicator">● פרוטוקול פעיל</span>
+                    <!-- Severity Slider -->
+                    <div class="protocols-slider-container">
+                        <div class="protocols-slider-label-row">
+                            <span class="protocols-slider-label-title">רמת חומרת התסמינים</span>
+                            <span class="protocols-slider-value-badge" id="protocols-severity-badge">5 (בינוני)</span>
+                        </div>
+                        <input type="range" id="protocols-severity-slider" min="1" max="10" value="5" class="protocols-range-slider" aria-label="רמת חומרת התסמינים">
+                        <div class="protocols-slider-ticks">
+                            <span>1 (קל)</span>
+                            <span>10 (חמור)</span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="card-title">פרוטוקול אנרגיה ממוקדת</h3>
-                <p class="card-body">
-                    איזון מוליכים עצביים ליצירת <strong>ריכוז מנטלי יציב</strong> ללא עליות וירידות.
-                </p>
-                <div class="card-cta">
-                    <span class="cta-text">ליווי אישי עם יועץ</span>
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M15 8H1M8 1L1 8l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="card-metric-container">
-                    <div class="metric-value">86%</div>
-                    <div class="metric-label">שיפור בפריון העבודה</div>
-                </div>
-            </article>
 
+                <!-- Right Panel: Success Timeline & Blueprint Details -->
+                <div class="protocols-right-panel" id="protocols-details-panel">
+                    <!-- Dynamic details injected by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Bottom Section CTA -->
+            <div class="protocols-bottom-cta text-center">
+                <a href="#quiz-onboarding" class="btn btn-outline protocols-diagnostic-btn">לא בטוח איזה פרוטוקול מתאים לך? התחל אבחון ECS קצר</a>
+                <p class="protocols-diagnostic-subtext">(ללא עלות · לוקח 2 דקות · סודיות רפואית מלאה)</p>
+            </div>
         </div>
     </section>
--->
 
     <!-- SECTION 6: FEATURED PRODUCTS (מוצרי CBD מובילים) -->
     <section class="products-section" id="products">

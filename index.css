@@ -5583,230 +5583,296 @@ body.theme-organic-sage .pop-icon {
     padding: 0 20px;
 }
 
-.protocols-grid-bento {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 1fr;
-    gap: 20px;
-    margin-top: 40px;
-    grid-auto-flow: dense;
+.protocols-main-card {
+    padding: 40px;
+    cursor: default;
+}
+.protocols-main-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--color-green);
 }
 
-.protocols-grid-bento .bento-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 18px 20px;
-    background-color: var(--color-white) !important;
-    border: var(--border-width) solid var(--color-green) !important;
-    border-radius: var(--border-radius-large);
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+.protocols-header {
+    margin-bottom: 32px;
+}
+.protocols-eyebrow {
+    background-color: var(--color-blue);
+    color: var(--color-green);
+    padding: 4px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+.protocols-main-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-green-bright);
+    margin-bottom: 8px;
+}
+.protocols-main-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-green);
+    opacity: 0.85;
+}
+
+.protocols-interactive-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 32px;
     direction: rtl;
     text-align: right;
 }
 
-.protocols-grid-bento .card-meta {
+/* Selector Grid & Dropdown Row */
+.protocols-left-panel {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 24px;
+}
+.protocols-dropdown-row {
+    display: flex;
     align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
-    gap: 8px;
-    flex-wrap: wrap;
+    gap: 16px;
 }
-
-.protocols-grid-bento .badge {
-    font-size: 0.7rem;
-    font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 50px;
-    white-space: nowrap;
-    border: var(--border-width) solid var(--color-green);
-}
-
-/* Condition Badges Colors (Solid 100% opacity background colors matching overall homepage) */
-.badge-sleep { background-color: var(--color-green-bright); color: var(--color-white); }
-.badge-pain { background-color: var(--color-peach); color: var(--color-green); }
-.badge-anxiety { background-color: var(--color-lavender); color: var(--color-green); }
-.badge-digestive { background-color: var(--color-peach); color: var(--color-green); }
-.badge-adhd { background-color: var(--color-lime); color: var(--color-green); }
-.badge-ptsd { background-color: var(--color-green-bright); color: var(--color-white); }
-.badge-allergies { background-color: var(--color-mint); color: var(--color-green); }
-.badge-skin { background-color: var(--color-peach); color: var(--color-green); }
-.badge-cognitive { background-color: var(--color-green-bright); color: var(--color-white); }
-.badge-inflammation { background-color: var(--color-lime); color: var(--color-green); }
-.badge-cancer { background-color: var(--color-peach); color: var(--color-green); }
-.badge-concentration { background-color: var(--color-lime); color: var(--color-green); }
-
-.protocols-grid-bento .tracking-indicator {
-    font-size: 0.7rem;
-    color: #059669;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-.protocols-grid-bento .card-title {
-    font-size: 1.15rem;
-    font-weight: 900;
-    margin-bottom: 6px;
+.protocols-dropdown-label {
+    font-weight: 700;
     color: var(--color-green);
-    letter-spacing: -0.01em;
 }
-
-.protocols-grid-bento .card-body {
-    font-size: 0.84rem;
-    line-height: 1.45;
-    opacity: 0.9;
-    margin-bottom: 12px;
-    color: rgba(17, 43, 34, 0.85);
+.protocols-select-wrapper {
+    position: relative;
+    flex-grow: 1;
 }
-
-.protocols-grid-bento .card-body strong {
+.protocols-select-element {
+    width: 100%;
+    padding: 12px 16px;
+    border: var(--border-width) solid var(--color-green);
+    border-radius: var(--border-radius-large);
+    background-color: var(--color-white);
     color: var(--color-green);
     font-weight: 700;
+    cursor: pointer;
+    outline: none;
 }
 
-.protocols-grid-bento .card-cta {
-    display: inline-flex;
+.protocols-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* Individual selector card button */
+.protocols-selector-card {
+    background-color: var(--card-color, var(--color-white));
+    border: var(--border-width) solid var(--color-green);
+    border-radius: var(--border-radius-large);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    outline: none;
+}
+.protocols-selector-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(17, 12, 26, 0.05);
+}
+.protocols-selector-card.active {
+    border-color: var(--color-green-bright);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-green-bright) 20%, transparent);
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+.card-name {
+    font-size: 1rem;
     font-weight: 800;
     color: var(--color-green);
-    margin-top: auto;
-    width: fit-content;
-    transition: opacity var(--transition-fast);
+    margin-bottom: 6px;
 }
-
-.protocols-grid-bento .card-cta:hover {
+.card-metric {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-green-bright);
+}
+.card-metric-label {
+    font-size: 0.75rem;
+    color: var(--color-green);
     opacity: 0.8;
 }
 
-.protocols-grid-bento .arrow-icon {
-    transition: transform var(--transition-fast);
-    transform: rotate(0deg);
+/* Severity Slider */
+.protocols-slider-container {
+    background: var(--color-white);
+    border: var(--border-width) solid var(--color-green);
+    border-radius: var(--border-radius-large);
+    padding: 20px;
 }
-
-/* Horizontal RTL translation on hover */
-.protocols-grid-bento .bento-card:hover .arrow-icon {
-    transform: translateX(-4px);
-}
-
-/* Metric Container - Horizontal Layout to save vertical space */
-.protocols-grid-bento .card-metric-container {
+.protocols-slider-label-row {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    border-top: 1px solid rgba(17, 43, 34, 0.08);
-    padding-top: 10px;
-    margin-top: 10px;
-    text-align: right;
+    margin-bottom: 12px;
+}
+.protocols-slider-label-title {
+    font-weight: 800;
+    color: var(--color-green);
+}
+.protocols-slider-value-badge {
+    background-color: var(--color-blue);
+    color: var(--color-green);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.protocols-range-slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+    background: linear-gradient(to left, var(--color-blue), var(--color-peach));
+}
+.protocols-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-green-bright);
+    border: 2px solid var(--color-white);
+    cursor: pointer;
+}
+.protocols-slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-green);
+    opacity: 0.7;
+    margin-top: 6px;
+}
+
+/* Right Panel: Detail Card & Timeline */
+.protocols-right-panel {
+    background: var(--color-white);
+    border: var(--border-width) solid var(--color-green);
+    border-radius: var(--border-radius-large);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.right-panel-header {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-green) 15%, transparent);
+    padding-bottom: 12px;
+}
+.right-panel-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-green-bright);
+}
+.right-panel-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-green);
+    margin-top: 4px;
+}
+.right-panel-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-green);
+    opacity: 0.85;
+}
+
+/* Timeline */
+.timeline-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--color-green);
+}
+.timeline-track {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    padding-right: 16px;
+    border-right: 2px solid color-mix(in srgb, var(--color-green) 15%, transparent);
+}
+.timeline-item {
+    position: relative;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    right: -22px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-green-bright);
+    border: 2px solid var(--color-white);
+}
+.timeline-day {
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--color-green-bright);
+}
+.timeline-text {
+    font-size: 0.85rem;
+    color: var(--color-green);
+    opacity: 0.85;
+}
+
+.right-panel-highlight {
+    background-color: #FFFDF9;
+    border: 1px dashed var(--color-green-bright);
+    padding: 12px;
+    border-radius: var(--border-radius-large);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-green);
+}
+.right-panel-human-touch {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--color-green);
+    opacity: 0.8;
+}
+
+.right-panel-cta-btn {
+    margin-top: auto;
     width: 100%;
 }
 
-.protocols-grid-bento .metric-value {
-    font-size: 1.8rem;
-    font-weight: 900;
-    line-height: 1;
-    font-family: var(--font-heading);
-    flex-shrink: 0;
+/* Bottom CTA styling */
+.protocols-bottom-cta {
+    margin-top: 32px;
 }
-
-.protocols-grid-bento .metric-label {
-    font-size: 0.78rem;
-    opacity: 0.85;
+.protocols-diagnostic-subtext {
+    font-size: 0.85rem;
     color: var(--color-green);
-    line-height: 1.25;
-    margin-top: 0;
+    opacity: 0.8;
+    margin-top: 8px;
 }
 
-/* Card Glows on Hover matching Condition Themes (Using ONLY existing root variables + dynamic color-mix) */
-.bento-card-sleep:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-green-bright) 8%, transparent); border-color: var(--color-green-bright) !important; }
-.bento-card-sleep .metric-value { color: var(--color-green-bright); }
-
-.bento-card-pain:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
-.bento-card-pain .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
-
-.bento-card-anxiety:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lavender) 16%, transparent); border-color: var(--color-lavender) !important; }
-.bento-card-anxiety .metric-value { color: color-mix(in srgb, var(--color-lavender) 75%, black); }
-
-.bento-card-digestive:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
-.bento-card-digestive .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
-
-.bento-card-adhd:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lime) 16%, transparent); border-color: var(--color-lime) !important; }
-.bento-card-adhd .metric-value { color: color-mix(in srgb, var(--color-lime) 75%, black); }
-
-.bento-card-ptsd:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-green-bright) 8%, transparent); border-color: var(--color-green-bright) !important; }
-.bento-card-ptsd .metric-value { color: var(--color-green-bright); }
-
-.bento-card-allergies:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-mint) 16%, transparent); border-color: var(--color-mint) !important; }
-.bento-card-allergies .metric-value { color: color-mix(in srgb, var(--color-mint) 70%, black); }
-
-.bento-card-skin:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
-.bento-card-skin .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
-
-.bento-card-cognitive:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-green-bright) 8%, transparent); border-color: var(--color-green-bright) !important; }
-.bento-card-cognitive .metric-value { color: var(--color-green-bright); }
-
-.bento-card-inflammation:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lime) 16%, transparent); border-color: var(--color-lime) !important; }
-.bento-card-inflammation .metric-value { color: color-mix(in srgb, var(--color-lime) 75%, black); }
-
-.bento-card-cancer:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-peach) 16%, transparent); border-color: var(--color-peach) !important; }
-.bento-card-cancer .metric-value { color: color-mix(in srgb, var(--color-peach) 75%, black); }
-
-.bento-card-concentration:hover { box-shadow: 0 10px 25px color-mix(in srgb, var(--color-lime) 16%, transparent); border-color: var(--color-lime) !important; }
-.bento-card-concentration .metric-value { color: color-mix(in srgb, var(--color-lime) 75%, black); }
-
-/* Global hover fallback for grid cards */
-.protocols-grid-bento .bento-card:hover {
-    transform: translateY(-4px);
-}
-
-/* Bento Grid Spans for Desktop (> 1200px) */
-@media (min-width: 1201px) {
-    .bento-card-sleep { grid-column: span 2; }
-    .bento-card-ptsd { grid-column: span 2; }
-    .bento-card-skin { grid-column: span 2; }
-    .bento-card-inflammation { grid-column: span 2; }
-}
-
-/* Bento Grid Spans for Small Desktop (992px to 1200px) */
-@media (max-width: 1200px) and (min-width: 993px) {
-    .protocols-grid-bento {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-    }
-    .bento-card-sleep { grid-column: span 2; }
-    .bento-card-ptsd { grid-column: span 2; }
-    .bento-card-inflammation { grid-column: span 2; }
-}
-
-/* Bento Grid Spans for Tablet (768px to 992px) */
-@media (max-width: 992px) and (min-width: 768px) {
-    .protocols-grid-bento {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: auto;
-    }
-    .bento-card-sleep { grid-column: span 2; }
-    .bento-card-ptsd { grid-column: span 2; }
-}
-
-/* Mobile: Single Column */
-@media (max-width: 767px) {
-    .protocols-grid-bento {
+/* Responsive Overrides */
+@media (max-width: 991px) {
+    .protocols-interactive-container {
         grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-        gap: 16px;
-    }
-    .protocols-grid-bento .bento-card {
-        padding: 16px;
-        grid-column: span 1 !important;
     }
 }
-
+@media (max-width: 768px) {
+    .protocols-selector-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /* --- SECTION 6.5: EMOTIONAL GALLERY --- */
 .emotional-gallery-section {

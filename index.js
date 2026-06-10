@@ -1512,74 +1512,328 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 13. TARGETED PROTOCOLS COUNT-UP ANIMATION (MX) ---
+    // --- 13. INTERACTIVE TARGETED HEALTH PROTOCOLS (Bento Widget) ---
     (function () {
-        const protocolsGrid = document.querySelector('.protocols-grid-bento');
-        if (!protocolsGrid) return;
+        const container = document.querySelector('.protocols-interactive-container');
+        if (!container) return;
 
-        const metrics = protocolsGrid.querySelectorAll('.metric-value');
-        const countData = [];
+        const selectorCards = container.querySelectorAll('.protocols-selector-card');
+        const dropdownSelect = document.getElementById('protocols-select-target');
+        const severitySlider = document.getElementById('protocols-severity-slider');
+        const severityBadge = document.getElementById('protocols-severity-badge');
+        const detailsPanel = document.getElementById('protocols-details-panel');
 
-        // Store original percentages and reset to 0%
-        metrics.forEach((el) => {
-            const text = el.textContent.trim();
-            const target = parseInt(text.replace('%', ''), 10) || 0;
-            countData.push({
-                element: el,
-                target: target
-            });
-            el.textContent = '0%';
-        });
-
-        let animated = false;
-
-        function startCountUp() {
-            if (animated) return;
-            animated = true;
-
-            const duration = 1500; // Animation duration in milliseconds
-            const startTime = performance.now();
-
-            function updateCounter(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                // Easing function: easeOutQuad
-                const easeProgress = progress * (2 - progress);
-
-                countData.forEach(item => {
-                    const currentVal = Math.floor(easeProgress * item.target);
-                    item.element.textContent = currentVal + '%';
-                });
-
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    // Ensure final values are precise
-                    countData.forEach(item => {
-                        item.element.textContent = item.target + '%';
-                    });
+        const protocolsData = {
+            sleep: {
+                name_en: "Sleep Cycle Synchronization",
+                name_he: "סנכרון לילה (שינה)",
+                tag: "תמיכה במחזור השינה · פרוטוקול פעיל",
+                title: "לישון עמוק. להתעורר מחדש.",
+                desc: "סיוע מקצועי בזיהוי חלון הקנבינואידים האופטימלי עבורך. אנחנו נמפה יחד איתך את השעון הביולוגי שלך כדי להאריך את משך השינה העמוקה (REM) ולייצר הירדמות מהירה – ללא תחושת ערפול בבוקר.",
+                humanTouch: "",
+                metric: "84% מהמשתתפים מדווחים על שיפור דרמטי באיכות השינה כבר בשבועיים הראשונים.",
+                blueprint: [
+                    { day: "יום 1-7", text: "התחלת כיול: הרגעת תדירות היקיצות בלילה" },
+                    { day: "יום 15", text: "שינוי מורגש: התארכות שנת ה-REM העמוקה" },
+                    { day: "יום 21", text: "איזון יציב: יקיצה קלה ואנרגטית בבוקר" }
+                ],
+                badgeColor: "var(--color-blue)",
+                doseTips: {
+                    low: "מומלץ ליטול 2-3 טיפות של שמן סנכרון לילה כ-30 דקות לפני השינה.",
+                    medium: "מומלץ ליטול 4-5 טיפות של שמן סנכרון לילה, בשילוב עם תרגילי נשימה קלים.",
+                    high: "מינון גבוה של 6-8 טיפות בהנחיית יועץ ה-ECS שלך לכיול עמוק."
+                }
+            },
+            pain: {
+                name_en: "Pain and Inflammation Management",
+                name_he: "ויסות כאב (פיזי)",
+                tag: "ניהול כאב ודלקת · פרוטוקול פעיל",
+                title: "להחזיר את חופש התנועה לגוף",
+                desc: "כאב כרוני מתיש את מערכת העצבים. הפרוטוקול המותאם משלב ריכוזי CBD ו-CBG גבוהים במטרה להרגיע את קולטני הכאב ב-ECS ולבלום תהליכים דלקתיים מתמשכים במפרקים ובשרירים.",
+                humanTouch: "היועץ האישי שלך יתאים את המינון בצורה הדרגתית (Titration) עד להגעה לנקודת ההקלה המדויקת שלך.",
+                metric: "89% ירידה במדדי הכאב המדווחים.",
+                blueprint: [
+                    { day: "יום 1-5", text: "הפחתת הולכת אותות הכאב במערכת העצבים" },
+                    { day: "יום 12", text: "הקלה משמעותית בדלקות מפרקים ותנועתיות משופרת" },
+                    { day: "יום 30", text: "איזון פיזי יציב והחזרת הגוף לחיוניות מלאה" }
+                ],
+                badgeColor: "var(--color-peach)",
+                doseTips: {
+                    low: "מומלץ להתחיל בכיול עדין של 3 טיפות בבוקר ו-3 בערב.",
+                    medium: "מומלץ לעבור ל-5 טיפות פעמיים ביום לצורך ויסות כאב בינוני.",
+                    high: "מינון מתקדם של 7-8 טיפות פעמיים ביום עם מעקב צמוד של יועץ רפנא."
+                }
+            },
+            anxiety: {
+                name_en: "Emotional Load Reduction",
+                name_he: "איזון סטרס וחרדה",
+                tag: "הפחתת עומס רגשי · פרוטוקול ממוקד",
+                title: "לכבות את רעשי הרקע של המוח",
+                desc: "כשהראש לא מפסיק לעבוד, הגוף מייצר קורטיזול (הורמון סטרס). הפרוטוקול מעניק למערכת העצבים הסימפתטית שלך סיגנל מיידי להרפיה, ומסייע בהפחתת תחושת דופק מהיר, מועקה ואי-שקט יומיומי.",
+                humanTouch: "",
+                metric: "91% חוו ירידה משמעותית במדדי הלחץ המנטלי.",
+                blueprint: [
+                    { day: "יום 1-3", text: "בלימת ייצור עודף קורטיזול והרפיית מתח מיידית" },
+                    { day: "יום 10", text: "הפחתת חרדה כללית ומניעת התקפי פאניקה" },
+                    { day: "יום 21", text: "עמידות מוגברת לסטרס ושקט מחשבתי יומיומי" }
+                ],
+                badgeColor: "var(--color-lavender)",
+                doseTips: {
+                    low: "מומלץ ליטול 2-3 טיפות של שמן האיזון המנטלי עם הופעת לחץ ראשוני.",
+                    medium: "מומלץ ליטול 4 טיפות בבוקר ובצהריים לשמירה על שלווה מתמשכת.",
+                    high: "מומלץ ללוות את תהליך הכיול ב-6 טיפות פעמיים ביום בהנחיית יועץ ECS."
+                }
+            },
+            digestive: {
+                name_en: "Gut-Brain Axis Alignment",
+                name_he: "איזון מעי ועיכול",
+                tag: "ציר המעי-מוח · פרוטוקול פעיל",
+                title: "להרגיע את הבטן",
+                desc: "מתח נפשי מתבטא ישירות במערכת העיכול (התכווצויות, רגישות ודלקות). שימוש יומיומי מודרך ב-CBD פועל ישירות על הקולטנים הרבים הממוקמים במעי, מפחית רגישות ומחזיר את הרוגע למערכת.",
+                humanTouch: "",
+                metric: "78% הקלה בתסמיני עיכול תלויי סטרס.",
+                blueprint: [
+                    { day: "יום 1-7", text: "הרגעת התכווצויות מעיים וכאבים תלויי סטרס" },
+                    { day: "יום 14", text: "הפחתת דלקתיות ברירית המעי ושיפור הספיגה" },
+                    { day: "יום 30", text: "שיקום ציר המעי-מוח לפעילות עיכול סדירה" }
+                ],
+                badgeColor: "var(--color-mint)",
+                doseTips: {
+                    low: "מומלץ ליטול 3 טיפות על קיבה ריקה כחצי שעה לפני האוכל.",
+                    medium: "מומלץ לעבור ל-4 טיפות פעמיים ביום לפני הארוחות העיקריות.",
+                    high: "מינון מתקדם של 6 טיפות שלוש פעמים ביום לטיפול ברגישות מוגברת."
+                }
+            },
+            concentration: {
+                name_en: "Mental Focus and Day Protocol",
+                name_he: "קשב וריכוז",
+                tag: "מיקוד מנטלי · פרוטוקול יום",
+                title: "חדות ללא אנרגיה עצבנית",
+                desc: "בניגוד לחומרים מעוררים, פרוטוקול המיקוד שלנו מיועד להפחית 'ערפול מוחי' (Brain Fog) ולשפר את הבהירות המחשבתית על ידי הבאת הגוף למצב של נינוחות מרוכזת (Flow State).",
+                humanTouch: "",
+                metric: "שיפור מדווח בריכוז ובמיקוד בתוך זמן קצר.",
+                blueprint: [
+                    { day: "יום 1-5", text: "הפחתת ערפול מוחי והגברת הבהירות המחשבתית" },
+                    { day: "יום 15", text: "שיפור הקשב המתמשך ומניעת מוסחות במשימות" },
+                    { day: "יום 25", text: "כניסה קלה למצב Flow מרוכז ויציב לאורך היום" }
+                ],
+                badgeColor: "var(--color-lime)",
+                doseTips: {
+                    low: "מומלץ ליטול 3 טיפות בבוקר עם הקפה או כוס המים הראשונה.",
+                    medium: "מומלץ ליטול 4-5 טיפות בבוקר ובצהריים לשמירה על חדות.",
+                    high: "מינון מתקדם של 6 טיפות פעמיים ביום לביצועים מנטליים מוגברים."
+                }
+            },
+            cognitive: {
+                name_en: "Neuroprotection / Long-term Care",
+                name_he: "תמיכה קוגניטיבית",
+                tag: "הגנה עצבית (Neuroprotection) · פרוטוקול ארוך טווח",
+                title: "לשמור על החדות והזיכרון",
+                desc: "האטה קוגניטיבית, ערפול מוחי מתמשך או ירידה בזיכרון קשורים לעיתים קרובות לשחיקה של תאי העצב ולחץ חמצוני במערכת העצבים המרכזית. הפרוטוקול משלב רכיבי קנבינואידים נוגדי חמצון עוצמתיים, שמטרתם לתמוך בגמישות המוחית (Neuroplasticity), לעודד מיקוד ולספק שכבת הגנה טבעית לתפקודים הקוגניטיביים היומיומיים.",
+                humanTouch: "",
+                metric: "שיפור מדווח בבהירות המחשבה ותפקודי הזיכרון לטווח קצר בתוך 21 ימים.",
+                blueprint: [
+                    { day: "יום 1-7", text: "הפחתת עקה חמצונית בתאי המוח והגברת רמות הריכוז" },
+                    { day: "יום 14", text: "שיפור מורגש בזיכרון העבודה ובמהירות השליפה" },
+                    { day: "יום 21", text: "בהירות מנטלית יציבה ותמיכה ארוכת טווח בסינפסות" }
+                ],
+                badgeColor: "var(--color-blue)",
+                doseTips: {
+                    low: "מומלץ ליטול 3 טיפות בבוקר לתמיכה יומית בסינפסות.",
+                    medium: "מומלץ ליטול 4 טיפות פעמיים ביום להגנה עצבית מתמשכת.",
+                    high: "מומלץ ללוות את תהליך הכיול ב-6 טיפות פעמיים ביום בהנחיית יועץ."
+                }
+            },
+            metastatic: {
+                name_en: "Integrative Support / Clinical Care",
+                name_he: "איזון מטאפזי / מטאסטטי",
+                tag: "תמיכה אינטגרטיבית במצבים מורכבים · ליווי קליני צמוד",
+                title: "מעטפת הגנה ותמיכה לגוף בשלבי התמודדות מורכבים",
+                desc: "התמודדות עם מחלות כרוניות קשות או טיפולים אגרסיביים דורשת פרוטוקול ויסות ברמה הגבוהה ביותר. המטרה כאן אינה 'טיפול במחלה' אלא ניהול קפדני של איכות החיים: הפחתת הבחילות ותופעות הלוואי, גירוי התיאבון, הרגעת מערכת העצבים המותשת ומתן שקט מנטלי עמוק. הפרוטוקול מנוהל בכיול יומי רגיש ומותאם אישית בשיתוף פעולה מלא עם מדדי הגוף שלך.",
+                humanTouch: "בשלבים אלו, היועץ האישי של רפנא זמין עבורך לכיול דינמי של המינונים בהתאם להרגשה היומית.",
+                metric: "ליווי קפדני בהתאמה אישית מלאה.",
+                blueprint: [
+                    { day: "יום 1-3", text: "הקלה ראשונית בבחילות, רגישויות וייצוב התיאבון" },
+                    { day: "יום 10", text: "איזון מנטלי ושיכוך עמוק של המתח במערכת העצבים" },
+                    { day: "יום 20", text: "כיול דינמי מתמשך בהתאם לפרוטוקול הטיפולים האישי" }
+                ],
+                badgeColor: "#8A2BE2",
+                doseTips: {
+                    low: "מומלץ להתחיל במינון עדין מאוד של 2 טיפות בבוקר ו-2 בערב.",
+                    medium: "מומלץ לעבור ל-4 טיפות, שלוש פעמים ביום, בהתאם למידת הבחילה.",
+                    high: "מינון בהתאמה אישית בהנחיית יועץ קליני צמוד בלבד."
+                }
+            },
+            inflammation: {
+                name_en: "Immune System Balance / Chronic & Seasonal",
+                name_he: "ויסות דלקות ואלרגיות",
+                tag: "איזון מערכת החיסון · פרוטוקול עונתי וכרוני",
+                title: "להרגיע את התגובה החיסונית של הגוף",
+                desc: "אלרגיות עונתיות, תגובות עוריות ודלקות כרוניות הן תוצאה של מערכת חיסון שנמצאת במצב של 'התרעת שווא' קבועה. רכיבי ה-CBD והטרפנים הייעודיים בפרוטוקול זה פועלים כוויסתים טבעיים (Immunomodulators). הם מתקשרים עם קולטני ה-CB2 במערכת החיסון כדי להוריד את רמות ההיסטמין, לבלום את שרשרת התגובות הדלקתיות ולהחזיר את הגוף לאיזון פיזיולוגי שקט.",
+                humanTouch: "",
+                metric: "82% מהמשתתפים מדווחים על הפחתה משמעותית בעוצמת האלרגיה והדלקות.",
+                blueprint: [
+                    { day: "יום 1-5", text: "ויסות קולטני CB2 להורדת רמות ההיסטמין וההצטננות" },
+                    { day: "יום 12", text: "בלימת התפרצויות דלקתיות בעור ושיפור דרכי הנשימה" },
+                    { day: "יום 25", text: "חיזוק ואיזון מערכת החיסון למניעת רגישויות חוזרות" }
+                ],
+                badgeColor: "var(--color-peach)",
+                doseTips: {
+                    low: "מומלץ ליטול 3 טיפות בבוקר לתמיכה עונתית מונעת.",
+                    medium: "מומלץ ליטול 4-5 טיפות פעמיים ביום במצבי התלקחות בינוניים.",
+                    high: "מינון מוגבר של 6-8 טיפות פעמיים ביום לויסות דלקות מוגברות."
+                }
+            },
+            pets: {
+                name_en: "Holistic Veterinary Support / Weight Dose",
+                name_he: "רפנא לחיות מחמד",
+                tag: "וטרינריה הוליסטית · התאמה לפי משקל",
+                title: "השקט והבריאות של החבר הכי טוב שלך",
+                desc: "גם לכלבים וחתולים יש מערכת אנדוקנבינואידית (ECS) המושפעת ישירות ממתח וגיל. פרוטוקול חיות המחמד מותאם במיוחד לטיפול בחרדות נטישה, פחד מרעשים חזקים (כמו זיקוקים או רעמים), כאבי מפרקים אצל חיות מבוגרות ושיפור החיוניות הכללית. הנוסחה מותאמת בטעמים ידידותיים לבעלי חיים, ומלווה בהנחיות מינון מדויקות ובטוחות לחלוטין לפי משקל הגוף.",
+                humanTouch: "",
+                metric: "הקלה ניכרת במדדי הסטרס והתנועתיות בקרב חיות מחמד תוך 12-19 יום.",
+                blueprint: [
+                    { day: "יום 1-4", text: "הרגעה ראשונית של סטרס, יללות או סימני מתח גופני" },
+                    { day: "יום 10", text: "הפחתת כאבי מפרקים אצל מבוגרים ושיפור החיוניות" },
+                    { day: "יום 15", text: "שקט פנימי קבוע, שיפור ההתנהגות ואיזון ה-ECS של החיה" }
+                ],
+                badgeColor: "var(--color-blue)",
+                blueprintCustom: true,
+                doseTips: {
+                    low: 'טיפה אחת לכל 5 ק"ג ממשקל החיה, פעם ביום עם האוכל.',
+                    medium: '2 טיפות לכל 5 ק"ג ממשקל החיה, מחולק לבוקר וערב.',
+                    high: 'מינון מתקדם של 3 טיפות לכל 5 ק"ג מונחה לפי רמת הכאב/סטרס.'
                 }
             }
+        };
 
-            requestAnimationFrame(updateCounter);
-        }
+        let activeProtocolId = 'sleep';
 
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        startCountUp();
-                        observer.unobserve(entry.target);
+        function updateDetailsPanel() {
+            const data = protocolsData[activeProtocolId];
+            if (!data) return;
+
+            const severity = parseInt(severitySlider.value, 10);
+            let doseCategory = 'medium';
+            let severityText = 'בינוני';
+            
+            if (severity <= 3) {
+                doseCategory = 'low';
+                severityText = 'קל';
+            } else if (severity >= 8) {
+                doseCategory = 'high';
+                severityText = 'חמור';
+            }
+            
+            severityBadge.textContent = `${severity} (${severityText})`;
+            
+            const recommendedDose = data.doseTips[doseCategory];
+            
+            // Build timeline items
+            const timelineHtml = data.blueprint.map(step => `
+                <div class="timeline-item">
+                    <div class="timeline-day">${step.day}</div>
+                    <div class="timeline-text">${step.text}</div>
+                </div>
+            `).join('');
+
+            const humanTouchHtml = data.humanTouch ? `
+                <div class="right-panel-human-touch">
+                    <strong>טיפ מלווה:</strong> "${data.humanTouch}"
+                </div>
+            ` : '';
+
+            detailsPanel.innerHTML = `
+                <div class="right-panel-header">
+                    <div class="right-panel-tag" style="color: ${data.badgeColor}">${data.tag}</div>
+                    <h3 class="right-panel-title">${data.title}</h3>
+                </div>
+                <p class="right-panel-desc">${data.desc}</p>
+                
+                <div class="right-panel-timeline">
+                    <h4 class="timeline-title">תוכנית הצלחה ל-30 יום:</h4>
+                    <div class="timeline-track">
+                        ${timelineHtml}
+                    </div>
+                </div>
+
+                <div class="right-panel-highlight">
+                    <strong>המלצת מינון מותאמת (חומרה ${severity}):</strong><br>
+                    ${recommendedDose}
+                </div>
+
+                <div class="right-panel-highlight" style="border-style: solid; background-color: #F0FDF4; border-color: var(--color-mint);">
+                    <strong>מדד הצלחה מבוסס מחקר:</strong><br>
+                    ${data.metric}
+                </div>
+
+                ${humanTouchHtml}
+
+                <a href="#quiz-onboarding" class="btn btn-primary right-panel-cta-btn">המשך לתוכנית האישית שלי</a>
+            `;
+
+            // Setup smooth scroll for the newly injected CTA button
+            const injectedCta = detailsPanel.querySelector('.right-panel-cta-btn');
+            if (injectedCta) {
+                injectedCta.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const quizSec = document.getElementById('quiz-onboarding');
+                    if (quizSec) {
+                        quizSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
-            }, { threshold: 0.15 });
-
-            observer.observe(protocolsGrid);
-        } else {
-            // Fallback for older browsers
-            startCountUp();
+            }
         }
+
+        // Event listener for card selection
+        selectorCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const protocolId = card.getAttribute('data-protocol');
+                if (!protocolId) return;
+
+                activeProtocolId = protocolId;
+
+                // Sync classes
+                selectorCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+
+                // Sync dropdown select element
+                if (dropdownSelect) {
+                    dropdownSelect.value = protocolId;
+                }
+
+                updateDetailsPanel();
+            });
+        });
+
+        // Event listener for dropdown select sync
+        if (dropdownSelect) {
+            dropdownSelect.addEventListener('change', () => {
+                const protocolId = dropdownSelect.value;
+                activeProtocolId = protocolId;
+
+                // Sync classes
+                selectorCards.forEach(card => {
+                    if (card.getAttribute('data-protocol') === protocolId) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+
+                updateDetailsPanel();
+            });
+        }
+
+        // Event listener for severity slider titration
+        if (severitySlider) {
+            severitySlider.addEventListener('input', () => {
+                updateDetailsPanel();
+            });
+        }
+
+        // Initialize display
+        updateDetailsPanel();
     })();
 });
 
