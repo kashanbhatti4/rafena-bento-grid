@@ -5640,8 +5640,8 @@ body.theme-organic-sage .pop-icon {
     gap: 16px;
 }
 
-/* Individual selector card button */
 .protocols-selector-card {
+    font-family: var(--font-heading), sans-serif;
     background-color: var(--color-white);
     border: var(--border-width) solid var(--color-green);
     border-radius: var(--border-radius-large);
