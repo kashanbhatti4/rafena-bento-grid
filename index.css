@@ -5308,6 +5308,16 @@ body.theme-organic-sage .pop-icon {
     60% { transform: scale(1); }
 }
 
+/* Gut/Intestine Icon Animation */
+.ani-digest-gut {
+    transform-origin: 12px 12px;
+    animation: aniDigestGut 3.5s ease-in-out infinite;
+}
+@keyframes aniDigestGut {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(1deg); }
+}
+
 /* 5. DEPRESSION ICON ANIMATION (Smiling face emerging from cloud / heart pulse) */
 .ani-mood-heart {
     transform-origin: 12px 12px;
