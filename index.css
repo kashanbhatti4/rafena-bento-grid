@@ -5982,11 +5982,18 @@ body.theme-organic-sage .pop-icon {
     }
 }
 @media (max-width: 768px) {
+    .protocols-main-card {
+        padding: 24px;
+    }
     .protocols-selector-grid {
         display: flex;
         overflow-x: auto;
         gap: 12px;
         padding-bottom: 12px;
+        margin-left: -24px;
+        margin-right: -24px;
+        padding-left: 24px;
+        padding-right: 24px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
