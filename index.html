@@ -657,135 +657,189 @@
                 <!-- Left Panel: Selector Grid & Severity Slider -->
                 <div class="protocols-left-panel">
                     
-                    <!-- Custom Styled Dropdown Picker -->
-                    <div class="protocols-dropdown-row">
-                        <span class="protocols-dropdown-label">בחר את היעד:</span>
-                        <div class="protocols-custom-select" id="protocols-custom-select">
-                            <div class="select-trigger">
-                                <span class="selected-text">סנכרון לילה (שינה)</span>
-                                <svg class="select-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </div>
-                            <div class="select-options-container">
-                                <div class="select-option active" data-value="sleep">סנכרון לילה (שינה)</div>
-                                <div class="select-option" data-value="pain">ויסות כאב (פיזי)</div>
-                                <div class="select-option" data-value="anxiety">איזון סטרס וחרדה</div>
-                                <div class="select-option" data-value="digestive">איזון מעי ועיכול</div>
-                                <div class="select-option" data-value="concentration">קשב וריכוז</div>
-                                <div class="select-option" data-value="cognitive">תמיכה קוגניטיבית</div>
-                                <div class="select-option" data-value="metastatic">איזון מטאפזי / מטאסטטי</div>
-                                <div class="select-option" data-value="inflammation">ויסות דלקות ואלרגיות</div>
-                                <div class="select-option" data-value="pets">רפנא לחיות מחמד</div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- 9 Bento Selector Cards with SVGs -->
                     <div class="protocols-selector-grid">
                         <button class="protocols-selector-card active" data-protocol="sleep" data-theme="blue">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="sleepGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#A78BFA" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                        <linearGradient id="cloudGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FFFFFF" />
+                                            <stop offset="100%" stop-color="#CF9AC6" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradCard)" stroke="url(#sleepGradCard)" stroke-width="1" />
+                                    <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradCard)" stroke="url(#cloudGradCard)" stroke-width="1" />
+                                    <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradCard)" stroke-width="1.8" />
+                                    <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradCard)" stroke-width="1.5" />
+                                    <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradCard)" stroke-width="1.2" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">סנכרון לילה</span>
                             <span class="card-metric">84%</span>
                             <span class="card-metric-label">שיפור בשינה</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="pain" data-theme="peach">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 10h-1.5a1.5 1.5 0 0 0 0 3H18M6 10h1.5a1.5 1.5 0 0 1 0 3H6"></path>
-                                    <circle cx="12" cy="5" r="2"></circle>
-                                    <path d="M12 7v10M9 22h6M9 10h6"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="painGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FF5A79" />
+                                            <stop offset="100%" stop-color="#DB2777" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradCard)" stroke="url(#painGradCard)" stroke-width="1" />
+                                    <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradCard)" stroke-width="2" />
+                                    <circle class="ani-pain-pulse2" cx="12" cy="14" r="8" stroke="url(#painGradCard)" stroke-width="1.5" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">ויסות כאב</span>
                             <span class="card-metric">89%</span>
                             <span class="card-metric-label">הקלה בכאב</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="anxiety" data-theme="lavender">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3 3 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2zM14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3 3 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2z"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="anxietyGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#F472B6" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                        <linearGradient id="anxietyRippleCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00FA9A" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradCard)" stroke="url(#anxietyGradCard)" stroke-width="1" />
+                                    <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleCard)" stroke-width="2" />
+                                    <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleCard)" stroke-width="1.5" />
+                                    <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleCard)" stroke-width="1.2" stroke-dasharray="3 3" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">איזון מנטלי</span>
                             <span class="card-metric">91%</span>
                             <span class="card-metric-label">ירידה בסטרס</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="digestive" data-theme="mint">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M2 22C2 12.06 10.06 4 20 4H22V6C22 15.94 13.94 24 4 24H2Z"></path>
-                                    <path d="M22 4L12 14"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="digestGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00FA9A" />
+                                            <stop offset="100%" stop-color="#34D399" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-digest-leaf" d="M2 22C2 12.06 10.06 4 20 4H22V6C22 15.94 13.94 24 4 24H2Z" fill="url(#digestGradCard)" stroke="url(#digestGradCard)" stroke-width="1" />
+                                    <path class="ani-digest-vein" d="M22 4L12 14" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+                                    <path class="ani-digest-vein2" d="M17 9c-1.5-1-3-1-4 .5M12 14c-1-1.5-1-3 .5-4" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.8" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">איזון מעי</span>
                             <span class="card-metric">78%</span>
                             <span class="card-metric-label">הקלה בעיכול</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="concentration" data-theme="lime">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 18h6M10 22h4M15.09 14c.18-.98.76-1.74 1.4-2.5 1.17-1.38 1.51-3.25.1-4.83a6 6 0 0 0-9.18 0c-1.4 1.58-1.07 3.45.1 4.83.64.76 1.22 1.52 1.4 2.5"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="focusGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#ADF143" />
+                                            <stop offset="100%" stop-color="#FBBF24" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-focus-bulb" d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A7 7 0 0 0 4 8c0 1.3.5 2.6 1.5 3.5.7.8 1.3 1.5 1.5 2.5h8z" fill="url(#focusGradCard)" stroke="none" />
+                                    <line class="ani-focus-line1" x1="9" y1="18" x2="15" y2="18" stroke="url(#focusGradCard)" stroke-width="2" />
+                                    <line class="ani-focus-line2" x1="10" y1="22" x2="14" y2="22" stroke="url(#focusGradCard)" stroke-width="2" />
+                                    <path d="M10 9l2 2 2-2" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">קשב וריכוז</span>
                             <span class="card-metric">82%</span>
                             <span class="card-metric-label">שיפור בריכוז</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="cognitive" data-theme="blue">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 3c0 4.5 1.5 6 6 6-4.5 0-6 1.5-6 6 0-4.5-1.5-6-6-6 4.5 0 6-1.5 6-6Z"></path>
-                                    <path d="M5 3c0 1.5.5 2 2 2-1.5 0-2 .5-2 2 0-1.5-.5-2-2-2 1.5 0 2-.5 2-2Z"></path>
-                                    <path d="M19 17c0 2 .5 2.5 2.5 2.5-2 0-2.5.5-2.5 2.5 0-2-.5-2.5-2.5-2.5 2 0 2.5-.5 2.5-2.5Z"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="cogGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#3b82f6" />
+                                            <stop offset="100%" stop-color="#8A2BE2" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-cog-star1" d="M12 2c0 4.5 1.5 6 6 6-4.5 0-6 1.5-6 6 0-4.5-1.5-6-6-6 4.5 0 6-1.5 6-6Z" fill="url(#cogGradCard)" stroke="none" />
+                                    <path class="ani-cog-star2" d="M5 14c0 2 .5 2.5 2.5 2.5-2 0-2.5.5-2.5 2.5 0-2-.5-2.5-2.5-2.5 2 0 2.5-.5 2.5-2.5Z" fill="url(#cogGradCard)" stroke="none" />
+                                    <path class="ani-cog-star3" d="M18 14c0 1.5.5 2 2 2-1.5 0-2 .5-2 2 0-1.5-.5-2-2-2 1.5 0 2-.5 2-2Z" fill="url(#cogGradCard)" stroke="none" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">תמיכה קוגניטיבית</span>
                             <span class="card-metric">21 יום</span>
                             <span class="card-metric-label">לבהירות מנטלית</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="metastatic" data-theme="teal">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="metaGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#3b82f6" />
+                                            <stop offset="100%" stop-color="#00FA9A" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-meta-shield" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#metaGradCard)" stroke="none" />
+                                    <path d="M12 3v16" stroke="#FFFFFF" stroke-width="1.2" opacity="0.6" />
+                                    <circle cx="12" cy="11" r="2.5" stroke="#FFFFFF" stroke-width="1.5" fill="none" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">איזון מטאפזי</span>
                             <span class="card-metric">קליני</span>
                             <span class="card-metric-label">ליווי צמוד</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="inflammation" data-theme="peach">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="infGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FF5A79" />
+                                            <stop offset="100%" stop-color="#FAC172" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-inf-layer1" d="M12 2L2 7l10 5 10-5-10-5z" fill="url(#infGradCard)" stroke="none" />
+                                    <path class="ani-inf-layer2" d="M2 17l10 5 10-5" stroke="url(#infGradCard)" stroke-width="2" />
+                                    <path class="ani-inf-layer3" d="M2 12l10 5 10-5" stroke="url(#infGradCard)" stroke-width="2" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">ויסות דלקות</span>
                             <span class="card-metric">82%</span>
                             <span class="card-metric-label">הפחתת אלרגיה</span>
                         </button>
 
                         <button class="protocols-selector-card" data-protocol="pets" data-theme="blue">
-                            <span class="card-icon">
-                                <svg class="protocols-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
-                                    <circle cx="8" cy="8" r="2"></circle>
-                                    <circle cx="16" cy="8" r="2"></circle>
-                                    <circle cx="5" cy="11" r="1.5"></circle>
-                                    <circle cx="19" cy="11" r="1.5"></circle>
+                            <div class="protocol-icon-circle">
+                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <defs>
+                                        <linearGradient id="petsGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00FA9A" />
+                                            <stop offset="100%" stop-color="#34D399" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="ani-pets-main" d="M12 11c-2.5 0-4.5 1.8-4.5 3.8 0 1.8 2 3.2 4.5 3.2s4.5-1.4 4.5-3.2c0-2-2-3.8-4.5-3.8z" fill="url(#petsGradCard)" stroke="url(#petsGradCard)" stroke-width="1" />
+                                    <circle class="ani-pets-pad1" cx="6.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                                    <circle class="ani-pets-pad2" cx="9.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                                    <circle class="ani-pets-pad3" cx="14.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                                    <circle class="ani-pets-pad4" cx="17.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
                                 </svg>
-                            </span>
+                            </div>
                             <span class="card-name">רפנא לחיות</span>
                             <span class="card-metric">12-19 יום</span>
                             <span class="card-metric-label">הקלה בסטרס</span>
