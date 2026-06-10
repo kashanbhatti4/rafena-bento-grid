@@ -5636,11 +5636,14 @@ body.theme-organic-sage .pop-icon {
     font-weight: 800;
     color: var(--color-green-bright);
     margin-bottom: 8px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
 }
 .protocols-main-subtitle {
     font-size: 1.05rem;
     color: var(--color-green);
     opacity: 0.85;
+    line-height: 1.45;
 }
 
 .protocols-interactive-container {
@@ -5891,6 +5894,7 @@ body.theme-organic-sage .pop-icon {
     font-weight: 800;
     color: var(--color-green);
     margin-top: 4px;
+    line-height: 1.25;
 }
 .right-panel-desc {
     font-size: 0.95rem;
@@ -6003,6 +6007,15 @@ body.theme-organic-sage .pop-icon {
     }
     .protocols-interactive-container {
         gap: 20px;
+    }
+    .protocols-header {
+        margin-bottom: 24px;
+    }
+    .protocols-main-title {
+        font-size: 1.8rem;
+    }
+    .protocols-main-subtitle {
+        font-size: 0.95rem;
     }
 }
 
