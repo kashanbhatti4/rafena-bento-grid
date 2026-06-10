@@ -5978,7 +5978,7 @@ body.theme-organic-sage .pop-icon {
 /* Responsive Overrides */
 @media (max-width: 991px) {
     .protocols-interactive-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 @media (max-width: 768px) {
