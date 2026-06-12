@@ -2046,42 +2046,140 @@
         <h2 class="section-title text-center">רגעים של שקט ואיכות חיים</h2>
         <p class="section-subtitle text-center">הפתרונות הטבעיים של Rafena מחזירים את האיזון והשלווה לרגעים החשובים ביותר ביום שלכם</p>
         
-        <div class="emotional-gallery-grid">
-            <!-- Card 1: Better Sleep -->
-            <div class="bento-card emotional-card">
-                <div class="emotional-img-wrapper">
-                    <img src="wp-content/uploads/2026/06/better_sleep.png" alt="שינה רגועה ועמוקה בלילה" class="emotional-img" loading="lazy">
+        <div class="emotional-carousel-wrapper">
+            <!-- Navigation Buttons -->
+            <button class="carousel-control-btn prev" aria-label="הקודם">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="carousel-control-btn next" aria-label="הבא">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <div class="emotional-gallery-viewport">
+                <!-- Card 1: Sleep -->
+                <div class="bento-card emotional-card" data-protocol="sleep">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/better_sleep.png" alt="שינה רגועה ועמוקה בלילה" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">שינה</span>
+                        <h3 class="emotional-card-title">סנכרון מחזור השינה</h3>
+                        <p class="emotional-card-desc">שינה עמוקה ומרעננת ללא ערפול בבוקר. הפרוטוקול מסייע באיזון השעון הביולוגי והארכת שנת ה-REM.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
                 </div>
-                <div class="emotional-info">
-                    <span class="emotional-tag">לילה רגוע</span>
-                    <h3 class="emotional-card-title">שינה רגועה ועמוקה</h3>
-                    <p class="emotional-card-desc">שמני ה-CBD של רפאנא מסייעים באיזון השעון הביולוגי, מקצרים את זמן ההירדמות ומעניקים לכם בוקר מלא באנרגיה חדשה.</p>
+
+                <!-- Card 2: Pain -->
+                <div class="bento-card emotional-card" data-protocol="pain">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/active_lifestyle.png" alt="חיוניות וחיים פעילים ללא כאב" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">כאב ודלקת</span>
+                        <h3 class="emotional-card-title">ויסות כאב ושיקום התנועה</h3>
+                        <p class="emotional-card-desc">להרגיע את קולטני הכאב ולבלום תהליכים דלקתיים מתמשכים במפרקים ובשרירים לחופש תנועה מלא.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Stress & Anxiety -->
+                <div class="bento-card emotional-card" data-protocol="anxiety">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/calm_morning.png" alt="איזון סטרס ורוגע מנטלי" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">מצב רוח ורווחה</span>
+                        <h3 class="emotional-card-title">איזון סטרס ורוגע מנטלי</h3>
+                        <p class="emotional-card-desc">להרגיע את מערכת העצבים, להפחית דופק מהיר, מועקה ואי-שקט יומיומי לבהירות מחשבתית.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Digestive -->
+                <div class="bento-card emotional-card" data-protocol="digestive">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/digestive.png" alt="איזון מעי ועיכול" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">בריאות המעי</span>
+                        <h3 class="emotional-card-title">איזון ציר המעי-מוח</h3>
+                        <p class="emotional-card-desc">הרגעת התכווצויות, רגישויות וכאבי בטן תלויי מתח, ושיקום פעילות העיכול הסדירה ברירית המעי.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 5: Concentration -->
+                <div class="bento-card emotional-card" data-protocol="concentration">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/concentration.png" alt="בהירות מחשבתית ומיקוד" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">מיקוד וקשב</span>
+                        <h3 class="emotional-card-title">בהירות מחשבתית ומיקוד</h3>
+                        <p class="emotional-card-desc">הפחתת ערפול מוחי (Brain Fog) ושיפור הריכוז בכניסה קלה למצב Flow מרוכז לאורך כל היום.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 6: Cognitive -->
+                <div class="bento-card emotional-card" data-protocol="cognitive">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/cognitive.png" alt="תמיכה קוגניטיבית ארוכת טווח" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">בריאות המוח</span>
+                        <h3 class="emotional-card-title">תמיכה קוגניטיבית ארוכת טווח</h3>
+                        <p class="emotional-card-desc">הגנה עצבית (Neuroprotection), שיפור זיכרון העבודה ותמיכה בגמישות המוחית לטווח הארוך.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 7: Metastatic -->
+                <div class="bento-card emotional-card" data-protocol="metastatic">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/metastatic.png" alt="איזון מטאסטטי וליווי צמוד" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">תמיכה קלינית</span>
+                        <h3 class="emotional-card-title">איזון מטאסטטי וליווי צמוד</h3>
+                        <p class="emotional-card-desc">מעטפת הגנה ותמיכה לגוף במצבים מורכבים להפחתת תופעות לוואי, ליווי קפדני ושיפור איכות החיים.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 8: Inflammation -->
+                <div class="bento-card emotional-card" data-protocol="inflammation">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/inflammation.png" alt="ויסות דלקות ותגובות עוריות" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">חיסון ואלרגיה</span>
+                        <h3 class="emotional-card-title">ויסות דלקות ואלרגיות</h3>
+                        <p class="emotional-card-desc">איזון מערכת החיסון, הורדת רמות ההיסטמין ומניעת התפרצויות אלרגיה עונתיות וכרוניות.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
+                </div>
+
+                <!-- Card 9: Pets -->
+                <div class="bento-card emotional-card" data-protocol="pets">
+                    <div class="emotional-img-wrapper">
+                        <img src="wp-content/uploads/2026/06/relaxed_pet.png" alt="שלווה ובריאות לחיות מחמד" class="emotional-img" loading="lazy">
+                    </div>
+                    <div class="emotional-info">
+                        <span class="emotional-tag">בעלי חיים</span>
+                        <h3 class="emotional-card-title">שלווה ובריאות לחיות מחמד</h3>
+                        <p class="emotional-card-desc">הפחתת חרדות נטישה, התמודדות עם פחד מרעשים ושיפור התנועתיות והחיוניות הכללית של חיית המחמד.</p>
+                        <a href="#protocols" class="emotional-card-link">גלה את הפרוטוקול ←</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 2: Relaxed Pets -->
-            <div class="bento-card emotional-card">
-                <div class="emotional-img-wrapper">
-                    <img src="wp-content/uploads/2026/06/relaxed_pet.png" alt="שלווה ובריאות לחיות המחמד" class="emotional-img" loading="lazy">
-                </div>
-                <div class="emotional-info">
-                    <span class="emotional-tag">חברים על ארבע</span>
-                    <h3 class="emotional-card-title">שקט ושלווה לחיות המחמד</h3>
-                    <p class="emotional-card-desc">שמן ה-CBD המותאם לכלבים וחתולים עוזר להפחית חרדות נטישה, מקל על כאבי מפרקים ומשיב להם את שמחת החיים.</p>
-                </div>
-            </div>
-
-            <!-- Card 3: Active Lifestyle -->
-            <div class="bento-card emotional-card emotional-card--active">
-                <div class="emotional-img-wrapper">
-                    <img src="wp-content/uploads/2026/06/active_lifestyle.png" alt="חיוניות וחיים פעילים ללא כאב" class="emotional-img" loading="lazy">
-                </div>
-                <div class="emotional-info">
-                    <span class="emotional-tag">אנרגיה וחיוניות</span>
-                    <h3 class="emotional-card-title">חיוניות וחיים פעילים</h3>
-                    <p class="emotional-card-desc">פורמולות ה-CBD וה-CBG הייחודיות מסייעות בהתאוששות השרירים, מפחיתות דלקות ומאפשרות לכם להמשיך לנוע בחופשיות.</p>
-                </div>
-            </div>
+            <!-- Carousel Dots -->
+            <div class="carousel-dots-container"></div>
         </div>
     </section>
 

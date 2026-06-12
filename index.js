@@ -1829,5 +1829,106 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize display
         updateDetailsPanel();
     })();
+
+    // --- 14. MOMENTS OF PEACE & BALANCE CAROUSEL ---
+    (function () {
+        const carousel = document.querySelector('.emotional-carousel-wrapper');
+        if (!carousel) return;
+
+        const viewport = carousel.querySelector('.emotional-gallery-viewport');
+        const cards = Array.from(carousel.querySelectorAll('.emotional-card'));
+        const prevBtn = carousel.querySelector('.carousel-control-btn.prev');
+        const nextBtn = carousel.querySelector('.carousel-control-btn.next');
+        const dotsContainer = carousel.querySelector('.carousel-dots-container');
+
+        if (!viewport || cards.length === 0) return;
+
+        // 1. Generate Dots
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, idx) => {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            if (idx === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `עבור לשקופית ${idx + 1}`);
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
+
+        function getCardLayout() {
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseInt(window.getComputedStyle(viewport).gap) || 24;
+            return { cardWidth, gap };
+        }
+
+        // 2. Update Active Dot on Scroll
+        let isScrolling;
+        function updateActiveState() {
+            const { cardWidth, gap } = getCardLayout();
+            const scrollOffset = Math.abs(viewport.scrollLeft);
+            const activeIndex = Math.round(scrollOffset / (cardWidth + gap));
+            
+            dots.forEach((dot, idx) => {
+                if (idx === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        viewport.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(updateActiveState, 50);
+        });
+
+        // 3. Arrow Click Navigation
+        prevBtn.addEventListener('click', () => {
+            const { cardWidth, gap } = getCardLayout();
+            // In RTL, prev (scroll right) means moving towards 0 (adding to scrollLeft)
+            viewport.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const { cardWidth, gap } = getCardLayout();
+            // In RTL, next (scroll left) means moving away from 0 (subtracting from scrollLeft)
+            viewport.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+        });
+
+        // 4. Dot Click Navigation
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                const { cardWidth, gap } = getCardLayout();
+                viewport.scrollTo({ left: -idx * (cardWidth + gap), behavior: 'smooth' });
+            });
+        });
+
+        // 5. Connect Carousel Cards to the Protocols Widget
+        cards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const protocolId = card.getAttribute('data-protocol');
+                if (!protocolId) return;
+
+                // If link clicked, prevent native jump
+                if (e.target.closest('.emotional-card-link')) {
+                    e.preventDefault();
+                }
+
+                // Scroll to protocols widget
+                const protocolsSec = document.getElementById('protocols');
+                if (protocolsSec) {
+                    protocolsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // Sync the active card in the protocols widget
+                const targetWidgetCard = document.querySelector(`.protocols-selector-card[data-protocol="${protocolId}"]`);
+                if (targetWidgetCard) {
+                    setTimeout(() => {
+                        targetWidgetCard.click();
+                    }, 150);
+                }
+            });
+        });
+    })();
 });
 

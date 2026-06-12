@@ -6027,30 +6027,55 @@ body.theme-organic-sage .pop-icon {
 /* --- SECTION 6.5: EMOTIONAL GALLERY --- */
 .emotional-gallery-section {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
+    position: relative;
 }
 
-.emotional-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* Carousel Outer Wrapper */
+.emotional-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* Horizontal Viewport with Scroll Snapping */
+.emotional-gallery-viewport {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -webkit-overflow-scrolling: touch;
     gap: 24px;
+    padding: 12px 0 24px 0; /* space for card hover/shadows */
+    direction: rtl;
+    scroll-behavior: smooth;
 }
 
+.emotional-gallery-viewport::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari/Webkit */
+}
+
+/* Emotional Carousel Card */
 .emotional-card {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding: 0 !important; /* Image fills card top */
+    padding: 0 !important;
     border: var(--border-width) solid var(--color-green);
     border-radius: var(--border-radius-large);
     background-color: var(--color-white);
-    transition: var(--transition-fast);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    flex: 0 0 calc((100% - 48px) / 3); /* 3 cards visible on desktop */
+    scroll-snap-align: start;
+    cursor: pointer;
+    position: relative;
 }
 
 .emotional-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(138, 43, 226, 0.08), 0 4px 12px rgba(17, 12, 26, 0.04);
+    border-color: var(--color-green-bright);
 }
 
 .emotional-img-wrapper {
@@ -6064,11 +6089,11 @@ body.theme-organic-sage .pop-icon {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .emotional-card:hover .emotional-img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .emotional-info {
@@ -6095,47 +6120,154 @@ body.theme-organic-sage .pop-icon {
     font-weight: 800;
     color: var(--color-green-bright);
     margin-bottom: 12px;
+    transition: color 0.2s ease;
+}
+
+.emotional-card:hover .emotional-card-title {
+    color: var(--color-green-bright);
 }
 
 .emotional-card-desc {
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--color-green);
-    opacity: 0.95;
-    margin: 0;
+    opacity: 0.9;
+    margin: 0 0 20px 0;
 }
 
-/* Responsive Emotional Gallery */
+/* Premium Link at the bottom */
+.emotional-card-link {
+    font-family: var(--font-heading), sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-green-bright);
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    align-self: flex-start; /* Aligns to the right in RTL */
+}
+
+.emotional-card-link::after {
+    transition: transform 0.2s ease;
+}
+
+.emotional-card:hover .emotional-card-link {
+    color: var(--color-green-bright);
+    text-decoration: underline;
+}
+
+.emotional-card:hover .emotional-card-link {
+    transform: translateX(-4px); /* Slides arrow to the left in RTL */
+}
+
+/* Navigation Arrows */
+.carousel-control-btn {
+    position: absolute;
+    top: calc(50% - 20px); /* adjusted for bottom dots spacing */
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-white);
+    border: var(--border-width) solid var(--color-green);
+    color: var(--color-green-bright);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(17, 12, 26, 0.08);
+    z-index: 10;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-control-btn:hover {
+    background: var(--color-beige);
+    border-color: var(--color-green-bright);
+    color: var(--color-green-bright);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 16px rgba(138, 43, 226, 0.15);
+}
+
+.carousel-control-btn.prev {
+    right: -24px;
+}
+
+.carousel-control-btn.next {
+    left: -24px;
+}
+
+.carousel-control-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Carousel Pagination Dots */
+.carousel-dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-green);
+    opacity: 0.3;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-dot:hover {
+    opacity: 0.6;
+}
+
+.carousel-dot.active {
+    background-color: var(--color-green-bright);
+    opacity: 1;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Responsive Rules */
 @media (max-width: 992px) {
-    .emotional-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .emotional-card {
+        flex: 0 0 calc((100% - 24px) / 2); /* 2 cards visible */
     }
-    .emotional-card--active {
-        grid-column: 1 / -1; /* Stretch the third card to full width */
+    .carousel-control-btn {
+        width: 40px;
+        height: 40px;
     }
-    .emotional-card--active .emotional-img-wrapper {
-        height: 280px;
+    .carousel-control-btn.prev {
+        right: -10px;
+    }
+    .carousel-control-btn.next {
+        left: -10px;
     }
 }
 
-@media (max-width: 576px) {
-    .emotional-gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+@media (max-width: 768px) {
+    .emotional-gallery-viewport {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        scroll-padding-right: 20px;
     }
-    .emotional-card--active {
-        grid-column: auto;
+    .emotional-card {
+        flex: 0 0 calc(100% - 40px); /* 1 card visible with peek */
+    }
+    .carousel-control-btn {
+        display: none; /* Hide arrows on mobile, swipe is native */
     }
     .emotional-img-wrapper {
         height: 200px;
     }
-    .emotional-card--active .emotional-img-wrapper {
-        height: 200px;
-    }
-    .emotional-info {
-        padding: 16px;
-    }
 }
-
-
