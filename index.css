@@ -2412,19 +2412,26 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 /* --- 15. FAQ SECTION --- */
 .faq-section {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
 .faq-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
     gap: 16px;
 }
 
 .faq-item {
     background-color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- 16. BENTO FOOTER --- */
