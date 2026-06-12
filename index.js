@@ -990,7 +990,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { percent: 5,  label: 'חרדה ולחץ' },
                 { percent: 3,  label: 'בעלי חיים' }
             ],
-            advisor: [
+            capsules: [
                 { percent: 35, label: 'בעיות שינה' },
                 { percent: 28, label: 'חרדה ולחץ' },
                 { percent: 18, label: 'דלקות וכאבים' },
@@ -1957,49 +1957,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         targetWidgetCard.click();
                     }, 150);
-                }
-            });
-        });
-    })();
-
-    // Sync category cards click to jump to the best sellers tab
-    (function () {
-        const categoryCards = document.querySelectorAll('.category-visual-card');
-        if (categoryCards.length > 0) {
-            categoryCards.forEach((card, index) => {
-                card.style.cursor = 'pointer';
-                card.addEventListener('click', (e) => {
-                    // If clicking an inner link/button, do not interfere
-                    if (e.target.closest('a') || e.target.closest('button')) return;
-                    
-                    const tabMap = ['oils', 'live', 'creams', 'advisor'];
-                    const targetTab = tabMap[index];
-                    if (targetTab) {
-                        const tabBtn = document.querySelector(`[data-bs-tab="${targetTab}"]`);
-                        if (tabBtn) {
-                            tabBtn.click();
-                            const targetSection = document.getElementById('best-sellers');
-                            if (targetSection) {
-                                const offset = targetSection.getBoundingClientRect().top + window.pageYOffset - 90;
-                                window.scrollTo({ top: offset, behavior: 'smooth' });
-                            }
-                        }
-                    }
-                });
-            });
-        }
-
-        // Add click listeners to any nav-advisor-link class to jump to the advisor tab
-        document.querySelectorAll('.nav-advisor-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const tabBtn = document.querySelector('[data-bs-tab="advisor"]');
-                if (tabBtn) {
-                    tabBtn.click();
-                    const targetSection = document.getElementById('best-sellers');
-                    if (targetSection) {
-                        const offset = targetSection.getBoundingClientRect().top + window.pageYOffset - 90;
-                        window.scrollTo({ top: offset, behavior: 'smooth' });
-                    }
                 }
             });
         });
