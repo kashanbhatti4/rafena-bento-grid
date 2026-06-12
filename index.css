@@ -24,7 +24,8 @@
     --color-gold: #00FA9A;          /* Electric Neon Mint — conversion/action highlights */
     --color-gold-hover: #00E587;    /* Bright Neon Mint Hover */
 
-    --border-width: 2px;
+    --border-width: 1px;
+    --color-border: rgba(17, 12, 26, 0.09); /* subtle 1px border with 9% opacity */
     --border-radius-large: 24px;
     --border-radius-medium: 16px;
     --border-radius-small: 12px;
@@ -208,11 +209,12 @@ a {
 /* --- 5. BENTO GRID SYSTEM --- */
 .bento-card {
     background-color: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     padding: 32px;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-soft);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-medium);
 }
 .bento-card:hover {
@@ -381,7 +383,7 @@ a {
         radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--color-blue) 30%, white) 0%, transparent 45%),
         radial-gradient(circle at 90% 100%, color-mix(in srgb, var(--color-peach) 28%, white) 0%, transparent 42%),
         var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     position: relative;
     overflow: hidden;
@@ -609,7 +611,7 @@ a {
         radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--color-blue) 15%, white) 0%, transparent 40%),
         radial-gradient(circle at 90% 100%, color-mix(in srgb, var(--color-peach) 12%, white) 0%, transparent 40%),
         var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     cursor: default;
 }
@@ -618,7 +620,7 @@ a {
 .family-wellness-main-card:hover {
     transform: none;
     box-shadow: none;
-    border-color: var(--color-green);
+    border-color: var(--color-border);
 }
 
 .family-wellness-header {
@@ -655,7 +657,7 @@ a {
     flex-direction: column;
     padding: 0 !important; /* Remove internal padding to let image stretch edge to edge */
     background-color: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     overflow: hidden;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
@@ -665,7 +667,7 @@ a {
     width: 100%;
     height: 300px;
     overflow: hidden;
-    border-bottom: var(--border-width) solid var(--color-green);
+    border-bottom: var(--border-width) solid var(--color-border);
     position: relative;
 }
 
@@ -1001,7 +1003,7 @@ a {
 .wellness-pathways-card:hover {
     transform: none !important;
     box-shadow: var(--shadow-soft) !important;
-    border-color: var(--color-green) !important;
+    border-color: var(--color-border) !important;
 }
 
 .wellness-pathways-group {
@@ -1219,7 +1221,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 .stat-bento {
     background-color: var(--color-blue);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-medium);
     padding: 16px;
     text-align: center;
@@ -1241,7 +1243,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 .coa-quick-bento {
     background-color: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-medium);
     padding: 16px;
     display: flex;
@@ -1352,7 +1354,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 .product-glow-wrapper {
     background-color: var(--color-blue);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-medium);
     height: 240px;
     display: flex;
@@ -1535,7 +1537,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
 
 /* Collapsible drop-down tabs styled premium (MX) */
 .bento-accordion {
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-medium);
     background-color: var(--color-white);
     overflow: hidden;
@@ -1621,7 +1623,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     right: 24px;
     left: 24px;
     background-color: rgba(255, 255, 255, 0.92);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-medium);
     padding: 20px;
     backdrop-filter: blur(8px);
@@ -2003,8 +2005,9 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     padding: 24px !important;
     text-align: right;
     direction: rtl;
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -2857,9 +2860,10 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     justify-content: center;
     padding: 24px;
     background-color: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     position: relative;
+    box-shadow: var(--shadow-soft);
     transition: var(--transition-medium);
 }
 
@@ -3148,7 +3152,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     padding: 16px 28px;
     gap: 20px;
@@ -4035,7 +4039,7 @@ body.theme-organic-sage .wellness-pathway-btn.active {
     border-radius: var(--border-radius-medium);
     overflow: hidden;
     height: 280px;
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
 }
 
 .mailers-img {
@@ -5671,7 +5675,7 @@ body.theme-organic-sage .pop-icon {
 .protocols-selector-card {
     font-family: var(--font-heading), sans-serif;
     background-color: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     padding: 24px 20px;
     display: flex;
@@ -5822,7 +5826,7 @@ body.theme-organic-sage .pop-icon {
 /* Severity Slider */
 .protocols-slider-container {
     background: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     padding: 20px;
 }
@@ -5873,7 +5877,7 @@ body.theme-organic-sage .pop-icon {
 /* Right Panel: Detail Card & Timeline */
 .protocols-right-panel {
     background: var(--color-white);
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     padding: 24px;
     display: flex;
@@ -6062,9 +6066,10 @@ body.theme-organic-sage .pop-icon {
     flex-direction: column;
     overflow: hidden;
     padding: 0 !important;
-    border: var(--border-width) solid var(--color-green);
+    border: var(--border-width) solid var(--color-border);
     border-radius: var(--border-radius-large);
     background-color: var(--color-white);
+    box-shadow: var(--shadow-soft);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     flex: 0 0 calc((100% - 48px) / 3); /* 3 cards visible on desktop */
     scroll-snap-align: start;
