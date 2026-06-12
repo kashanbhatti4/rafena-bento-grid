@@ -6123,8 +6123,62 @@ body.theme-organic-sage .pop-icon {
     transition: color 0.2s ease;
 }
 
-.emotional-card:hover .emotional-card-title {
-    color: var(--color-green-bright);
+/* Protocol-specific color mapping for headings and buttons */
+.emotional-card[data-protocol="sleep"] .emotional-card-title,
+.emotional-card[data-protocol="cognitive"] .emotional-card-title,
+.emotional-card[data-protocol="pets"] .emotional-card-title,
+.emotional-card[data-protocol="sleep"] .emotional-card-link,
+.emotional-card[data-protocol="cognitive"] .emotional-card-link,
+.emotional-card[data-protocol="pets"] .emotional-card-link {
+    color: var(--color-blue-dark); /* Deeper Violet #8A2BE2 */
+}
+.emotional-card[data-protocol="sleep"]:hover,
+.emotional-card[data-protocol="cognitive"]:hover,
+.emotional-card[data-protocol="pets"]:hover {
+    border-color: var(--color-blue-dark);
+}
+
+.emotional-card[data-protocol="pain"] .emotional-card-title,
+.emotional-card[data-protocol="inflammation"] .emotional-card-title,
+.emotional-card[data-protocol="pain"] .emotional-card-link,
+.emotional-card[data-protocol="inflammation"] .emotional-card-link {
+    color: #DB2777; /* Deep Rose */
+}
+.emotional-card[data-protocol="pain"]:hover,
+.emotional-card[data-protocol="inflammation"]:hover {
+    border-color: #DB2777;
+}
+
+.emotional-card[data-protocol="anxiety"] .emotional-card-title,
+.emotional-card[data-protocol="anxiety"] .emotional-card-link {
+    color: #9D4E89; /* Deep Lavender */
+}
+.emotional-card[data-protocol="anxiety"]:hover {
+    border-color: #9D4E89;
+}
+
+.emotional-card[data-protocol="digestive"] .emotional-card-title,
+.emotional-card[data-protocol="digestive"] .emotional-card-link {
+    color: #047857; /* Deep Emerald */
+}
+.emotional-card[data-protocol="digestive"]:hover {
+    border-color: #047857;
+}
+
+.emotional-card[data-protocol="concentration"] .emotional-card-title,
+.emotional-card[data-protocol="concentration"] .emotional-card-link {
+    color: #15803d; /* Deep Forest Green */
+}
+.emotional-card[data-protocol="concentration"]:hover {
+    border-color: #15803d;
+}
+
+.emotional-card[data-protocol="metastatic"] .emotional-card-title,
+.emotional-card[data-protocol="metastatic"] .emotional-card-link {
+    color: #0D9488; /* Deep Teal */
+}
+.emotional-card[data-protocol="metastatic"]:hover {
+    border-color: #0D9488;
 }
 
 .emotional-card-desc {
@@ -6155,7 +6209,6 @@ body.theme-organic-sage .pop-icon {
 }
 
 .emotional-card:hover .emotional-card-link {
-    color: var(--color-green-bright);
     text-decoration: underline;
 }
 
@@ -6184,7 +6237,7 @@ body.theme-organic-sage .pop-icon {
 }
 
 .carousel-control-btn:hover {
-    background: var(--color-beige);
+    background: var(--color-cream);
     border-color: var(--color-green-bright);
     color: var(--color-green-bright);
     transform: translateY(-50%) scale(1.08);
