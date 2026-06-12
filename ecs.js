@@ -94,10 +94,10 @@
     subscribe(function (s) {
         var p = s.symptom && PROTOCOLS[s.symptom];
         if (!p) return;
-        elTag.textContent = p.tag;
-        elTitle.textContent = p.title;
-        elDesc.textContent = p.desc;
-        elAdvisor.textContent = p.advisor;
+        if (elTag) elTag.textContent = p.tag;
+        if (elTitle) elTitle.textContent = p.title;
+        if (elDesc) elDesc.textContent = p.desc;
+        if (elAdvisor) elAdvisor.textContent = p.advisor;
 
         // Parse dosage number and run counter animation
         var match = p.dose.match(/^(\d+)(.*)$/);
@@ -105,20 +105,22 @@
             var targetNum = parseInt(match[1], 10);
             var suffix = match[2];
             animateValue(elDose, 0, targetNum, 600, suffix);
-        } else {
+        } else if (elDose) {
             elDose.textContent = p.dose;
         }
 
         // Reset dynamic rhythm classes first
-        protocolCard.classList.remove('is-sleep', 'is-anxiety', 'is-pain', 'is-focus');
-        // Add current active rhythm class
-        protocolCard.classList.add('is-' + s.symptom);
+        if (protocolCard) {
+            protocolCard.classList.remove('is-sleep', 'is-anxiety', 'is-pain', 'is-focus');
+            // Add current active rhythm class
+            protocolCard.classList.add('is-' + s.symptom);
 
-        protocolCard.classList.add('is-active');
-        // spring re-entry animation pulse
-        protocolCard.classList.remove('is-in');
-        void protocolCard.offsetWidth; // reflow to restart transition
-        protocolCard.classList.add('is-in');
+            protocolCard.classList.add('is-active');
+            // spring re-entry animation pulse
+            protocolCard.classList.remove('is-in');
+            void protocolCard.offsetWidth; // reflow to restart transition
+            protocolCard.classList.add('is-in');
+        }
     });
 
     /* ---------- Symptom cards → update state ---------- */

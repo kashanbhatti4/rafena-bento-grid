@@ -114,6 +114,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Sync ECS grid symptom clicks with the quiz
+    const ecsSymptomCards = document.querySelectorAll('.ecs-symptom');
+    ecsSymptomCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const symptom = card.getAttribute('data-symptom');
+            
+            // First reset quiz to step 1
+            selectedGoal = null;
+            selectedIntake = null;
+            if (step1) {
+                step1.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+            }
+            if (step2) {
+                step2.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+            }
+            if (stepResult) stepResult.classList.remove('active');
+            if (step2) step2.classList.remove('active');
+            if (step1) step1.classList.add('active');
+            
+            const matchingQuizPill = document.querySelector(`.quiz-step#step-1 .quiz-pill[data-value="${symptom}"]`);
+            if (matchingQuizPill) {
+                matchingQuizPill.click();
+            }
+        });
+    });
+
     // Generate Recommendation dynamically based on answers
     function generateRecommendation() {
         let recommendedId = 1; // Default: 10% CBD Oil
@@ -125,6 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (selectedGoal === 'sleep' && selectedIntake === 'gummies') {
             recommendedId = 3; // Gummies
         } else if (selectedGoal === 'anxiety' && selectedIntake === 'gummies') {
+            recommendedId = 3; // Gummies
+        } else if (selectedGoal === 'focus' && selectedIntake === 'gummies') {
             recommendedId = 3; // Gummies
         }
 
@@ -1768,7 +1796,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 ${humanTouchHtml}
 
-                <a href="#quiz-onboarding" class="btn btn-primary right-panel-cta-btn">המשך לתוכנית האישית שלי</a>
+                <a href="#ecs-protocol" class="btn btn-primary right-panel-cta-btn">המשך לתוכנית האישית שלי</a>
             `;
 
             // Setup smooth scroll for the newly injected CTA button
@@ -1776,9 +1804,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (injectedCta) {
                 injectedCta.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const quizSec = document.getElementById('quiz-onboarding');
+                    const quizSec = document.getElementById('ecs-protocol');
                     if (quizSec) {
-                        quizSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        quizSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        // Restart quiz so they can take it
+                        const restart = document.getElementById('quiz-restart');
+                        if (restart) restart.click();
                     }
                 });
             }

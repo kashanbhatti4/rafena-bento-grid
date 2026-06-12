@@ -429,24 +429,192 @@
                 <p class="ecs-card-text">המערכת האנדוקנבינואידית מווסתת שינה, מצב רוח, כאב ודלקת. CBD תומך באיזון שלה — וכך מחזיר את הגוף ל“ברירת המחדל” הבריאה שלו.</p>
             </article>
 
-            <!-- RECOMMENDED PROTOCOL CARD (full width, state-driven) -->
-            <article class="ecs-card ecs-card--solid ecs-protocol bento-anim" data-anim-order="9" id="ecs-protocol"
-                aria-live="polite">
-                <div class="ecs-protocol-left">
-                    <span class="ecs-pill ecs-pill--gold" id="ecs-protocol-tag">בחרו סימפטום למעלה</span>
-                    <h3 class="ecs-protocol-title" id="ecs-protocol-title">הפרוטוקול המותאם שלכם יופיע כאן</h3>
-                    <p class="ecs-protocol-desc" id="ecs-protocol-desc">בחרו אחת מתחושות הגוף למעלה ונבנה עבורכם, בזמן אמת, מסלול התאוששות מבוסס‑פרוטוקול — ללא רענון דף.</p>
+            <!-- RECOMMENDED PROTOCOL CARD (replaced with onboarding card) -->
+            <article class="ecs-card ecs-card--solid onboarding-card bento-anim" data-anim-order="9" id="ecs-protocol" aria-live="polite">
+                <div class="onboarding-header">
+                    <span class="pill-badge warning-pill">מצא את המוצר המתאים לך</span>
+                    <h2>3 דקות עכשיו. בהירות לחודשים הבאים.</h2>
+                    <p>סריקת ההתאוששות חינמית. בסופה תקבלו דוח אישי מלא והמלצת פרוטוקול מדויקת.</p>
                 </div>
-                <div class="ecs-protocol-right">
-                    <div class="ecs-protocol-stat">
-                        <span class="ecs-protocol-stat-label">מינון פתיחה</span>
-                        <span class="ecs-protocol-stat-val" id="ecs-protocol-dose">—</span>
+
+                <div class="quiz-container" id="quiz-flow">
+                    <!-- Step 1: Goal Select -->
+                    <div class="quiz-step active" id="step-1">
+                        <div class="step-num">שאלה 1 מתוך 2</div>
+                        <h3 class="quiz-q">מה המטרה העיקרית שלך בשימוש ב-CBD?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-pill" data-value="sleep" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="sleepGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#A78BFA" />
+                                                <stop offset="100%" stop-color="#8A2BE2" />
+                                            </linearGradient>
+                                            <linearGradient id="cloudGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFFFFF" />
+                                                <stop offset="100%" stop-color="#CF9AC6" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradQuiz)" stroke="url(#sleepGradQuiz)" stroke-width="1" />
+                                        <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradQuiz)" stroke="url(#cloudGradQuiz)" stroke-width="1" />
+                                        <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradQuiz)" stroke-width="1.8" />
+                                        <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradQuiz)" stroke-width="1.5" />
+                                        <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradQuiz)" stroke-width="1.2" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">שינה עמוקה ורציפה</span>
+                            </button>
+                            <button class="quiz-pill" data-value="anxiety" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="anxietyGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#F472B6" />
+                                                <stop offset="100%" stop-color="#8A2BE2" />
+                                            </linearGradient>
+                                            <linearGradient id="anxietyRippleQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00FA9A" />
+                                                <stop offset="100%" stop-color="#8A2BE2" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradQuiz)" stroke="url(#anxietyGradQuiz)" stroke-width="1" />
+                                        <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleQuiz)" stroke-width="2" />
+                                        <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleQuiz)" stroke-width="1.5" />
+                                        <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleQuiz)" stroke-width="1.2" stroke-dasharray="3 3" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">הפחתת חרדה ולחצים</span>
+                            </button>
+                            <button class="quiz-pill" data-value="pain" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="painGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FF5A79" />
+                                                <stop offset="100%" stop-color="#DB2777" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradQuiz)" stroke="url(#painGradQuiz)" stroke-width="1" />
+                                        <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradQuiz)" stroke-width="2" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">שיכוך כאבים ודלקות</span>
+                            </button>
+                            <button class="quiz-pill" data-value="focus" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="brainGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00FA9A" />
+                                                <stop offset="100%" stop-color="#3b82f6" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="ani-brain-body" d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" fill="url(#brainGradQuiz)" stroke="none" />
+                                        <path class="ani-brain-body" d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" fill="url(#brainGradQuiz)" stroke="none" />
+                                        <path d="M12 5v13" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.9" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">בהירות מחשבתית ומיקוד</span>
+                            </button>
+                            <button class="quiz-pill" data-value="pets" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="petsGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00FA9A" />
+                                                <stop offset="100%" stop-color="#34D399" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path class="ani-pets-main" d="M12 11c-2.5 0-4.5 1.8-4.5 3.8 0 1.8 2 3.2 4.5 3.2s4.5-1.4 4.5-3.2c0-2-2-3.8-4.5-3.8z" fill="url(#petsGradQuiz)" stroke="url(#petsGradQuiz)" stroke-width="1" />
+                                        <circle class="ani-pets-pad1" cx="6.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                                        <circle class="ani-pets-pad2" cx="9.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                                        <circle class="ani-pets-pad3" cx="14.5" cy="8" r="1.8" fill="#059669" stroke="none" />
+                                        <circle class="ani-pets-pad4" cx="17.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">טיפול ורוגע לבעלי חיים</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="ecs-protocol-stat">
-                        <span class="ecs-protocol-stat-label">יועץ מותאם</span>
-                        <span class="ecs-protocol-stat-val" id="ecs-protocol-advisor">—</span>
+
+                    <!-- Step 2: Intake Preference -->
+                    <div class="quiz-step" id="step-2">
+                        <div class="step-num">שאלה 2 מתוך 2</div>
+                        <h3 class="quiz-q">כיצד אתה מעדיף לצרוך את ה-CBD שלך?</h3>
+                        <div class="quiz-options">
+                            <button class="quiz-pill" data-value="oil" data-finish="true">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="oilGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFB03A" />
+                                                <stop offset="100%" stop-color="#D97706" />
+                                            </linearGradient>
+                                        </defs>
+                                        <g class="ani-drop-bottle">
+                                            <path d="M10 7V4.5a2 2 0 0 1 4 0V7z" fill="url(#oilGradQuiz)" stroke="none" />
+                                            <path d="M8 7h8v2H8z" fill="url(#oilGradQuiz)" stroke="none" />
+                                            <path d="M10 9v5.5l2 2 2-2V9z" fill="#FFFFFF" fill-opacity="0.95" stroke="url(#oilGradQuiz)" stroke-width="1.8" />
+                                            <path d="M11 11v3.5l1 1 1-1V11z" fill="url(#oilGradQuiz)" stroke="none" />
+                                        </g>
+                                        <path class="ani-drop-liquid" d="M12 21a1.5 1.5 0 0 1-1.5-1.5c0-1.5 1.5-2.5 1.5-2.5s1.5 1 1.5 2.5A1.5 1.5 0 0 1 12 21z" fill="url(#oilGradQuiz)" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">שמן בטיפות (ספיגה מהירה)</span>
+                            </button>
+                            <button class="quiz-pill" data-value="gummies" data-finish="true">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="candyGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FF2E93" />
+                                                <stop offset="100%" stop-color="#FF5A79" />
+                                            </linearGradient>
+                                        </defs>
+                                        <g class="ani-gummy-candy">
+                                            <path d="M12 6a6 6 0 0 0-6 6v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2a6 6 0 0 0-6-6z" fill="url(#candyGradQuiz)" stroke="none" />
+                                            <circle cx="9" cy="11" r="1.2" fill="#FFFFFF" stroke="none" />
+                                            <circle cx="15" cy="11" r="1.2" fill="#FFFFFF" stroke="none" />
+                                            <path d="M10 14s1 1 2 0" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none" />
+                                        </g>
+                                    </svg>
+                                </span>
+                                <span class="pill-title">סוכריות גומי (טעים וקל)</span>
+                            </button>
+                            <button class="quiz-pill" data-value="external" data-finish="true">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="lotionGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00FA9A" />
+                                                <stop offset="100%" stop-color="#3b82f6" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M8 11h8v9a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-9z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                        <g class="ani-lotion-pump">
+                                            <path d="M11 8h2v3h-2z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                            <path d="M9 8h6v1.5H9z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                            <path d="M9 5.5h4.5l-.5-2.5h-3.5l-.5 2.5z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                            <path d="M9 4.5H6.5v1.5H9z" fill="url(#lotionGradQuiz)" stroke="none" />
+                                        </g>
+                                        <path class="ani-lotion-spray" d="M4 6.5a1.5 1.5 0 1 1 3 0" stroke="url(#lotionGradQuiz)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">משחה לטיפול חיצוני עמוק</span>
+                            </button>
+                        </div>
+                        <button class="btn-text back-btn" id="quiz-back-btn">← חזור לשאלה הקודמת</button>
                     </div>
-                    <button class="btn btn-primary ecs-cta" data-cta="dosage" id="ecs-protocol-cta">חשבו את המינון שלי</button>
+
+                    <!-- Step 3: Recommendation Results -->
+                    <div class="quiz-step" id="step-result">
+                        <h3 class="result-title">🎉 התאמה מושלמת עבורך!</h3>
+                        <div class="recommendation-result-box" id="recommendation-content">
+                            <!-- Injected by JS -->
+                        </div>
+                        <button class="btn btn-outline" id="quiz-restart">התחל אבחון מחדש</button>
+                    </div>
                 </div>
             </article>
 
@@ -869,7 +1037,7 @@
 
             <!-- Bottom Section CTA -->
             <div class="protocols-bottom-cta text-center">
-                <a href="#quiz-onboarding" class="btn btn-outline protocols-diagnostic-btn">לא בטוח איזה פרוטוקול מתאים לך? התחל אבחון ECS קצר</a>
+                <a href="#ecs-protocol" class="btn btn-outline protocols-diagnostic-btn">לא בטוח איזה פרוטוקול מתאים לך? התחל אבחון ECS קצר</a>
                 <p class="protocols-diagnostic-subtext">(ללא עלות · לוקח 2 דקות · סודיות רפואית מלאה)</p>
             </div>
         </div>
@@ -1825,182 +1993,7 @@
         </div>
     </section>
 
-    <!-- SECTION 10: INTERACTIVE PRODUCT FINDER QUIZ -->
-    <section class="onboarding-section" id="quiz-onboarding"
-        style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
-        <div class="bento-card onboarding-card" style="width: 100%;">
-            <div class="onboarding-header">
-                <span class="pill-badge warning-pill">מצא את המוצר המתאים לך</span>
-                <h2>3 דקות עכשיו. בהירות לחודשים הבאים.</h2>
-                <p>סריקת ההתאוששות חינמית. בסופה תקבלו דוח אישי מלא והמלצת פרוטוקול מדויקת.</p>
-            </div>
-
-            <div class="quiz-container" id="quiz-flow">
-                <!-- Step 1: Goal Select -->
-                <div class="quiz-step active" id="step-1">
-                    <div class="step-num">שאלה 1 מתוך 2</div>
-                    <h3 class="quiz-q">מה המטרה העיקרית שלך בשימוש ב-CBD?</h3>
-                    <div class="quiz-options">
-                        <button class="quiz-pill" data-value="sleep" data-next="step-2">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="sleepGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#A78BFA" />
-                                            <stop offset="100%" stop-color="#8A2BE2" />
-                                        </linearGradient>
-                                        <linearGradient id="cloudGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#FFFFFF" />
-                                            <stop offset="100%" stop-color="#CF9AC6" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradQuiz)" stroke="url(#sleepGradQuiz)" stroke-width="1" />
-                                    <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradQuiz)" stroke="url(#cloudGradQuiz)" stroke-width="1" />
-                                    <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradQuiz)" stroke-width="1.8" />
-                                    <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradQuiz)" stroke-width="1.5" />
-                                    <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradQuiz)" stroke-width="1.2" />
-                                </svg>
-                            </span>
-                            <span class="pill-title">שינה עמוקה ורציפה</span>
-                        </button>
-                        <button class="quiz-pill" data-value="anxiety" data-next="step-2">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="anxietyGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#F472B6" />
-                                            <stop offset="100%" stop-color="#8A2BE2" />
-                                        </linearGradient>
-                                        <linearGradient id="anxietyRippleQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#00FA9A" />
-                                            <stop offset="100%" stop-color="#8A2BE2" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradQuiz)" stroke="url(#anxietyGradQuiz)" stroke-width="1" />
-                                    <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleQuiz)" stroke-width="2" />
-                                    <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleQuiz)" stroke-width="1.5" />
-                                    <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleQuiz)" stroke-width="1.2" stroke-dasharray="3 3" />
-                                </svg>
-                            </span>
-                            <span class="pill-title">הפחתת חרדה ולחצים</span>
-                        </button>
-                        <button class="quiz-pill" data-value="pain" data-next="step-2">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="painGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#FF5A79" />
-                                            <stop offset="100%" stop-color="#DB2777" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradQuiz)" stroke="url(#painGradQuiz)" stroke-width="1" />
-                                    <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradQuiz)" stroke-width="2" />
-                                    <circle class="ani-pain-pulse2" cx="12" cy="14" r="8" stroke="url(#painGradQuiz)" stroke-width="1.5" />
-                                </svg>
-                            </span>
-                            <span class="pill-title">שיכוך כאבים ודלקות</span>
-                        </button>
-                        <button class="quiz-pill" data-value="pets" data-next="step-2">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="petsGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#00FA9A" />
-                                            <stop offset="100%" stop-color="#34D399" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path class="ani-pets-main" d="M12 11c-2.5 0-4.5 1.8-4.5 3.8 0 1.8 2 3.2 4.5 3.2s4.5-1.4 4.5-3.2c0-2-2-3.8-4.5-3.8z" fill="url(#petsGradQuiz)" stroke="url(#petsGradQuiz)" stroke-width="1" />
-                                    <circle class="ani-pets-pad1" cx="6.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
-                                    <circle class="ani-pets-pad2" cx="9.5" cy="8" r="1.8" fill="#059669" stroke="none" />
-                                    <circle class="ani-pets-pad3" cx="14.5" cy="8" r="1.8" fill="#059669" stroke="none" />
-                                    <circle class="ani-pets-pad4" cx="17.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
-                                </svg>
-                            </span>
-                            <span class="pill-title">טיפול ורוגע לבעלי חיים</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Step 2: Intake Preference -->
-                <div class="quiz-step" id="step-2">
-                    <div class="step-num">שאלה 2 מתוך 2</div>
-                    <h3 class="quiz-q">כיצד אתה מעדיף לצרוך את ה-CBD שלך?</h3>
-                    <div class="quiz-options">
-                        <button class="quiz-pill" data-value="oil" data-finish="true">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="oilGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#FFB03A" />
-                                            <stop offset="100%" stop-color="#D97706" />
-                                        </linearGradient>
-                                    </defs>
-                                    <g class="ani-drop-bottle">
-                                        <path d="M10 7V4.5a2 2 0 0 1 4 0V7z" fill="url(#oilGradQuiz)" stroke="none" />
-                                        <path d="M8 7h8v2H8z" fill="url(#oilGradQuiz)" stroke="none" />
-                                        <path d="M10 9v5.5l2 2 2-2V9z" fill="#FFFFFF" fill-opacity="0.95" stroke="url(#oilGradQuiz)" stroke-width="1.8" />
-                                        <path d="M11 11v3.5l1 1 1-1V11z" fill="url(#oilGradQuiz)" stroke="none" />
-                                    </g>
-                                    <path class="ani-drop-liquid" d="M12 21a1.5 1.5 0 0 1-1.5-1.5c0-1.5 1.5-2.5 1.5-2.5s1.5 1 1.5 2.5A1.5 1.5 0 0 1 12 21z" fill="url(#oilGradQuiz)" stroke="none" />
-                                </svg>
-                            </span>
-                            <span class="pill-title">שמן בטיפות (ספיגה מהירה)</span>
-                        </button>
-                        <button class="quiz-pill" data-value="gummies" data-finish="true">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="candyGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#FF2E93" />
-                                            <stop offset="100%" stop-color="#FF5A79" />
-                                        </linearGradient>
-                                    </defs>
-                                    <g class="ani-gummy-candy">
-                                        <path d="M12 6a6 6 0 0 0-6 6v2a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-2a6 6 0 0 0-6-6z" fill="url(#candyGradQuiz)" stroke="none" />
-                                        <circle cx="9" cy="11" r="1.2" fill="#FFFFFF" stroke="none" />
-                                        <circle cx="15" cy="11" r="1.2" fill="#FFFFFF" stroke="none" />
-                                        <path d="M10 14s1 1 2 0" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none" />
-                                    </g>
-                                </svg>
-                            </span>
-                            <span class="pill-title">סוכריות גומי (טעים וקל)</span>
-                        </button>
-                        <button class="quiz-pill" data-value="external" data-finish="true">
-                            <span class="pill-icon">
-                                <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <defs>
-                                        <linearGradient id="lotionGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#00FA9A" />
-                                            <stop offset="100%" stop-color="#3b82f6" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path d="M8 11h8v9a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-9z" fill="url(#lotionGradQuiz)" stroke="none" />
-                                    <g class="ani-lotion-pump">
-                                        <path d="M11 8h2v3h-2z" fill="url(#lotionGradQuiz)" stroke="none" />
-                                        <path d="M9 8h6v1.5H9z" fill="url(#lotionGradQuiz)" stroke="none" />
-                                        <path d="M9 5.5h4.5l-.5-2.5h-3.5l-.5 2.5z" fill="url(#lotionGradQuiz)" stroke="none" />
-                                        <path d="M9 4.5H6.5v1.5H9z" fill="url(#lotionGradQuiz)" stroke="none" />
-                                    </g>
-                                    <path class="ani-lotion-spray" d="M4 6.5a1.5 1.5 0 1 1 3 0" stroke="url(#lotionGradQuiz)" stroke-width="2.2" stroke-linecap="round" fill="none" />
-                                </svg>
-                            </span>
-                            <span class="pill-title">משחה לטיפול חיצוני עמוק</span>
-                        </button>
-                    </div>
-                    <button class="btn-text back-btn" id="quiz-back-btn">← חזור לשאלה הקודמת</button>
-                </div>
-
-                <!-- Step 3: Recommendation Results -->
-                <div class="quiz-step" id="step-result">
-                    <h3 class="result-title">🎉 התאמה מושלמת עבורך!</h3>
-                    <div class="recommendation-result-box" id="recommendation-content">
-                        <!-- Injected by JS -->
-                    </div>
-                    <button class="btn btn-outline" id="quiz-restart">התחל אבחון מחדש</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- SECTION 11: WHAT IS CBD? SECTION WITH ILLUSTRATION -->
     <section class="what-is-cbd-section" id="about-cbd">
