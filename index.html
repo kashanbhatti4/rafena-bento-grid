@@ -442,8 +442,14 @@
                     <div class="quiz-step active" id="step-1">
                         <div class="step-num">שאלה 1 מתוך 2</div>
                         <h3 class="quiz-q">מה המטרה העיקרית שלך בשימוש ב-CBD?</h3>
-                        <div class="quiz-options">
-                            <button class="quiz-pill" data-value="sleep" data-next="step-2">
+                        <div class="quiz-filter-tabs">
+                            <button class="quiz-filter-tab active" data-quiz-type="humans">בני אדם</button>
+                            <button class="quiz-filter-tab" data-quiz-type="pets">בעלי חיים</button>
+                        </div>
+                        <div class="quiz-options" data-active-group="humans">
+                            <!-- --- Humans Conditions --- -->
+                            <!-- Humans: Sleep -->
+                            <button class="quiz-pill" data-value="sleep" data-next="step-2" data-quiz-group="humans">
                                 <span class="pill-icon">
                                     <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <defs>
@@ -458,14 +464,13 @@
                                         </defs>
                                         <path class="ani-sleep-moon" d="M12 3a9 9 0 1 0 9 9 9.75 9.75 0 0 1-9-9z" fill="url(#sleepGradQuiz)" stroke="url(#sleepGradQuiz)" stroke-width="1" />
                                         <path class="ani-sleep-cloud" d="M17 18a2.5 2.5 0 0 0 0-5 2.44 2.44 0 0 0-.75.12 3.5 3.5 0 0 0-6.5-.62A2.5 2.5 0 0 0 7.5 12a3 3 0 0 0 0 6h9.5z" fill="url(#cloudGradQuiz)" stroke="url(#cloudGradQuiz)" stroke-width="1" />
-                                        <path class="ani-sleep-z1" d="M15 5h2.5l-2.5 2.5h2.5" stroke="url(#sleepGradQuiz)" stroke-width="1.8" />
-                                        <path class="ani-sleep-z2" d="M17.5 2h2l-2 2h2" stroke="url(#sleepGradQuiz)" stroke-width="1.5" />
-                                        <path class="ani-sleep-z3" d="M20 0.5h1.5l-1.5 1.5h1.5" stroke="url(#sleepGradQuiz)" stroke-width="1.2" />
                                     </svg>
                                 </span>
-                                <span class="pill-title">שינה עמוקה ורציפה</span>
+                                <span class="pill-title">שינה עמוקה ואיכותית</span>
                             </button>
-                            <button class="quiz-pill" data-value="anxiety" data-next="step-2">
+
+                            <!-- Humans: Anxiety -->
+                            <button class="quiz-pill" data-value="anxiety" data-next="step-2" data-quiz-group="humans">
                                 <span class="pill-icon">
                                     <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <defs>
@@ -480,13 +485,13 @@
                                         </defs>
                                         <path class="ani-anxiety-figure" d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-3.5 6.5c0-1.8 1.5-3 3.5-3s3.5 1.2 3.5 3v1.5h-7v-1.5z M5 20c0-1.5 1.5-2.5 7-2.5s7 1 7 2.5v1H5v-1z" fill="url(#anxietyGradQuiz)" stroke="url(#anxietyGradQuiz)" stroke-width="1" />
                                         <circle class="ani-anxiety-ripple1" cx="12" cy="13" r="5" stroke="url(#anxietyRippleQuiz)" stroke-width="2" />
-                                        <circle class="ani-anxiety-ripple2" cx="12" cy="13" r="8" stroke="url(#anxietyRippleQuiz)" stroke-width="1.5" />
-                                        <circle class="ani-anxiety-ripple3" cx="12" cy="13" r="11" stroke="url(#anxietyRippleQuiz)" stroke-width="1.2" stroke-dasharray="3 3" />
                                     </svg>
                                 </span>
-                                <span class="pill-title">הפחתת חרדה ולחצים</span>
+                                <span class="pill-title">רוגע ואיזון נפשי</span>
                             </button>
-                            <button class="quiz-pill" data-value="pain" data-next="step-2">
+
+                            <!-- Humans: Pain -->
+                            <button class="quiz-pill" data-value="pain" data-next="step-2" data-quiz-group="humans">
                                 <span class="pill-icon">
                                     <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <defs>
@@ -496,12 +501,13 @@
                                             </linearGradient>
                                         </defs>
                                         <path class="ani-pain-bone" d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#painGradQuiz)" stroke="url(#painGradQuiz)" stroke-width="1" />
-                                        <circle class="ani-pain-pulse" cx="12" cy="14" r="5" stroke="url(#painGradQuiz)" stroke-width="2" />
                                     </svg>
                                 </span>
-                                <span class="pill-title">שיכוך כאבים ודלקות</span>
+                                <span class="pill-title">שיכוך כאב והתאוששות</span>
                             </button>
-                            <button class="quiz-pill" data-value="focus" data-next="step-2">
+
+                            <!-- Humans: Focus -->
+                            <button class="quiz-pill" data-value="focus" data-next="step-2" data-quiz-group="humans">
                                 <span class="pill-icon">
                                     <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <defs>
@@ -517,23 +523,164 @@
                                 </span>
                                 <span class="pill-title">בהירות מחשבתית ומיקוד</span>
                             </button>
-                            <button class="quiz-pill" data-value="pets" data-next="step-2">
+
+                            <!-- Humans: Digestive -->
+                            <button class="quiz-pill" data-value="digestive" data-next="step-2" data-quiz-group="humans">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="digestiveGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#3b82f6" />
+                                                <stop offset="100%" stop-color="#00FA9A" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z" fill="url(#digestiveGradQuiz)" stroke="url(#digestiveGradQuiz)" stroke-width="1" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">בריאות ואיזון העיכול</span>
+                            </button>
+
+                            <!-- Humans: Aging -->
+                            <button class="quiz-pill" data-value="aging" data-next="step-2" data-quiz-group="humans">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="agingGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FBBF24" />
+                                                <stop offset="100%" stop-color="#F59E0B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <g stroke="url(#agingGradQuiz)" stroke-width="2">
+                                            <circle cx="12" cy="12" r="5" fill="none"/>
+                                            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                        </g>
+                                    </svg>
+                                </span>
+                                <span class="pill-title">חיוניות ואריכות ימים</span>
+                            </button>
+
+                            <!-- Humans: Sport -->
+                            <button class="quiz-pill" data-value="sport" data-next="step-2" data-quiz-group="humans">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="sportGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FF5A79" />
+                                                <stop offset="100%" stop-color="#F59E0B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="url(#sportGradQuiz)" stroke="url(#sportGradQuiz)" stroke-width="1" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">ספורט והתאוששות מדלקות</span>
+                            </button>
+
+                            <!-- --- Pets Conditions --- -->
+                            <!-- Pets: Anxiety -->
+                            <button class="quiz-pill" data-value="pets-anxiety" data-quiz-group="pets" data-next="step-2">
                                 <span class="pill-icon">
                                     <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <defs>
-                                            <linearGradient id="petsGradQuiz" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" stop-color="#00FA9A" />
-                                                <stop offset="100%" stop-color="#34D399" />
+                                            <linearGradient id="petsAnxietyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#F472B6" />
+                                                <stop offset="100%" stop-color="#8A2BE2" />
                                             </linearGradient>
                                         </defs>
-                                        <path class="ani-pets-main" d="M12 11c-2.5 0-4.5 1.8-4.5 3.8 0 1.8 2 3.2 4.5 3.2s4.5-1.4 4.5-3.2c0-2-2-3.8-4.5-3.8z" fill="url(#petsGradQuiz)" stroke="url(#petsGradQuiz)" stroke-width="1" />
-                                        <circle class="ani-pets-pad1" cx="6.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
-                                        <circle class="ani-pets-pad2" cx="9.5" cy="8" r="1.8" fill="#059669" stroke="none" />
-                                        <circle class="ani-pets-pad3" cx="14.5" cy="8" r="1.8" fill="#059669" stroke="none" />
-                                        <circle class="ani-pets-pad4" cx="17.5" cy="11.5" r="1.8" fill="#059669" stroke="none" />
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#petsAnxietyGrad)" stroke="none" />
+                                        <path d="M12 11c-1.3 0-2.3.9-2.3 2 0 .9 1 1.7 2.3 1.7s2.3-.8 2.3-1.7c0-1.1-1-2-2-2z" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="9.2" cy="11.2" r="0.9" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="10.8" cy="9.4" r="0.9" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="13.2" cy="9.4" r="0.9" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="14.8" cy="11.2" r="0.9" fill="#FFFFFF" stroke="none" />
                                     </svg>
                                 </span>
-                                <span class="pill-title">טיפול ורוגע לבעלי חיים</span>
+                                <span class="pill-title">הפחתת חרדה ופחדים</span>
+                            </button>
+
+                            <!-- Pets: Pain -->
+                            <button class="quiz-pill" data-value="pets-pain" data-quiz-group="pets" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="petsPainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FF5A79" />
+                                                <stop offset="100%" stop-color="#DB2777" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#petsPainGrad)" stroke="none" />
+                                        <path d="M12 11c-1.3 0-2.3.9-2.3 2 0 .9 1 1.7 2.3 1.7s2.3-.8 2.3-1.7c0-1.1-1-2-2-2z" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="9.2" cy="11.2" r="0.9" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="10.8" cy="9.4" r="0.9" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="13.2" cy="9.4" r="0.9" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="14.8" cy="11.2" r="0.9" fill="#FFFFFF" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">שיכוך כאב והחלמה</span>
+                            </button>
+
+                            <!-- Pets: Aging -->
+                            <button class="quiz-pill" data-value="pets-aging" data-quiz-group="pets" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="petsAgingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FBBF24" />
+                                                <stop offset="100%" stop-color="#F59E0B" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="12" cy="12" r="10" fill="url(#petsAgingGrad)" stroke="none" />
+                                        <polyline points="12 6 12 12 16 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" />
+                                        <circle cx="8" cy="16" r="1.2" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="6.5" cy="14.5" r="0.5" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="7.5" cy="13.5" r="0.5" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="9" cy="14" r="0.5" fill="#FFFFFF" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">חיוניות בגיל מבוגר</span>
+                            </button>
+
+                            <!-- Pets: Cognitive -->
+                            <button class="quiz-pill" data-value="pets-cognitive" data-quiz-group="pets" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="petsCogGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00FA9A" />
+                                                <stop offset="100%" stop-color="#3b82f6" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" fill="url(#petsCogGrad)" stroke="none" />
+                                        <path d="M9 20h6M10 22h4" stroke="url(#petsCogGrad)" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M12 9c-.9 0-1.6.6-1.6 1.4 0 .6.7 1.2 1.6 1.2s1.6-.6 1.6-1.2c0-.8-.7-1.4-1.6-1.4z" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="10" cy="9.2" r="0.6" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="11.1" cy="7.9" r="0.6" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="12.9" cy="7.9" r="0.6" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="14" cy="9.2" r="0.6" fill="#FFFFFF" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">תמיכה קוגניטיבית וריכוז</span>
+                            </button>
+
+                            <!-- Pets: Allergies -->
+                            <button class="quiz-pill" data-value="pets-allergies" data-quiz-group="pets" data-next="step-2">
+                                <span class="pill-icon">
+                                    <svg class="ani-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <defs>
+                                            <linearGradient id="petsAllerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#34D399" />
+                                                <stop offset="100%" stop-color="#047857" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8a8.5 8.5 0 0 1-9 10z" fill="url(#petsAllerGrad)" stroke="none" />
+                                        <path d="M9 22v-4" stroke="url(#petsAllerGrad)" stroke-width="2" stroke-linecap="round" />
+                                        <path d="M13 11c-.9 0-1.6.6-1.6 1.4 0 .6.7 1.2 1.6 1.2s1.6-.6 1.6-1.2c0-.8-.7-1.4-1.6-1.4z" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="11" cy="11.2" r="0.6" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="12.1" cy="9.9" r="0.6" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="13.9" cy="9.9" r="0.6" fill="#FFFFFF" stroke="none" />
+                                        <circle cx="15" cy="11.2" r="0.6" fill="#FFFFFF" stroke="none" />
+                                    </svg>
+                                </span>
+                                <span class="pill-title">אלרגיות ודלקות עור</span>
                             </button>
                         </div>
                     </div>

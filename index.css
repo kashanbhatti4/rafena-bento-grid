@@ -862,8 +862,9 @@ body.theme-organic-sage .quiz-filter-tab:hover {
 }
 
 .quiz-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     margin-bottom: 24px;
 }
@@ -882,7 +883,17 @@ body.theme-organic-sage .quiz-filter-tab:hover {
     gap: 14px;
     text-align: right;
     transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    flex: 1 1 220px;
+    max-width: 100%;
 }
+
+@media (min-width: 768px) {
+    .quiz-pill {
+        flex: 0 1 calc(25% - 12px);
+        min-width: 220px;
+    }
+}
+
 
 .quiz-pill:hover {
     background-color: var(--color-blue);
