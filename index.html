@@ -2689,60 +2689,68 @@
     <section class="blog-section" id="blog">
         <h2 class="section-title text-center">מרכז הידע של Rafena</h2>
         <p class="section-subtitle text-center">מאמרים, מחקרים ומדריכים לקריאה והעמקה בעולם ה-CBD</p>
+        
+        <!-- Category Tabs -->
+        <div class="blog-categories-wrap">
+            <div class="blog-categories">
+                <button class="blog-tab active" data-blog-tab="all">הכל</button>
+                <button class="blog-tab" data-blog-tab="what-is-cbd">מה זה CBD</button>
+                <button class="blog-tab" data-blog-tab="how-to-use">איך להשתמש ב-CBD</button>
+                <button class="blog-tab" data-blog-tab="benefits">יתרונות CBD לפי מצבים רפואיים</button>
+                <button class="blog-tab" data-blog-tab="choose-product">איך לבחור מוצר CBD איכותי</button>
+                <button class="blog-tab" data-blog-tab="legality">חוקיות ורגולציה של CBD</button>
+                <button class="blog-tab" data-blog-tab="pets">לכלבים וחתולים עם CBD</button>
+            </div>
+        </div>
+
         <div class="blog-slider">
             <button class="b-nav b-prev" aria-label="הקודם" type="button">›</button>
             <div class="blog-grid" id="blog-track" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                <!-- Blog 1 -->
-                <div class="bento-card blog-card">
-                    <span class="blog-tag">מדריך למשתמש</span>
-                    <h3 class="blog-title">איך לקבוע מינון שמן CBD נכון? המדריך המלא לשימוש מדויק</h3>
-                    <p class="blog-excerpt">קביעת המינון המתאים היא שלב קריטי להצלחת הטיפול. קבלו את הטבלה המלאה מבוססת
-                        משקל גוף וסוג הבעיה.</p>
+                <!-- Blog 1: מה זה CBD -->
+                <div class="bento-card blog-card" data-blog-category="what-is-cbd">
+                    <span class="blog-tag">מה זה CBD</span>
+                    <h3 class="blog-title">מה זה CBD? מדריך מקיף למתחילים על הרכיב שמחולל מהפכה</h3>
+                    <p class="blog-excerpt">גלו מהו קנאבידיול (CBD), כיצד הוא משפיע על הגוף ללא תופעות פסיכואקטיביות, ומדוע הוא הפך לתוסף הפופולרי ביותר בעולם.</p>
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
 
-                <!-- Blog 2 -->
-                <div class="bento-card blog-card">
-                    <span class="blog-tag">מחקר ורפואה</span>
-                    <h3 class="blog-title">CBD וחרדה – מתי זה יכול לעזור, ומתי זה עלול לעשות את ההפך</h3>
-                    <p class="blog-excerpt">מה אומרים המחקרים העדכניים ביותר על השפעת ה-CBD על המערכת האנדוקנבינואידית
-                        והורדת רמות הקורטיזול בגוף.</p>
+                <!-- Blog 2: איך להשתמש ב-CBD -->
+                <div class="bento-card blog-card" data-blog-category="how-to-use">
+                    <span class="blog-tag">איך להשתמש ב-CBD</span>
+                    <h3 class="blog-title">איך להשתמש ב-CBD? דרכי צריכה, זמנים ומינונים מומלצים</h3>
+                    <p class="blog-excerpt">שמן תת-לשוני, קפסולות או קרמים? למדו כיצד לצרוך סיבידי בצורה הנכונה ביותר עבורכם ואיך לבנות את פרוטוקול המינון האישי.</p>
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
 
-                <!-- Blog 3 (Added) -->
-                <div class="bento-card blog-card">
-                    <span class="blog-tag">טיפים לצרכן</span>
-                    <h3 class="blog-title">הטעויות הנפוצות שגורמות לאנשים לחשוב CBD לא עובד</h3>
-                    <p class="blog-excerpt">מדוע אנשים מסוימים אינם מרגישים את ההשפעה של סיבידי בקבוקים ראשונים, וכיצש
-                        שימוש עקבי נכון פותר זאת.</p>
+                <!-- Blog 3: יתרונות CBD לפי מצבים רפואיים -->
+                <div class="bento-card blog-card" data-blog-category="benefits">
+                    <span class="blog-tag">יתרונות CBD לפי מצבים רפואיים</span>
+                    <h3 class="blog-title">יתרונות CBD: מה אומרים המחקרים על חרדה, כאב ושינה?</h3>
+                    <p class="blog-excerpt">סקירה מדעית של השפעות ה-CBD במצבים בריאותיים שונים, רמות יעילות והמנגנונים הביולוגיים מאחורי הקלת התסמינים.</p>
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
 
-                <!-- Blog 4 (Added) -->
-                <div class="bento-card blog-card">
-                    <span class="blog-tag">הבדלים במוצרים</span>
-                    <h3 class="blog-title">סי.בי.די רפואי או כתוסף תזונה? ההבדלים שאף אחד לא באמת מסביר</h3>
-                    <p class="blog-excerpt">הסבר מקיף ומקצועי על המעמד המשפטי, בקרת איכות פרמצבטית וההבדלים בריכוזים בין
-                        התוספים השונים.</p>
+                <!-- Blog 4: איך לבחור מוצר CBD איכותי -->
+                <div class="bento-card blog-card" data-blog-category="choose-product">
+                    <span class="blog-tag">איך לבחור מוצר CBD איכותי</span>
+                    <h3 class="blog-title">איך לבחור מוצר CBD איכותי ולא ליפול במוצרים מזויפים?</h3>
+                    <p class="blog-excerpt">חמשת כללי הזהב לרכישה בטוחה: החל מקריאת דוחות מעבדה צד-ג', הבנת ריכוזים ועד זיהוי יצרנים אמינים ומורשים.</p>
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
 
-                <!-- Blog 5 (Added) -->
-                <div class="bento-card blog-card">
-                    <span class="blog-tag">בטיחות ותרופות</span>
-                    <h3 class="blog-title">CBD ותרופות מרשם – הנחיות לשימוש בטוח</h3>
-                    <p class="blog-excerpt">אינטראקציות בינלאומיות של קנאבידיול עם אנזימי כבד ותרופות מרשם נפוצות. כל מה
-                        שצריך לדעת לבטיחות מוחלטת.</p>
+                <!-- Blog 5: חוקיות ורגולציה של CBD -->
+                <div class="bento-card blog-card" data-blog-category="legality">
+                    <span class="blog-tag">חוקיות ורגולציה של CBD</span>
+                    <h3 class="blog-title">חוקיות ורגולציה של CBD: מה המצב המשפטי בישראל ובעולם?</h3>
+                    <p class="blog-excerpt">כל מה שצריך לדעת על הסטטוס החוקי של סיבידי, רמות THC מותרות, ייבוא אישי וההתפתחויות הרגולטוריות האחרונות.</p>
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
 
-                <!-- Blog 6 (Added) -->
-                <div class="bento-card blog-card">
-                    <span class="blog-tag">פוטנציאל רפואי</span>
-                    <h3 class="blog-title">טיפול בהרגלים כפייתיים – פוטנציאל טיפולי באמצעות CBD</h3>
-                    <p class="blog-excerpt">כיצד משפיע הקנאבידיול על מנגנוני מתח ודפוסי התנהגות כפייתית במחקרים
-                        פסיכיאטריים עדכניים.</p>
+                <!-- Blog 6: לכלבים וחתולים עם CBD -->
+                <div class="bento-card blog-card" data-blog-category="pets">
+                    <span class="blog-tag">לכלבים וחתולים עם CBD</span>
+                    <h3 class="blog-title">לכלבים וחתולים: המדריך השלם לטיפול בבני המשפחה על ארבע</h3>
+                    <p class="blog-excerpt">איך CBD יכול לסייע לחיות מחמד בהתמודדות עם חרדת נטישה, רעשים חזקים, כאבי מפרקים ודלקות, בתוספת הנחיות מינון בטוח.</p>
                     <a href="#" class="blog-link">קרא את המאמר המלא ←</a>
                 </div>
             </div>

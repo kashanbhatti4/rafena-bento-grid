@@ -50,6 +50,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartBtn = document.getElementById('quiz-restart');
     const recommendationContent = document.getElementById('recommendation-content');
 
+    // Filter tabs for step 1 (Humans / Pets)
+    const filterTabs = document.querySelectorAll('.quiz-filter-tab');
+    const quizOptions = document.querySelector('.quiz-options');
+    if (filterTabs && quizOptions) {
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const group = tab.getAttribute('data-quiz-type');
+                quizOptions.setAttribute('data-active-group', group);
+
+                // Clear any selected pill in step 1 when switching tabs
+                if (step1) {
+                    step1.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+                }
+                selectedGoal = null;
+            });
+        });
+    }
+
     // Step 1 Selection
     if (step1) {
         const step1Pills = step1.querySelectorAll('.quiz-pill');
@@ -103,6 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedIntake = null;
             if (step1) {
                 step1.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+                // Reset to humans tab by default on restart
+                const defaultTab = document.querySelector('.quiz-filter-tab[data-quiz-type="humans"]');
+                if (defaultTab) {
+                    defaultTab.click();
+                }
             }
             if (step2) {
                 step2.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
@@ -135,6 +160,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const matchingQuizPill = document.querySelector(`.quiz-step#step-1 .quiz-pill[data-value="${symptom}"]`);
             if (matchingQuizPill) {
+                const group = matchingQuizPill.getAttribute('data-quiz-group') || 'humans';
+                const tab = document.querySelector(`.quiz-filter-tab[data-quiz-type="${group}"]`);
+                if (tab && quizOptions) {
+                    if (filterTabs) {
+                        filterTabs.forEach(t => t.classList.remove('active'));
+                    }
+                    tab.classList.add('active');
+                    quizOptions.setAttribute('data-active-group', group);
+                }
                 matchingQuizPill.click();
             }
         });
@@ -144,16 +178,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateRecommendation() {
         let recommendedId = 1; // Default: 10% CBD Oil
 
-        if (selectedGoal === 'pets') {
+        const isPetCondition = selectedGoal && selectedGoal.startsWith('pets');
+
+        if (isPetCondition) {
             recommendedId = 4; // Pet CBD Oil
-        } else if (selectedGoal === 'pain') {
-            recommendedId = 2; // 24% Gold Oil (Strong)
-        } else if (selectedGoal === 'sleep' && selectedIntake === 'gummies') {
-            recommendedId = 3; // Gummies
-        } else if (selectedGoal === 'anxiety' && selectedIntake === 'gummies') {
-            recommendedId = 3; // Gummies
-        } else if (selectedGoal === 'focus' && selectedIntake === 'gummies') {
-            recommendedId = 3; // Gummies
+        } else {
+            // Human conditions
+            if (selectedIntake === 'gummies') {
+                recommendedId = 3; // Gummies
+            } else if (selectedIntake === 'external') {
+                // External cream chosen - since we only have Oils and Gummies in productsDb,
+                // we recommend Gold Oil for pain/sport/aging (topical/sublingual) and 10% Oil for others.
+                if (selectedGoal === 'pain' || selectedGoal === 'sport' || selectedGoal === 'aging') {
+                    recommendedId = 2; // 24% Gold Oil
+                } else {
+                    recommendedId = 1; // 10% CBD Oil
+                }
+            } else {
+                // Oil (default)
+                if (selectedGoal === 'pain' || selectedGoal === 'sport') {
+                    recommendedId = 2; // 24% Gold Oil (Strong)
+                } else {
+                    recommendedId = 1; // 10% CBD Oil (Standard)
+                }
+            }
         }
 
         const product = productsDb[recommendedId];
@@ -1409,18 +1457,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let current = 0;
 
+        function getVisibleCards() {
+            return cards.filter(card => window.getComputedStyle(card).display !== 'none');
+        }
+
         function isMobile() {
             return window.innerWidth < 768;
         }
 
         function getMax() {
-            return cards.length - 1;
+            return getVisibleCards().length - 1;
         }
 
         function buildDots() {
             dotsEl.innerHTML = '';
             if (!isMobile()) return;
-            cards.forEach((_, i) => {
+            const visibleCards = getVisibleCards();
+            visibleCards.forEach((_, i) => {
                 const dot = document.createElement('button');
                 dot.className = 'b-dot' + (i === current ? ' active' : '');
                 dot.setAttribute('aria-label', `פוסט ${i + 1}`);
@@ -1434,9 +1487,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 track.style.transform = '';
                 return;
             }
-            if (cards.length === 0) return;
+            const visibleCards = getVisibleCards();
+            if (visibleCards.length === 0) return;
             current = Math.max(0, Math.min(index, getMax()));
-            const cardWidth = cards[0] ? cards[0].offsetWidth : 0;
+            const cardWidth = visibleCards[0] ? visibleCards[0].offsetWidth : 0;
             const gap = 24;
             track.style.transform = `translateX(${current * (cardWidth + gap)}px)`;
             
@@ -1447,6 +1501,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 d.classList.toggle('active', i === current);
             });
         }
+
+        // Blog Category Tabs Filter Event Listeners
+        const tabButtons = document.querySelectorAll('[data-blog-tab]');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const selectedCat = btn.getAttribute('data-blog-tab');
+                cards.forEach(card => {
+                    const cardCat = card.getAttribute('data-blog-category');
+                    if (selectedCat === 'all' || cardCat === selectedCat) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                current = 0;
+                buildDots();
+                goTo(0);
+            });
+        });
 
         if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
