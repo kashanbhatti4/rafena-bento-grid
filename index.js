@@ -1184,12 +1184,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buildDots();
         goTo(0);
-
-        // Trigger default active tab on load to filter correctly
-        const activeTab = document.querySelector('.blog-tab.active') || document.querySelector('[data-blog-tab]');
-        if (activeTab) {
-            activeTab.click();
-        }
     })();
 
     // --- EXPERTS SLIDER (disabled) ---
@@ -1554,6 +1548,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buildDots();
         goTo(0);
+
+        // Trigger default active tab on load to filter correctly
+        const activeTab = document.querySelector('.blog-tab.active') || document.querySelector('[data-blog-tab]');
+        if (activeTab) {
+            activeTab.click();
+        }
     })();
 
     // ==========================================================================
